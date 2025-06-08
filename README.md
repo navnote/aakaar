@@ -10,6 +10,7 @@
   <a href="https://aakaar.navnote.com">aakaar.navnote.com</a>
 </p>
 
+![Demo](./apps/docs/public/DemoAakaar.gif)
 
 Aakaar is a modern, customizable component library built on top of Tailwind CSS, offering a similar developer experience to shadcn/ui but with enhanced customization capabilities. It provides beautifully designed, accessible React components that you can copy and paste into your apps and fully customize to match your design needs. Built with TypeScript and modern best practices, Aakaar gives you complete control over styling while maintaining a consistent design system.
 
