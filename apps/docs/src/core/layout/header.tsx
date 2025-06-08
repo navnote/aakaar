@@ -76,7 +76,7 @@ export const Header = () => {
 							className="text-on-surface-variant cursor-pointer"
 						/>
 					</DialogTrigger>
-					<DialogContent className="pt-lg absolute bottom-0 h-[15vh] w-full">
+					<DialogContent className="pt-lg  w-full">
 						<DialogTitle className="text-sm hidden">
 							Play with the theme
 						</DialogTitle>
