@@ -14,10 +14,10 @@ export default () => {
 			<h2>Demo</h2>
 			<Demo
 				code={`
-        <div className="flex w-full flex-col gap-sm sm:w-3/6">
-          <Input type="email" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
-        </div>
+<div className="flex w-full flex-col gap-sm sm:w-3/6">
+  <Input type="email" placeholder="Email" />
+  <Input type="password" placeholder="Password" />
+</div>
         `}
 			>
 				<div className="flex w-full flex-col gap-sm sm:w-3/6">

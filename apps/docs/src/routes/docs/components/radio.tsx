@@ -15,25 +15,26 @@ export default () => {
 			</p>
 			<h2>Demo</h2>
 			<Demo
-				code={`<RadioGroup
-          defaultValue="md"
-          value={value}
-          onValueChange={(value) => setValue(value)}
-          className={"flex flex-col gap-\${value}"}
-        >
-          <div className="flex items-center gap-sm">
-            <RadioGroupItem value="md" id="md" />
-            <Label htmlFor="md">Default</Label>
-          </div>
-          <div className="flex items-center gap-sm">
-            <RadioGroupItem value="lg" id="lg" />
-            <Label htmlFor="lg">Comfortable</Label>
-          </div>
-          <div className="flex items-center gap-sm">
-            <RadioGroupItem value="sm" id="sm" />
-            <Label htmlFor="sm">Compact</Label>
-          </div>
-        </RadioGroup>
+				code={`
+<RadioGroup
+  defaultValue="md"
+  value={value}
+  onValueChange={(value) => setValue(value)}
+  className={"flex flex-col gap-\${value}"}
+>
+  <div className="flex items-center gap-sm">
+    <RadioGroupItem value="md" id="md" />
+    <Label htmlFor="md">Default</Label>
+  </div>
+  <div className="flex items-center gap-sm">
+    <RadioGroupItem value="lg" id="lg" />
+    <Label htmlFor="lg">Comfortable</Label>
+  </div>
+  <div className="flex items-center gap-sm">
+    <RadioGroupItem value="sm" id="sm" />
+    <Label htmlFor="sm">Compact</Label>
+  </div>
+</RadioGroup>
     `}
 			>
 				<RadioGroup

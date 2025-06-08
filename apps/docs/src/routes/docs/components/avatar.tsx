@@ -9,16 +9,18 @@ export default () => {
 			<p>Displays an avatar.</p>
 			<h2>Demo</h2>
 			<Demo
-				code={`<div className="flex gap-md">
-          <Avatar>
-            <AvatarImage src="https://github.com/navnote.png" />
-            <AvatarFallback>NN</AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        </div>`}
+				code={`
+<div className="flex gap-md">
+  <Avatar>
+    <AvatarImage src="https://github.com/navnote.png" />
+    <AvatarFallback>NN</AvatarFallback>
+  </Avatar>
+  <Avatar>
+    <AvatarImage src="https://github.com/shadcn.png" />
+    <AvatarFallback>CN</AvatarFallback>
+  </Avatar>
+</div>
+`}
 			>
 				<div className="flex gap-md">
 					<Avatar>

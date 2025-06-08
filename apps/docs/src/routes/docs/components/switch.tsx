@@ -12,10 +12,10 @@ export default () => {
 			<h2>Demo</h2>
 			<Demo
 				code={`
-        <div className="flex items-center gap-md">
-            <Switch id="airplane-mode" />
-            <Label htmlFor="airplane-mode">Airplane Mode</Label>
-        </div>
+<div className="flex items-center gap-md">
+  <Switch id="airplane-mode" />
+  <Label htmlFor="airplane-mode">Airplane Mode</Label>
+</div>
         `}
 			>
 				<div className="flex items-center gap-md">

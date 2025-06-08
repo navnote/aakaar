@@ -3,13 +3,7 @@ import { createCssVariablesTheme, createHighlighter } from "shiki";
 import { useAppContext } from "../../core/app";
 import type { CodeArguments } from "./types";
 
-import babelPlugin from "prettier/plugins/babel";
-import estreePlugin from "prettier/plugins/estree";
-
-import * as parserTypeScript from "prettier/parser-typescript";
-
 import type { PackageManager } from "@aakaar/global";
-import * as prettier from "prettier/standalone";
 
 const cssVarTheme = createCssVariablesTheme({
 	name: "css-variables",
@@ -103,12 +97,7 @@ export const useCode = ({
 				lang === "javascript" ||
 				lang === "jsx"
 			) {
-				const formatted = await prettier.format(code, {
-					parser: "typescript",
-					plugins: [babelPlugin, estreePlugin, parserTypeScript],
-					semi: false,
-				});
-				sanitizedCode = formatted.trim().replace(";", "");
+				sanitizedCode = code.trimStart().trimEnd();
 			}
 			setPrettierCode(sanitizedCode);
 			const formattedCode = highlighter.codeToHtml(sanitizedCode, {

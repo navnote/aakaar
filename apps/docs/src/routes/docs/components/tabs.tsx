@@ -44,32 +44,32 @@ export default () => {
 			<h2>Demo with mobile wrapper</h2>
 			<Demo
 				code={`
-      <Tabs defaultValue="account" className="w-[400px]">
-      <TabsContent value="account">
-        <div className="flex flex-col gap-xs items-center h-full">
-          <IconUser className="size-[200px] stroke-on-primary" />
-        </div>
-      </TabsContent>
-      <TabsContent value="password">
-        <div className="flex flex-col gap-xs items-center h-full">
-          <IconKey className="size-[200px] stroke-on-primary" />
-        </div>
-      </TabsContent>
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="account">
-          <div className="flex flex-col gap-xs items-center">
-            <IconUser size={20} />
-            <span>Account</span>
-          </div>
-        </TabsTrigger>
-        <TabsTrigger value="password">
-          <div className="flex flex-col gap-xs items-center">
-            <IconKey size={20} />
-            <span>Password</span>
-          </div>
-        </TabsTrigger>
-      </TabsList>
-    </Tabs>`}
+<Tabs defaultValue="account" className="w-[400px]">
+  <TabsContent value="account">
+    <div className="flex flex-col gap-xs items-center h-full">
+      <IconUser className="size-[200px] stroke-on-primary" />
+    </div>
+  </TabsContent>
+  <TabsContent value="password">
+    <div className="flex flex-col gap-xs items-center h-full">
+      <IconKey className="size-[200px] stroke-on-primary" />
+    </div>
+  </TabsContent>
+  <TabsList className="grid w-full grid-cols-2">
+    <TabsTrigger value="account">
+      <div className="flex flex-col gap-xs items-center">
+        <IconUser size={20} />
+        <span>Account</span>
+      </div>
+    </TabsTrigger>
+    <TabsTrigger value="password">
+      <div className="flex flex-col gap-xs items-center">
+        <IconKey size={20} />
+        <span>Password</span>
+      </div>
+    </TabsTrigger>
+  </TabsList>
+</Tabs>`}
 			>
 				<Phone
 					style={{
@@ -86,18 +86,18 @@ export default () => {
 			<h2>Default demo</h2>
 			<Demo
 				code={`
-       <Tabs defaultValue="account" className="w-1/2">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger variant={'secondary'} value="account">
-              Account
-            </TabsTrigger>
-            <TabsTrigger variant={'secondary'} value="password">
-              Password
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="account">Account</TabsContent>
-          <TabsContent value="password">Password</TabsContent>
-        </Tabs>
+<Tabs defaultValue="account" className="w-1/2">
+  <TabsList className="grid w-full grid-cols-2">
+    <TabsTrigger variant={'secondary'} value="account">
+      Account
+    </TabsTrigger>
+    <TabsTrigger variant={'secondary'} value="password">
+      Password
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Account</TabsContent>
+  <TabsContent value="password">Password</TabsContent>
+</Tabs>
       `}
 			>
 				<Tabs defaultValue="account" className="w-1/2">

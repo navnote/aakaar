@@ -11,9 +11,9 @@ export default () => {
 			<h2>Demo</h2>
 			<Demo
 				code={`<div className="flex items-center gap-sm">
-          <Checkbox id="terms" />
-          <Label htmlFor="terms">Accept terms and conditions</Label>
-        </div>`}
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">Accept terms and conditions</Label>
+</div>`}
 			>
 				<div className="flex items-center gap-sm">
 					<Checkbox id="terms" />
