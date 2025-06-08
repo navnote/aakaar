@@ -18,7 +18,7 @@ import {
 	DialogTrigger,
 } from "@aakaar/react";
 import { useAppContext } from "../app/context";
-import { IconMenu2, IconSettings } from "@tabler/icons-react";
+import { IconBrandGithub, IconMenu2, IconSettings } from "@tabler/icons-react";
 
 export const Header = () => {
 	const { pathname: urlPathname } = useLocation();
@@ -33,6 +33,11 @@ export const Header = () => {
 			<BaseToggle />
 			<FontToggle />
 			<ConfigViewer />
+			<a href="https://github.com/navnote/aakaar" target="_blank">
+				<Button size="icon">
+					<IconBrandGithub size={20} />
+				</Button>
+			</a>
 		</>
 	);
 	return (
