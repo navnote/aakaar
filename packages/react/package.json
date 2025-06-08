@@ -14,7 +14,7 @@
 		"clean": "rm -rf dist",
 		"clean:nm": "rm -rf node_modules",
 		"prepublishOnly": "pnpm run build",
-		"publish:internet": "pnpm publish",
+		"publish:internet": "pnpm publish --access public",
 		"publish:local": "pnpm publish --registry http://localhost:4873"
 	},
 	"devDependencies": {

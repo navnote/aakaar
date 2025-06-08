@@ -35,7 +35,7 @@
 			"cache": false,
 			"persistent": true
 		},
-		"publish": {
+		"publish:internet": {
 			"dependsOn": ["build"],
 			"cache": false
 		},

@@ -14,7 +14,7 @@
 		"generate:component": "turbo gen react-component",
 		"ts": "tsc --noEmit",
 		"prepublishOnly": "pnpm run build",
-		"publish:internet": "pnpm publish",
+		"publish:internet": "pnpm publish --access public",
 		"publish:local": "pnpm publish --registry http://localhost:4873"
 	},
 	"devDependencies": {
