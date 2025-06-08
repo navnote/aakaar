@@ -1,0 +1,9 @@
+{
+  "name": "textarea",
+  "files": [
+    {
+      "name": "textarea.tsx",
+      "content": "import * as React from 'react';\nimport {\n  cn,\n  colors,\n  shadows,\n  padding,\n  shape,\n  flexBox,\n  measurements,\n  typography,\n  interactivity,\n} from '../../core/core';\n\nconst textareaStyles = {\n  base: cn(\n    flexBox.row,\n    shape.roundedWithBorder,\n    measurements.width.full,\n    colors.surface,\n    padding.small,\n    typography.size.small,\n    interactivity.states.disabled,\n    'min-h-lg',\n    shadows.focusRing.primary,\n    'placeholder:text-muted-foreground',\n  ),\n};\n\nexport type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;\n\nconst Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(\n  ({ className, ...props }, ref) => {\n    return (\n      <textarea\n        className={cn(textareaStyles.base, className)}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nTextarea.displayName = 'Textarea';\n\nexport { Textarea };\n"
+    }
+  ]
+}

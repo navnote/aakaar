@@ -1,0 +1,34 @@
+{
+	"name": "@aakaar/dictionary",
+	"version": "0.0.1",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"clean": "rm -rf dist",
+		"clean:nm": "rm -rf node_modules",
+		"dev": "tsup src/index.ts --watch --format esm,cjs --dts",
+		"prepublishOnly": "pnpm run build",
+		"publish:internet": "pnpm publish",
+		"publish:local": "pnpm publish --registry http://localhost:4873"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@material/material-color-utilities": "^0.3.0",
+		"@tsconfig/node22": "^22.0.2",
+		"colorjs.io": "^0.5.2",
+		"global": "^4.4.0",
+		"tsup": "^8.0.0",
+		"typescript": "^5.0.0"
+	}
+}

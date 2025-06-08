@@ -1,0 +1,13 @@
+{
+  "name": "accordion",
+  "dependencies": [
+    "@radix-ui/react-accordion",
+    "@tabler/icons-react"
+  ],
+  "files": [
+    {
+      "name": "accordion.tsx",
+      "content": "import * as AccordionPrimitive from '@radix-ui/react-accordion';\nimport { IconChevronDown } from '@tabler/icons-react';\nimport * as React from 'react';\nimport {\n  alignment,\n  cn,\n  flexBox,\n  interactivity,\n  padding,\n  typography,\n  utilities,\n} from '../../core/core';\n\nconst accordionStyles = {\n  item: '',\n  trigger: cn(\n    alignment.spaceBetween,\n    flexBox.inlineCenter,\n    padding.extraSmall,\n    typography.weight.medium,\n    interactivity.transitions.all,\n    'flex-1 hover:underline [&[data-state=open]>svg]:rotate-180',\n  ),\n  content: {\n    base: cn(\n      utilities.overflow.hidden,\n      typography.size.small,\n      interactivity.transitions.all,\n    ),\n    inner: 'pb-xs pt-0',\n  },\n};\n\nconst Accordion: typeof AccordionPrimitive.Root = AccordionPrimitive.Root;\n\nconst AccordionItem = React.forwardRef<\n  React.ElementRef<typeof AccordionPrimitive.Item>,\n  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>\n>(({ className, ...props }, ref) => (\n  <AccordionPrimitive.Item\n    ref={ref}\n    className={cn(accordionStyles.item, className)}\n    {...props}\n  />\n));\nAccordionItem.displayName = 'AccordionItem';\n\nconst AccordionTrigger = React.forwardRef<\n  React.ElementRef<typeof AccordionPrimitive.Trigger>,\n  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>\n>(({ className, children, ...props }, ref) => (\n  <AccordionPrimitive.Header className=\"flex\">\n    <AccordionPrimitive.Trigger\n      ref={ref}\n      className={cn(accordionStyles.trigger, className)}\n      {...props}\n    >\n      {children}\n      <IconChevronDown className=\"size-lg shrink-0 transition-transform duration-200\" />\n    </AccordionPrimitive.Trigger>\n  </AccordionPrimitive.Header>\n));\nAccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;\n\nconst AccordionContent = React.forwardRef<\n  React.ElementRef<typeof AccordionPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>\n>(({ className, children, ...props }, ref) => (\n  <AccordionPrimitive.Content\n    ref={ref}\n    className={cn(accordionStyles.content.base)}\n    {...props}\n  >\n    <div className={cn(accordionStyles.content.inner, className)}>\n      {children}\n    </div>\n  </AccordionPrimitive.Content>\n));\n\nAccordionContent.displayName = AccordionPrimitive.Content.displayName;\n\nexport { Accordion, AccordionContent, AccordionItem, AccordionTrigger };\n"
+    }
+  ]
+}

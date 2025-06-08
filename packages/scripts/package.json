@@ -1,0 +1,12 @@
+{
+	"name": "@aakaar/scripts",
+	"version": "0.0.1",
+	"scripts": {
+		"build": "tsc --project tsconfig.json",
+		"registry": "tsx src/registry.mts"
+	},
+	"devDependencies": {
+		"typescript": "~5.8.3",
+		"tsx": "~4.19.3"
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "name": "checkbox",
+  "dependencies": [
+    "@radix-ui/react-checkbox",
+    "@tabler/icons-react"
+  ],
+  "files": [
+    {
+      "name": "checkbox.tsx",
+      "content": "import * as CheckboxPrimitive from '@radix-ui/react-checkbox';\nimport * as React from 'react';\n\nimport { IconCheck } from '@tabler/icons-react';\nimport {\n  alignment,\n  cn,\n  dimensions,\n  interactivity,\n  shadows,\n  shape,\n} from '../../core/core';\n\nconst checkboxStyles = {\n  base: cn(\n    shape.roundedXsWithBorder,\n    dimensions.medium,\n    shadows.focusRing.primary,\n    interactivity.states.clickable,\n    interactivity.dataStates.checked,\n    interactivity.states.disabled,\n  ),\n  icon: dimensions.medium,\n  indicator: cn(alignment.center, 'text-current'),\n};\n\nconst Checkbox = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>\n>(({ className, ...props }, ref) => (\n  <CheckboxPrimitive.Root\n    ref={ref}\n    className={cn(checkboxStyles.base, className)}\n    {...props}\n  >\n    <CheckboxPrimitive.Indicator className={checkboxStyles.indicator}>\n      <IconCheck className={checkboxStyles.icon} />\n    </CheckboxPrimitive.Indicator>\n  </CheckboxPrimitive.Root>\n));\nCheckbox.displayName = CheckboxPrimitive.Root.displayName;\n\nexport { Checkbox };\n"
+    }
+  ]
+}

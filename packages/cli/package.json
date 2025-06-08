@@ -1,0 +1,43 @@
+{
+	"name": "@aakaar/cli",
+	"version": "0.0.1",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"bin": {
+		"aakaar": "./dist/index.js"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"clean": "rm -rf dist",
+		"clean:nm": "rm -rf node_modules",
+		"dev": "tsup src/index.ts --watch --format esm,cjs --dts",
+		"ts": "tsc --noEmit",
+		"prepublishOnly": "pnpm run build",
+		"publish:internet": "pnpm publish",
+		"publish:local": "pnpm publish --registry http://localhost:4873"
+	},
+	"dependencies": {
+		"@aakaar/dictionary": "workspace:*",
+		"@aakaar/global": "workspace:*",
+		"@antfu/ni": "^0.23.2",
+		"commander": "^12.1.0",
+		"execa": "^9.6.0",
+		"signal-exit": "^4.1.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@tsconfig/node22": "^22.0.2",
+		"tsup": "^8.0.0",
+		"typescript": "^5.0.0"
+	}
+}

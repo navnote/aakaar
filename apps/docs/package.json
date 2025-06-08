@@ -1,0 +1,36 @@
+{
+	"name": "@aakaar/docs",
+
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"clean": "rm -rf dist",
+		"clean:nm": "rm -rf dist && rm -rf node_modules",
+		"build": "tsc -b && vite build",
+		"lint": "biome check .",
+		"ts": "tsc --noEmit",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@aakaar/dictionary": "workspace:*",
+		"@aakaar/global": "workspace:*",
+		"@aakaar/react": "workspace:*",
+		"@tabler/icons-react": "^3.34.0",
+		"prettier": "^3.5.3",
+		"react": "^19.1.0",
+		"react-colorful": "^5.6.1",
+		"react-dom": "^19.1.0",
+		"react-router": "^7.5.3",
+		"shiki": "^3.6.0",
+		"tailwindcss": "^4.1.8"
+	},
+	"devDependencies": {
+		"@tailwindcss/vite": "^4.1.8",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"@vitejs/plugin-react": "^4.4.1",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5"
+	}
+}

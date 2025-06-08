@@ -1,0 +1,31 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "aakaar",
+	"scripts": {
+		"build": "pnpm turbo run build",
+		"dev": "pnpm turbo run dev",
+		"clean": "pnpm turbo run clean",
+		"clean:nm": "rm -rf node_modules && turbo run clean:nm",
+		"ts": "pnpm turbo run ts",
+		"check": "pnpm biome check .",
+		"check:fix": "pnpm biome check . --write .",
+		"registry": "pnpm turbo run registry --filter=scripts",
+		"preview": "pnpm turbo run preview",
+		"local-registry": "pnpm verdaccio --config .verdaccio/config.yml",
+		"cli": "pnpm node packages/cli/dist/index.js",
+		"publish:internet": "pnpm build && pnpm turbo run publish --filter=@aakaar/react --filter=@aakaar/cli --filter=@aakaar/dictionary --filter=@aakaar/global",
+		"publish:local": "rm -rf ./tmp && pnpm build && pnpm turbo run publish:local --filter=@aakaar/react --filter=@aakaar/cli --filter=@aakaar/dictionary --filter=@aakaar/global"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"turbo": "^2.5.4",
+		"typescript": "5.8.2"
+	},
+	"packageManager": "pnpm@9.0.0",
+	"engines": {
+		"node": ">=18"
+	},
+	"dependencies": {
+		"verdaccio": "^6.1.2"
+	}
+}

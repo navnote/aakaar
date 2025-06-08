@@ -1,0 +1,9 @@
+{
+  "name": "switch",
+  "files": [
+    {
+      "name": "switch.tsx",
+      "content": "import * as SwitchPrimitives from '@radix-ui/react-switch';\nimport * as React from 'react';\nimport {\n  alignment,\n  borders,\n  cn,\n  colors,\n  dimensions,\n  interactivity,\n  shadows,\n  shape,\n  utilities,\n} from '../../core/core';\n\nconst switchStyles = {\n  base: cn(\n    shape.circlePrimary,\n    alignment.center,\n    interactivity.transitions.colors,\n    interactivity.states.disabled,\n    borders.variant,\n    colors.backgrounds.surface,\n    'peer h-lg w-[3rem] shrink-0',\n  ),\n  thumb: cn(\n    shape.circle,\n    interactivity.transitions.transform,\n    utilities.cursor.noEvents,\n    dimensions.large,\n    colors.backgrounds.inverseSurface,\n    interactivity.dataStates.checked,\n    shadows.depth.medium,\n    'ring-0',\n    'data-[state=checked]:translate-x-[0.8rem] data-[state=unchecked]:-translate-x-[0.8rem]',\n  ),\n};\n\nconst Switch: typeof SwitchPrimitives.Root = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitives.Root>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>\n>(({ className, ...props }, ref) => (\n  <SwitchPrimitives.Root\n    className={cn(switchStyles.base, className)}\n    {...props}\n    ref={ref}\n  >\n    <SwitchPrimitives.Thumb className={cn(switchStyles.thumb, className)} />\n  </SwitchPrimitives.Root>\n));\nSwitch.displayName = SwitchPrimitives.Root.displayName;\n\nexport { Switch };\n"
+    }
+  ]
+}

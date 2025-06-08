@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@aakaar/global",
+	"version": "0.0.1",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"build": "tsup src/index.ts",
+		"clean": "rm -rf dist",
+		"clean:nm": "rm -rf node_modules",
+		"dev": "tsup src/index.ts --watch",
+		"lint": "biome check .",
+		"generate:component": "turbo gen react-component",
+		"ts": "tsc --noEmit",
+		"prepublishOnly": "pnpm run build",
+		"publish:internet": "pnpm publish",
+		"publish:local": "pnpm publish --registry http://localhost:4873"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/node": "^20.0.0",
+		"tsup": "^8.0.0",
+		"typescript": "^5.0.0"
+	}
+}

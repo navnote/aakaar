@@ -1,0 +1,35 @@
+:root {
+  color-scheme: light dark;
+  --shiki-foreground: var(--color-on-surface);
+  --shiki-background: var(--color-surface);
+  --shiki-token-constant: var(--color-primary);
+  --shiki-token-string: var(--color-secondary);
+  --shiki-token-comment: var(--color-secondary);
+  --shiki-token-keyword: var(--color-outline);
+  --shiki-token-parameter: var(--color-primary);
+  --shiki-token-function: var(--color-on-surface-variant);
+  --shiki-token-string-expression: var(--color-tertiary);
+  --shiki-token-punctuation: var(--color-error);
+  --shiki-token-link: var(--color-on-primary);
+}
+
+pre.shiki {
+  @apply m-0;
+  @apply overflow-auto;
+}
+
+.shiki code {
+  font-family: monospace !important;
+  counter-reset: step;
+  counter-increment: step calc(var(--start, 1) - 1);
+  white-space: pre-wrap !important;
+}
+
+.shiki code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+}

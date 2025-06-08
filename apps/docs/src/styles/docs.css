@@ -1,0 +1,35 @@
+/* Add this to prevent layout shift when scrollbar appears */
+html,
+body {
+  scrollbar-gutter: stable;
+  min-height: 101vh;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: var(--spacing-sm);
+}
+
+h1 {
+  @apply text-4xl font-bold;
+  @apply my-sm;
+  @apply pt-md;
+}
+
+h2 {
+  @apply text-2xl font-bold;
+  @apply my-sm;
+  @apply pt-md;
+}
+
+p {
+  @apply my-sm;
+}
+
+.navigation-link-active {
+  @apply font-bold text-primary;
+}

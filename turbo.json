@@ -1,0 +1,47 @@
+{
+	"$schema": "https://turborepo.com/schema.json",
+	"ui": "tui",
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"outputs": [".next/**", "!.next/cache/**"]
+		},
+		"lint": {
+			"dependsOn": ["^lint"]
+		},
+		"ts": {
+			"dependsOn": ["^ts"]
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"clean": {
+			"cache": false,
+			"persistent": true
+		},
+		"clean:nm": {
+			"cache": false,
+			"persistent": true
+		},
+		"registry": {
+			"dependsOn": ["^build"],
+			"cache": false,
+			"persistent": true,
+			"outputs": ["apps/docs/public/registry/**"]
+		},
+		"preview": {
+			"cache": false,
+			"persistent": true
+		},
+		"publish": {
+			"dependsOn": ["build"],
+			"cache": false
+		},
+		"publish:local": {
+			"dependsOn": ["build"],
+			"cache": false
+		}
+	}
+}

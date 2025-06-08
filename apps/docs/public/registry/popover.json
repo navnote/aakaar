@@ -1,0 +1,12 @@
+{
+  "name": "popover",
+  "dependencies": [
+    "@radix-ui/react-popover"
+  ],
+  "files": [
+    {
+      "name": "popover.tsx",
+      "content": "import * as PopoverPrimitive from '@radix-ui/react-popover';\nimport * as React from 'react';\nimport {\n  cn,\n  padding,\n  shadows,\n  utilities,\n  shape,\n  colors,\n} from '../../core/core';\n\nconst popoverStyles = {\n  content: cn(\n    shape.roundedWithBorder,\n    colors.surface,\n    padding.extraSmall,\n    shadows.depth.medium,\n    utilities.zIndex.modal,\n    'outline-none',\n  ),\n};\n\nconst Popover: typeof PopoverPrimitive.Root = PopoverPrimitive.Root;\n\nconst PopoverTrigger: typeof PopoverPrimitive.Trigger =\n  PopoverPrimitive.Trigger;\n\nconst PopoverContent: typeof PopoverPrimitive.Content = React.forwardRef<\n  React.ElementRef<typeof PopoverPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>\n>(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (\n  <PopoverPrimitive.Portal>\n    <PopoverPrimitive.Content\n      ref={ref}\n      align={align}\n      sideOffset={sideOffset}\n      className={cn(popoverStyles.content, className)}\n      {...props}\n    />\n  </PopoverPrimitive.Portal>\n));\nPopoverContent.displayName = PopoverPrimitive.Content.displayName;\n\nexport { Popover, PopoverContent, PopoverTrigger };\n"
+    }
+  ]
+}
