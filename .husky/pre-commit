@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run code formatting and linting checks
+echo "🔍 Running check:fix before commit..."
+
+# Run the check:fix command
+pnpm check:fix
+
+# Stage formatting changes only for files that were already staged
+echo "📝 Staging formatting changes for committed files..."
+git diff --cached --name-only | xargs -r git add
+
+# Check if there are any changes to commit
+if [ -z "$(git diff --cached --name-only)" ]; then
+    echo "❌ No changes to commit after formatting. Commit aborted."
+    echo "   This usually happens when only formatting was changed and then reset."
+    exit 1
+fi
+
+# If check:fix succeeds, allow the commit to proceed
+echo "✅ Code formatting and linting checks passed!"
