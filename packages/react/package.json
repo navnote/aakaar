@@ -17,15 +17,6 @@
 		"publish:internet": "pnpm publish --access public",
 		"publish:local": "pnpm publish --registry http://localhost:4873"
 	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@tsconfig/vite-react": "^6.3.5",
-		"@turbo/gen": "^2.5.0",
-		"@types/node": "^22.15.3",
-		"@types/react": "19.1.0",
-		"@types/react-dom": "19.1.1",
-		"typescript": "5.8.2"
-	},
 	"dependencies": {
 		"@radix-ui/react-accordion": "^1.2.2",
 		"@radix-ui/react-avatar": "^1.1.2",

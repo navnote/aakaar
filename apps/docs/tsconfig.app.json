@@ -17,6 +17,7 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
+		"types": ["react", "react-dom"],
 		"paths": {
 			"src/*": ["./src/*"]
 		}

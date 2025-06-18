@@ -14,6 +14,7 @@
 			"public",
 			"public/**/*",
 			".turbo",
+			"tmp",
 			"apps/docs/src/styles/tokens.css"
 		]
 	},

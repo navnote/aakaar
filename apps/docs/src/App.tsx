@@ -14,10 +14,10 @@ import Radio from "./routes/docs/components/radio";
 import Select from "./routes/docs/components/select";
 import Switch from "./routes/docs/components/switch";
 import Tabs from "./routes/docs/components/tabs";
+import Textarea from "./routes/docs/components/textarea";
 import Installation from "./routes/docs/installation";
 import Introduction from "./routes/docs/introduction";
 import Home from "./routes/home";
-import Textarea from "./routes/docs/components/textarea";
 
 function App() {
 	return (
