@@ -7,6 +7,12 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/navnote/aakaar/actions/workflows/ci.yml">
+    <img src="https://github.com/navnote/aakaar/workflows/CI/badge.svg" alt="CI Status">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://aakaar.navnote.com">aakaar.navnote.com</a>
 </p>
 
