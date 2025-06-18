@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router";
 import { useAppContext } from "../app/context";
 import {
-	INTRO_NAVIGATION_ITEMS,
 	COMPONENTS_NAVIGATION_ITEMS,
+	INTRO_NAVIGATION_ITEMS,
 } from "../navigation";
 
 export const Navigation = () => {

@@ -1,5 +1,5 @@
-import { detect } from "@antfu/ni";
 import type { PackageManager } from "@aakaar/global";
+import { detect } from "@antfu/ni";
 
 export async function getPackageManager(
 	targetDir: string,

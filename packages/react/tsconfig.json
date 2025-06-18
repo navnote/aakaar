@@ -5,7 +5,9 @@
 		"declaration": true,
 		"declarationMap": true,
 		"sourceMap": true,
-		"composite": true
+		"composite": true,
+		"skipLibCheck": true,
+		"types": ["react", "react-dom"]
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "dist"]

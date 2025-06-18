@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { AakaarIcon } from "./aakaar-icon";
 import { useAppContext } from "src/core/app/context";
+import { AakaarIcon } from "./aakaar-icon";
 
 export const Logo = ({
 	size = "md",

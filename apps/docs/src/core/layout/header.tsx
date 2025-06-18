@@ -1,5 +1,13 @@
 import { Link, useLocation } from "react-router";
 
+import {
+	Button,
+	Dialog,
+	DialogContent,
+	DialogTitle,
+	DialogTrigger,
+} from "@aakaar/react";
+import { IconBrandGithub, IconMenu2, IconSettings } from "@tabler/icons-react";
 import { BaseToggle } from "../../components/base-toggle";
 import { ColorPicker } from "../../components/color-picker";
 import { ConfigViewer } from "../../components/config-viewer";
@@ -9,16 +17,8 @@ import { PmToggle } from "../../components/pm-toggle";
 import { RadiusToggle } from "../../components/radius-toggle";
 import { RandomToggle } from "../../components/random-toggle";
 import { ThemeToggle } from "../../components/theme-toggle";
-import { HEADER_NAVIGATION_ITEMS } from "../navigation";
-import {
-	Button,
-	Dialog,
-	DialogContent,
-	DialogTitle,
-	DialogTrigger,
-} from "@aakaar/react";
 import { useAppContext } from "../app/context";
-import { IconBrandGithub, IconMenu2, IconSettings } from "@tabler/icons-react";
+import { HEADER_NAVIGATION_ITEMS } from "../navigation";
 
 export const Header = () => {
 	const { pathname: urlPathname } = useLocation();

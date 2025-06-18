@@ -1,9 +1,9 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import type { ComponentRegistry } from "@aakaar/global";
 import { Command } from "commander";
 import { execa } from "execa";
 import { config } from "../utils/config";
 import { getPackageManager } from "../utils/pm";
-import type { ComponentRegistry } from "@aakaar/global";
 const hostUrl = config.host ?? "https://aakaar.navnote.com";
 const baseUrl = `${hostUrl}/registry`;
 

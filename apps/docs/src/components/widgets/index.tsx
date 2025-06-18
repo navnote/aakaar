@@ -5,13 +5,13 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator,
 } from "@aakaar/react";
+import { Mondrian } from "../mondrian";
 import { Cookie } from "./cookie";
 import { Faq } from "./faq";
 import { Login } from "./login";
 import { Profile } from "./profile";
 import { Report } from "./report";
 import { Share } from "./share";
-import { Mondrian } from "../mondrian";
 
 export const Widgets = () => {
 	return (

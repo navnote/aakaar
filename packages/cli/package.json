@@ -33,11 +33,5 @@
 		"commander": "^12.1.0",
 		"execa": "^9.6.0",
 		"signal-exit": "^4.1.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@tsconfig/node22": "^22.0.2",
-		"tsup": "^8.0.0",
-		"typescript": "^5.0.0"
 	}
 }
