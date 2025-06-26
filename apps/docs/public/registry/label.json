@@ -1,12 +1,10 @@
 {
   "name": "label",
-  "dependencies": [
-    "@radix-ui/react-label"
-  ],
+  "dependencies": [],
   "files": [
     {
       "name": "label.tsx",
-      "content": "import * as LabelPrimitive from \"@radix-ui/react-label\";\nimport * as React from \"react\";\nimport { cn, typography } from \"../../core/core\";\n\nconst labelStyles = {\n\tbase: cn(\n\t\ttypography.size.medium,\n\t\ttypography.weight.medium,\n\t\t\"leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n\t),\n};\n\nconst Label = React.forwardRef<\n\tReact.ElementRef<typeof LabelPrimitive.Root>,\n\tReact.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>\n>(({ className, ...props }, ref) => (\n\t<LabelPrimitive.Root\n\t\tref={ref}\n\t\tclassName={cn(labelStyles.base, className)}\n\t\t{...props}\n\t/>\n));\nLabel.displayName = LabelPrimitive.Root.displayName;\n\nexport { Label };\n"
+      "content": "import * as React from \"react\";\nimport { cn, typography } from \"../../core/core\";\n\nconst labelStyles = {\n\tbase: cn(\n\t\ttypography.size.medium,\n\t\ttypography.weight.medium,\n\t\t\"leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n\t),\n};\n\nconst Label = React.forwardRef<\n\tHTMLLabelElement,\n\tReact.LabelHTMLAttributes<HTMLLabelElement>\n>(({ className, ...props }, ref) => (\n\t<label ref={ref} className={cn(labelStyles.base, className)} {...props} />\n));\nLabel.displayName = \"Label\";\n\nexport { Label };\n"
     }
   ]
 }

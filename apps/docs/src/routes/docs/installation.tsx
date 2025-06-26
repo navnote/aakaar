@@ -6,7 +6,7 @@ export default () => {
 			<h1>Installation</h1>
 			<p>
 				Aakaar is a library that helps you build the form of your design system.
-				It majorly used Radix UI components. We follow the same approach as
+				It majorly used Base UI components. We follow the same approach as
 				Shadcn UI which let's you add components to your project without any
 				hassle.
 			</p>
