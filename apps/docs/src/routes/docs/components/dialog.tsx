@@ -25,7 +25,7 @@ export default () => {
 			<h2>Demo</h2>
 			<Demo
 				code={`<Dialog>
-  <DialogTrigger asChild>
+  <DialogTrigger>
     <Button variant="outline">Edit Profile</Button>
   </DialogTrigger>
   <DialogContent className="sm:max-w-[425px]">
@@ -64,7 +64,7 @@ export default () => {
 </Dialog>`}
 			>
 				<Dialog>
-					<DialogTrigger asChild>
+					<DialogTrigger>
 						<Button variant="outline">Edit Profile</Button>
 					</DialogTrigger>
 					<DialogContent className="w-[90vw] md:w-[425px]">

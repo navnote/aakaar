@@ -1,4 +1,4 @@
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { Accordion as BaseAccordion } from "@base-ui-components/react";
 import { IconChevronDown } from "@tabler/icons-react";
 import * as React from "react";
 import {
@@ -31,13 +31,13 @@ const accordionStyles = {
 	},
 };
 
-const Accordion: typeof AccordionPrimitive.Root = AccordionPrimitive.Root;
+const Accordion = BaseAccordion.Root;
 
 const AccordionItem = React.forwardRef<
-	React.ElementRef<typeof AccordionPrimitive.Item>,
-	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+	React.ElementRef<typeof BaseAccordion.Item>,
+	React.ComponentPropsWithoutRef<typeof BaseAccordion.Item>
 >(({ className, ...props }, ref) => (
-	<AccordionPrimitive.Item
+	<BaseAccordion.Item
 		ref={ref}
 		className={cn(accordionStyles.item, className)}
 		{...props}
@@ -46,27 +46,27 @@ const AccordionItem = React.forwardRef<
 AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef<
-	React.ElementRef<typeof AccordionPrimitive.Trigger>,
-	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+	React.ElementRef<typeof BaseAccordion.Trigger>,
+	React.ComponentPropsWithoutRef<typeof BaseAccordion.Trigger>
 >(({ className, children, ...props }, ref) => (
-	<AccordionPrimitive.Header className="flex">
-		<AccordionPrimitive.Trigger
+	<BaseAccordion.Header className="flex">
+		<BaseAccordion.Trigger
 			ref={ref}
 			className={cn(accordionStyles.trigger, className)}
 			{...props}
 		>
 			{children}
 			<IconChevronDown className="size-lg shrink-0 transition-transform duration-200" />
-		</AccordionPrimitive.Trigger>
-	</AccordionPrimitive.Header>
+		</BaseAccordion.Trigger>
+	</BaseAccordion.Header>
 ));
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef<
-	React.ElementRef<typeof AccordionPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
+	React.ElementRef<typeof BaseAccordion.Panel>,
+	React.ComponentPropsWithoutRef<typeof BaseAccordion.Panel>
 >(({ className, children, ...props }, ref) => (
-	<AccordionPrimitive.Content
+	<BaseAccordion.Panel
 		ref={ref}
 		className={cn(accordionStyles.content.base)}
 		{...props}
@@ -74,9 +74,9 @@ const AccordionContent = React.forwardRef<
 		<div className={cn(accordionStyles.content.inner, className)}>
 			{children}
 		</div>
-	</AccordionPrimitive.Content>
+	</BaseAccordion.Panel>
 ));
 
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+AccordionContent.displayName = "AccordionContent";
 
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };

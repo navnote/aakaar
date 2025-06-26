@@ -1,4 +1,4 @@
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Checkbox as BaseCheckbox } from "@base-ui-components/react";
 import * as React from "react";
 
 import { IconCheck } from "@tabler/icons-react";
@@ -25,19 +25,19 @@ const checkboxStyles = {
 };
 
 const Checkbox = React.forwardRef<
-	React.ElementRef<typeof CheckboxPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+	React.ElementRef<typeof BaseCheckbox.Root>,
+	React.ComponentPropsWithoutRef<typeof BaseCheckbox.Root>
 >(({ className, ...props }, ref) => (
-	<CheckboxPrimitive.Root
+	<BaseCheckbox.Root
 		ref={ref}
 		className={cn(checkboxStyles.base, className)}
 		{...props}
 	>
-		<CheckboxPrimitive.Indicator className={checkboxStyles.indicator}>
+		<BaseCheckbox.Indicator className={checkboxStyles.indicator}>
 			<IconCheck className={checkboxStyles.icon} />
-		</CheckboxPrimitive.Indicator>
-	</CheckboxPrimitive.Root>
+		</BaseCheckbox.Indicator>
+	</BaseCheckbox.Root>
 ));
-Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+Checkbox.displayName = "Checkbox";
 
 export { Checkbox };

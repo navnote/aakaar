@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import { mergeProps } from "@base-ui-components/react";
 import { type VariantProps, cva } from "class-variance-authority";
 import { clsx } from "clsx";
 import * as React from "react";
@@ -61,12 +61,16 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ className, variant, size, asChild = false, ...props }, ref) => {
-		const Comp = asChild ? Slot : "button";
+		const Comp = asChild ? "span" : "button";
+		const mergedProps = asChild
+			? mergeProps(props, { role: "button", tabIndex: 0 })
+			: props;
+
 		return (
 			<Comp
 				className={twMerge(clsx(buttonVariants({ variant, size, className })))}
 				ref={ref}
-				{...props}
+				{...mergedProps}
 			/>
 		);
 	},

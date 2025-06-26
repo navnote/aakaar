@@ -22,7 +22,7 @@ export default () => {
 			<Demo
 				code={`
 <Popover>
-  <PopoverTrigger asChild>
+  <PopoverTrigger>
     <Button variant="outline">Open popover</Button>
   </PopoverTrigger>
   <PopoverContent className="w-60">
@@ -57,7 +57,7 @@ export default () => {
         `}
 			>
 				<Popover>
-					<PopoverTrigger asChild>
+					<PopoverTrigger>
 						<Button variant="outline">Open popover</Button>
 					</PopoverTrigger>
 					<PopoverContent className="w-[300px]">

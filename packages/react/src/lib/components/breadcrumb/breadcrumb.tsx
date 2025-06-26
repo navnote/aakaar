@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import { mergeProps } from "@base-ui-components/react";
 import { IconChevronRight, IconDots } from "@tabler/icons-react";
 import * as React from "react";
 import {
@@ -58,13 +58,16 @@ const BreadcrumbLink = React.forwardRef<
 		asChild?: boolean;
 	}
 >(({ asChild, className, ...props }, ref) => {
-	const Comp = asChild ? Slot : "a";
+	const Comp = asChild ? "span" : "a";
+	const mergedProps = asChild
+		? mergeProps(props, { role: "link", tabIndex: 0 })
+		: props;
 
 	return (
 		<Comp
 			ref={ref}
 			className={cn(breadcrumbStyles.link, className)}
-			{...props}
+			{...mergedProps}
 		/>
 	);
 });
