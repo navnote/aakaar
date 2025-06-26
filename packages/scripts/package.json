@@ -1,8 +1,9 @@
 {
 	"name": "@aakaar/scripts",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
+		"dev": "tsc --project tsconfig.json --watch",
 		"registry": "tsx src/registry.mts",
 		"check-deps": "tsx src/check-deps.ts",
 		"ts": "tsc --noEmit",

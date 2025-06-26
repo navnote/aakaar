@@ -1,4 +1,4 @@
-import * as SelectPrimitive from "@radix-ui/react-select";
+import { Select as BaseSelect } from "@base-ui-components/react";
 import { IconCheck, IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import * as React from "react";
 import {
@@ -37,6 +37,7 @@ const selectStyles = {
 		utilities.zIndex.modal,
 		utilities.overflow.hidden,
 		shadows.depth.low,
+		"max-h-[15rem] overflow-y-auto",
 	),
 	viewport: cn(measurements.width.minimum, "max-h-[15rem]"),
 	item: cn(
@@ -61,118 +62,117 @@ const selectStyles = {
 	separator: "h-px bg-outline-variant",
 };
 
-const Select = SelectPrimitive.Root;
-const SelectGroup = SelectPrimitive.Group;
+const Select = BaseSelect.Root;
+const SelectGroup = BaseSelect.Group;
 
-const SelectValue = SelectPrimitive.Value;
+const SelectValue = BaseSelect.Value;
 
 const SelectTrigger = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.Trigger>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+	React.ElementRef<typeof BaseSelect.Trigger>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.Trigger>
 >(({ className, children, ...props }, ref) => (
-	<SelectPrimitive.Trigger
+	<BaseSelect.Trigger
 		ref={ref}
 		className={cn(selectStyles.trigger, className)}
 		{...props}
 	>
 		{children}
-		<SelectPrimitive.Icon asChild>
+		<BaseSelect.Icon>
 			<IconChevronDown className={selectStyles.icon} />
-		</SelectPrimitive.Icon>
-	</SelectPrimitive.Trigger>
+		</BaseSelect.Icon>
+	</BaseSelect.Trigger>
 ));
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
+SelectTrigger.displayName = "SelectTrigger";
 
 const SelectScrollUpButton = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
+	React.ElementRef<typeof BaseSelect.ScrollUpArrow>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.ScrollUpArrow>
 >(({ className, ...props }, ref) => (
-	<SelectPrimitive.ScrollUpButton
+	<BaseSelect.ScrollUpArrow
 		ref={ref}
 		className={cn(selectStyles.scrollButton, className)}
 		{...props}
 	>
 		<IconChevronUp className={selectStyles.icon} />
-	</SelectPrimitive.ScrollUpButton>
+	</BaseSelect.ScrollUpArrow>
 ));
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
+SelectScrollUpButton.displayName = "SelectScrollUpButton";
 
 const SelectScrollDownButton = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+	React.ElementRef<typeof BaseSelect.ScrollDownArrow>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.ScrollDownArrow>
 >(({ className, ...props }, ref) => (
-	<SelectPrimitive.ScrollDownButton
+	<BaseSelect.ScrollDownArrow
 		ref={ref}
 		className={cn(selectStyles.scrollButton, className)}
 		{...props}
 	>
 		<IconChevronDown className={selectStyles.icon} />
-	</SelectPrimitive.ScrollDownButton>
+	</BaseSelect.ScrollDownArrow>
 ));
-SelectScrollDownButton.displayName =
-	SelectPrimitive.ScrollDownButton.displayName;
+SelectScrollDownButton.displayName = "SelectScrollDownButton";
 
 const SelectContent = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = "popper", ...props }, ref) => (
-	<SelectPrimitive.Portal>
-		<SelectPrimitive.Content
-			ref={ref}
-			className={cn(selectStyles.content, className)}
-			position={position}
-			{...props}
-		>
+	React.ElementRef<typeof BaseSelect.Popup>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.Popup>
+>(({ className, children, ...props }, ref) => (
+	<BaseSelect.Portal>
+		<BaseSelect.Positioner>
 			<SelectScrollUpButton />
-			<SelectPrimitive.Viewport className={selectStyles.viewport}>
+			<BaseSelect.Popup
+				ref={ref}
+				className={cn(selectStyles.content, className)}
+				{...props}
+			>
+				<BaseSelect.Arrow />
 				{children}
-			</SelectPrimitive.Viewport>
+			</BaseSelect.Popup>
 			<SelectScrollDownButton />
-		</SelectPrimitive.Content>
-	</SelectPrimitive.Portal>
+		</BaseSelect.Positioner>
+	</BaseSelect.Portal>
 ));
-SelectContent.displayName = SelectPrimitive.Content.displayName;
+SelectContent.displayName = "SelectContent";
 
 const SelectLabel = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.Label>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+	React.ElementRef<typeof BaseSelect.GroupLabel>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.GroupLabel>
 >(({ className, ...props }, ref) => (
-	<SelectPrimitive.Label
+	<BaseSelect.GroupLabel
 		ref={ref}
 		className={cn(selectStyles.label, className)}
 		{...props}
 	/>
 ));
-SelectLabel.displayName = SelectPrimitive.Label.displayName;
+SelectLabel.displayName = "SelectLabel";
 
 const SelectItem = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.Item>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+	React.ElementRef<typeof BaseSelect.Item>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.Item>
 >(({ className, children, ...props }, ref) => (
-	<SelectPrimitive.Item
+	<BaseSelect.Item
 		ref={ref}
 		className={cn(selectStyles.item, className)}
 		{...props}
 	>
-		<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-		<SelectPrimitive.ItemIndicator>
-			<IconCheck className={selectStyles.icon} />
-		</SelectPrimitive.ItemIndicator>
-	</SelectPrimitive.Item>
+		<BaseSelect.ItemText>{children}</BaseSelect.ItemText>
+		<BaseSelect.ItemIndicator className={selectStyles.icon}>
+			<IconCheck />
+		</BaseSelect.ItemIndicator>
+	</BaseSelect.Item>
 ));
-SelectItem.displayName = SelectPrimitive.Item.displayName;
+SelectItem.displayName = "SelectItem";
 
 const SelectSeparator = React.forwardRef<
-	React.ElementRef<typeof SelectPrimitive.Separator>,
-	React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+	React.ElementRef<typeof BaseSelect.Separator>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.Separator>
 >(({ className, ...props }, ref) => (
-	<SelectPrimitive.Separator
+	<BaseSelect.Separator
 		ref={ref}
 		className={cn(selectStyles.separator, className)}
 		{...props}
 	/>
 ));
-SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
+SelectSeparator.displayName = "SelectSeparator";
 
 export {
 	Select,

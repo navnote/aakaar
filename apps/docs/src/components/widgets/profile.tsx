@@ -33,7 +33,7 @@ export const Profile = () => {
 					<span>@navnote</span>
 				</div>
 				<Dialog>
-					<DialogTrigger asChild>
+					<DialogTrigger>
 						<Button variant="outline">Edit Profile</Button>
 					</DialogTrigger>
 					<DialogContent className="sm:max-w-[425px]">

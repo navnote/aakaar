@@ -1,4 +1,4 @@
-import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Dialog as BaseDialog } from "@base-ui-components/react";
 import { IconX } from "@tabler/icons-react";
 import * as React from "react";
 
@@ -59,46 +59,46 @@ const dialogStyles = {
 	closeIcon: cn(dimensions.medium),
 };
 
-const Dialog: typeof DialogPrimitive.Root = DialogPrimitive.Root;
+const Dialog = BaseDialog.Root;
 
-const DialogTrigger: typeof DialogPrimitive.Trigger = DialogPrimitive.Trigger;
+const DialogTrigger = BaseDialog.Trigger;
 
-const DialogPortal: typeof DialogPrimitive.Portal = DialogPrimitive.Portal;
+const DialogPortal = BaseDialog.Portal;
 
-const DialogClose: typeof DialogPrimitive.Close = DialogPrimitive.Close;
+const DialogClose = BaseDialog.Close;
 
 const DialogOverlay = React.forwardRef<
-	React.ElementRef<typeof DialogPrimitive.Overlay>,
-	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+	React.ElementRef<typeof BaseDialog.Backdrop>,
+	React.ComponentPropsWithoutRef<typeof BaseDialog.Backdrop>
 >(({ className, ...props }, ref) => (
-	<DialogPrimitive.Overlay
+	<BaseDialog.Backdrop
 		ref={ref}
 		className={cn(dialogStyles.overlay, className)}
 		{...props}
 	/>
 ));
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+DialogOverlay.displayName = "DialogOverlay";
 
 const DialogContent = React.forwardRef<
-	React.ElementRef<typeof DialogPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+	React.ElementRef<typeof BaseDialog.Popup>,
+	React.ComponentPropsWithoutRef<typeof BaseDialog.Popup>
 >(({ className, children, ...props }, ref) => (
 	<DialogPortal>
 		<DialogOverlay />
-		<DialogPrimitive.Content
+		<BaseDialog.Popup
 			ref={ref}
 			className={cn(dialogStyles.content, className)}
 			{...props}
 		>
 			{children}
-			<DialogPrimitive.Close className={dialogStyles.close}>
+			<DialogClose className={dialogStyles.close}>
 				<IconX className={dialogStyles.closeIcon} />
 				<span className="sr-only">Close</span>
-			</DialogPrimitive.Close>
-		</DialogPrimitive.Content>
+			</DialogClose>
+		</BaseDialog.Popup>
 	</DialogPortal>
 ));
-DialogContent.displayName = DialogPrimitive.Content.displayName;
+DialogContent.displayName = "DialogContent";
 
 const DialogHeader = ({
 	className,
@@ -117,28 +117,28 @@ const DialogFooter = ({
 DialogFooter.displayName = "DialogFooter";
 
 const DialogTitle = React.forwardRef<
-	React.ElementRef<typeof DialogPrimitive.Title>,
-	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+	React.ElementRef<typeof BaseDialog.Title>,
+	React.ComponentPropsWithoutRef<typeof BaseDialog.Title>
 >(({ className, ...props }, ref) => (
-	<DialogPrimitive.Title
+	<BaseDialog.Title
 		ref={ref}
 		className={cn(dialogStyles.title, className)}
 		{...props}
 	/>
 ));
-DialogTitle.displayName = DialogPrimitive.Title.displayName;
+DialogTitle.displayName = "DialogTitle";
 
 const DialogDescription = React.forwardRef<
-	React.ElementRef<typeof DialogPrimitive.Description>,
-	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+	React.ElementRef<typeof BaseDialog.Description>,
+	React.ComponentPropsWithoutRef<typeof BaseDialog.Description>
 >(({ className, ...props }, ref) => (
-	<DialogPrimitive.Description
+	<BaseDialog.Description
 		ref={ref}
 		className={cn(dialogStyles.description, className)}
 		{...props}
 	/>
 ));
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
+DialogDescription.displayName = "DialogDescription";
 
 export {
 	Dialog,

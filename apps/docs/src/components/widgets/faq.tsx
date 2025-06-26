@@ -20,7 +20,7 @@ export const Faq = () => {
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<Accordion type="single" collapsible>
+				<Accordion>
 					<AccordionItem value="item-1">
 						<AccordionTrigger>Is it accessible?</AccordionTrigger>
 						<AccordionContent>

@@ -1,4 +1,4 @@
-import * as SwitchPrimitives from "@radix-ui/react-switch";
+import { Switch as BaseSwitch } from "@base-ui-components/react";
 import * as React from "react";
 import {
 	alignment,
@@ -27,26 +27,26 @@ const switchStyles = {
 		interactivity.transitions.transform,
 		utilities.cursor.noEvents,
 		dimensions.large,
-		colors.backgrounds.inverseSurface,
+		colors.primary,
 		interactivity.dataStates.checked,
 		shadows.depth.medium,
 		"ring-0",
-		"data-[state=checked]:translate-x-[0.8rem] data-[state=unchecked]:-translate-x-[0.8rem]",
+		"-translate-x-sm data-[checked]:translate-x-sm",
 	),
 };
 
-const Switch: typeof SwitchPrimitives.Root = React.forwardRef<
-	React.ElementRef<typeof SwitchPrimitives.Root>,
-	React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+const Switch = React.forwardRef<
+	React.ElementRef<typeof BaseSwitch.Root>,
+	React.ComponentPropsWithoutRef<typeof BaseSwitch.Root>
 >(({ className, ...props }, ref) => (
-	<SwitchPrimitives.Root
+	<BaseSwitch.Root
 		className={cn(switchStyles.base, className)}
 		{...props}
 		ref={ref}
 	>
-		<SwitchPrimitives.Thumb className={cn(switchStyles.thumb, className)} />
-	</SwitchPrimitives.Root>
+		<BaseSwitch.Thumb className={cn(switchStyles.thumb, className)} />
+	</BaseSwitch.Root>
 ));
-Switch.displayName = SwitchPrimitives.Root.displayName;
+Switch.displayName = "Switch";
 
 export { Switch };

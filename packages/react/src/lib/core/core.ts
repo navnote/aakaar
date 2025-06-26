@@ -140,10 +140,11 @@ export const interactivity = {
 		all: "transition-all",
 	},
 	dataStates: {
-		checked:
-			"data-[state=checked]:bg-primary data-[state=checked]:text-on-primary",
+		checked: "data-[checked]:bg-primary data-[checked]:text-on-primary",
 		open: "data-[state=open]:bg-primary data-[state=open]:text-on-primary",
+		active: "data-[active]:bg-primary data-[active]:text-on-primary",
 		selected: "data-[selected]:bg-primary data-[selected]:text-on-primary",
+		disabled: "data-[disabled]:bg-primary data-[disabled]:text-on-primary",
 	},
 };
 

@@ -1,7 +1,8 @@
 import { Card, Tabs, TabsContent, TabsList, TabsTrigger } from "@aakaar/react";
-import { Slot, Slottable } from "@radix-ui/react-slot";
+import { mergeProps } from "@base-ui-components/react";
 import type { ReactNode } from "react";
 import { FormattedCode } from "./formatted-code";
+
 export const Demo = ({
 	code,
 	children,
@@ -10,8 +11,10 @@ export const Demo = ({
 	code: string;
 	children: ReactNode;
 }) => {
+	const mergedProps = mergeProps(props, { role: "presentation" });
+
 	return (
-		<Slot {...props}>
+		<div {...mergedProps}>
 			<Card>
 				<Tabs defaultValue="preview">
 					<TabsList className={"grid w-full grid-cols-2"}>
@@ -24,7 +27,7 @@ export const Demo = ({
 					</TabsList>
 					<TabsContent value="preview">
 						<div className="flex flex-col items-center justify-center p-md">
-							<Slottable>{children}</Slottable>
+							{children}
 						</div>
 					</TabsContent>
 					<TabsContent value="code">
@@ -32,6 +35,6 @@ export const Demo = ({
 					</TabsContent>
 				</Tabs>
 			</Card>
-		</Slot>
+		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { RadioGroup as BaseRadioGroup, Radio } from "@base-ui-components/react";
 import { IconCircle } from "@tabler/icons-react";
 import * as React from "react";
 import {
@@ -25,31 +25,27 @@ const radioStyles = {
 };
 
 const RadioGroup = React.forwardRef<
-	React.ElementRef<typeof RadioGroupPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
+	React.ElementRef<typeof BaseRadioGroup>,
+	React.ComponentPropsWithoutRef<typeof BaseRadioGroup>
 >(({ className, ...props }, ref) => (
-	<RadioGroupPrimitive.Root
+	<BaseRadioGroup
 		className={cn(radioStyles.group, className)}
 		{...props}
 		ref={ref}
 	/>
 ));
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
+RadioGroup.displayName = "RadioGroup";
 
 const RadioGroupItem = React.forwardRef<
-	React.ElementRef<typeof RadioGroupPrimitive.Item>,
-	React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+	React.ElementRef<typeof Radio.Root>,
+	React.ComponentPropsWithoutRef<typeof Radio.Root>
 >(({ className, children, ...props }, ref) => (
-	<RadioGroupPrimitive.Item
-		ref={ref}
-		className={cn(radioStyles.item, className)}
-		{...props}
-	>
-		<RadioGroupPrimitive.Indicator className="flex items-center justify-center">
+	<Radio.Root ref={ref} className={cn(radioStyles.item, className)} {...props}>
+		<Radio.Indicator className="flex items-center justify-center">
 			<IconCircle className="size-full p-[0.1rem] fill-current text-current" />
-		</RadioGroupPrimitive.Indicator>
-	</RadioGroupPrimitive.Item>
+		</Radio.Indicator>
+	</Radio.Root>
 ));
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
+RadioGroupItem.displayName = "RadioGroupItem";
 
 export { RadioGroup, RadioGroupItem };

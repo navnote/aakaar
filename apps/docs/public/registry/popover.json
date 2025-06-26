@@ -1,12 +1,12 @@
 {
   "name": "popover",
   "dependencies": [
-    "@radix-ui/react-popover"
+    "@base-ui-components/react"
   ],
   "files": [
     {
       "name": "popover.tsx",
-      "content": "import * as PopoverPrimitive from \"@radix-ui/react-popover\";\nimport * as React from \"react\";\nimport {\n\tcn,\n\tcolors,\n\tpadding,\n\tshadows,\n\tshape,\n\tutilities,\n} from \"../../core/core\";\n\nconst popoverStyles = {\n\tcontent: cn(\n\t\tshape.roundedWithBorder,\n\t\tcolors.surface,\n\t\tpadding.extraSmall,\n\t\tshadows.depth.medium,\n\t\tutilities.zIndex.modal,\n\t\t\"outline-none\",\n\t),\n};\n\nconst Popover: typeof PopoverPrimitive.Root = PopoverPrimitive.Root;\n\nconst PopoverTrigger: typeof PopoverPrimitive.Trigger =\n\tPopoverPrimitive.Trigger;\n\nconst PopoverContent: typeof PopoverPrimitive.Content = React.forwardRef<\n\tReact.ElementRef<typeof PopoverPrimitive.Content>,\n\tReact.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>\n>(({ className, align = \"center\", sideOffset = 4, ...props }, ref) => (\n\t<PopoverPrimitive.Portal>\n\t\t<PopoverPrimitive.Content\n\t\t\tref={ref}\n\t\t\talign={align}\n\t\t\tsideOffset={sideOffset}\n\t\t\tclassName={cn(popoverStyles.content, className)}\n\t\t\t{...props}\n\t\t/>\n\t</PopoverPrimitive.Portal>\n));\nPopoverContent.displayName = PopoverPrimitive.Content.displayName;\n\nexport { Popover, PopoverContent, PopoverTrigger };\n"
+      "content": "import { Popover as BasePopover } from \"@base-ui-components/react\";\nimport * as React from \"react\";\nimport {\n\tcn,\n\tcolors,\n\tpadding,\n\tshadows,\n\tshape,\n\tutilities,\n} from \"../../core/core\";\n\nconst popoverStyles = {\n\tcontent: cn(\n\t\tshape.roundedWithBorder,\n\t\tcolors.surface,\n\t\tpadding.extraSmall,\n\t\tshadows.depth.medium,\n\t\tutilities.zIndex.modal,\n\t\t\"outline-none\",\n\t),\n};\n\nconst Popover = BasePopover.Root;\n\nconst PopoverTrigger = BasePopover.Trigger;\n\nconst PopoverContent = React.forwardRef<\n\tReact.ElementRef<typeof BasePopover.Popup>,\n\tReact.ComponentPropsWithoutRef<typeof BasePopover.Popup>\n>(({ className, ...props }, ref) => (\n\t<BasePopover.Portal>\n\t\t<BasePopover.Positioner>\n\t\t\t<BasePopover.Popup\n\t\t\t\tref={ref}\n\t\t\t\tclassName={cn(popoverStyles.content, className)}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</BasePopover.Positioner>\n\t</BasePopover.Portal>\n));\nPopoverContent.displayName = \"PopoverContent\";\n\nexport { Popover, PopoverContent, PopoverTrigger };\n"
     }
   ]
 }

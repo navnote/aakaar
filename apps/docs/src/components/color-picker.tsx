@@ -8,7 +8,7 @@ export const ColorPicker = () => {
 
 	return (
 		<Popover>
-			<PopoverTrigger asChild>
+			<PopoverTrigger>
 				<Button size="icon" className="relative" variant="primary">
 					<IconColorPicker
 						size={20}

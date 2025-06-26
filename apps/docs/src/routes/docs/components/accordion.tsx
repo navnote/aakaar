@@ -44,7 +44,7 @@ export default () => {
 </Accordion>
 		`}
 			>
-				<Accordion type="single" collapsible className="w-5/6">
+				<Accordion className="w-5/6">
 					<AccordionItem value="item-1">
 						<AccordionTrigger>Is it accessible?</AccordionTrigger>
 						<AccordionContent>

@@ -1,4 +1,3 @@
-import * as LabelPrimitive from "@radix-ui/react-label";
 import * as React from "react";
 import { cn, typography } from "../../core/core";
 
@@ -11,15 +10,11 @@ const labelStyles = {
 };
 
 const Label = React.forwardRef<
-	React.ElementRef<typeof LabelPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+	HTMLLabelElement,
+	React.LabelHTMLAttributes<HTMLLabelElement>
 >(({ className, ...props }, ref) => (
-	<LabelPrimitive.Root
-		ref={ref}
-		className={cn(labelStyles.base, className)}
-		{...props}
-	/>
+	<label ref={ref} className={cn(labelStyles.base, className)} {...props} />
 ));
-Label.displayName = LabelPrimitive.Root.displayName;
+Label.displayName = "Label";
 
 export { Label };

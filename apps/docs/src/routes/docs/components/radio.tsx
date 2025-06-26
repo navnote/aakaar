@@ -40,7 +40,7 @@ export default () => {
 				<RadioGroup
 					defaultValue="md"
 					value={value}
-					onValueChange={(value) => setValue(value)}
+					onValueChange={(value: unknown) => setValue(value as string)}
 					className={`flex flex-col gap-${value}`}
 				>
 					<div className="flex items-center gap-sm">

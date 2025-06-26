@@ -1,6 +1,6 @@
 {
 	"name": "@aakaar/cli",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
@@ -24,7 +24,7 @@
 		"ts": "tsc --noEmit",
 		"prepublishOnly": "pnpm run build",
 		"publish:internet": "pnpm publish --access public",
-		"publish:local": "pnpm publish --registry http://localhost:4873"
+		"publish:local": "pnpm publish --registry http://localhost:4873 --git-checks=false"
 	},
 	"dependencies": {
 		"@aakaar/dictionary": "workspace:*",

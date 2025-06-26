@@ -1,4 +1,4 @@
-import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { Tabs as BaseTabs } from "@base-ui-components/react";
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
 import {
@@ -23,7 +23,7 @@ const tabsStyles = {
 		interactivity.states.disabled,
 		shadows.depth.low,
 		padding.small,
-		"data-[state=active]:text-tertiary data-[state=active]:font-bold",
+		"data-[selected]:text-tertiary data-[selected]:font-bold",
 	),
 	variant: {
 		primary: colors.backgrounds.surfaceVariant,
@@ -44,43 +44,43 @@ const tabTriggerVariance = cva(`${tabsStyles.trigger}`, {
 	},
 });
 
-const Tabs = TabsPrimitive.Root;
+const Tabs = BaseTabs.Root;
 
 const TabsList = React.forwardRef<
-	React.ElementRef<typeof TabsPrimitive.List>,
-	React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+	React.ElementRef<typeof BaseTabs.List>,
+	React.ComponentPropsWithoutRef<typeof BaseTabs.List>
 >(({ className, ...props }, ref) => (
-	<TabsPrimitive.List
+	<BaseTabs.List
 		ref={ref}
 		className={cn(tabsStyles.list, className)}
 		{...props}
 	/>
 ));
-TabsList.displayName = TabsPrimitive.List.displayName;
+TabsList.displayName = "TabsList";
 
 const TabsTrigger = React.forwardRef<
-	React.ElementRef<typeof TabsPrimitive.Trigger>,
-	React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> &
+	React.ElementRef<typeof BaseTabs.Tab>,
+	React.ComponentPropsWithoutRef<typeof BaseTabs.Tab> &
 		VariantProps<typeof tabTriggerVariance>
 >(({ className, variant, ...props }, ref) => (
-	<TabsPrimitive.Trigger
+	<BaseTabs.Tab
 		ref={ref}
 		className={cn(tabTriggerVariance({ variant }), className)}
 		{...props}
 	/>
 ));
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+TabsTrigger.displayName = "TabsTrigger";
 
 const TabsContent = React.forwardRef<
-	React.ElementRef<typeof TabsPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+	React.ElementRef<typeof BaseTabs.Panel>,
+	React.ComponentPropsWithoutRef<typeof BaseTabs.Panel>
 >(({ className, ...props }, ref) => (
-	<TabsPrimitive.Content
+	<BaseTabs.Panel
 		ref={ref}
 		className={cn(tabsStyles.content, className)}
 		{...props}
 	/>
 ));
-TabsContent.displayName = TabsPrimitive.Content.displayName;
+TabsContent.displayName = "TabsContent";
 
 export { Tabs, TabsContent, TabsList, TabsTrigger };
