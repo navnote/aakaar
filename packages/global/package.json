@@ -15,6 +15,6 @@
 		"ts": "tsc --noEmit",
 		"prepublishOnly": "pnpm run build",
 		"publish:internet": "pnpm publish --access public",
-		"publish:local": "pnpm publish --registry http://localhost:4873"
+		"publish:local": "pnpm publish --registry http://localhost:4873 --git-checks=false"
 	}
 }

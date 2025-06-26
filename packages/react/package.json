@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/package",
 	"name": "@aakaar/react",
-	"version": "0.0.0",
+	"version": "0.0.2",
 	"exports": {
 		".": "./src/index.ts"
 	},
@@ -15,7 +15,7 @@
 		"clean:nm": "rm -rf node_modules",
 		"prepublishOnly": "pnpm run build",
 		"publish:internet": "pnpm publish --access public",
-		"publish:local": "pnpm publish --registry http://localhost:4873"
+		"publish:local": "pnpm publish --registry http://localhost:4873 --git-checks=false"
 	},
 	"dependencies": {
 		"@base-ui-components/react": "^1.0.0-beta.0",

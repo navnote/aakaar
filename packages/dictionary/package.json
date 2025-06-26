@@ -20,7 +20,7 @@
 		"dev": "tsup src/index.ts --watch --format esm,cjs --dts",
 		"prepublishOnly": "pnpm run build",
 		"publish:internet": "pnpm publish --access public",
-		"publish:local": "pnpm publish --registry http://localhost:4873"
+		"publish:local": "pnpm publish --registry http://localhost:4873 --git-checks=false"
 	},
 	"dependencies": {
 		"@material/material-color-utilities": "^0.3.0",
