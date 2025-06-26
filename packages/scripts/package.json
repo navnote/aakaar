@@ -1,6 +1,6 @@
 {
 	"name": "@aakaar/scripts",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
 		"registry": "tsx src/registry.mts",
