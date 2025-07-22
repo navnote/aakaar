@@ -20,7 +20,7 @@ export const AppContext = createContext<AppContextType>({
 	isSidebarOpen: false,
 	setIsSidebarOpen: (_isSidebarOpen: boolean) => {},
 	strategy: "material",
-	setStrategy: (strategy: ColorStrategy) => {},
+	setStrategy: (_strategy: ColorStrategy) => {},
 });
 
 export const useAppContext = () => {
