@@ -64,7 +64,7 @@ export const buildCategoryDesignTokens = (
 			),
 		},
 		{
-			category: "Pallete Colors",
+			category: "Palette Colors",
 			tokens: Object.values(strategyResult.lightDark),
 		},
 

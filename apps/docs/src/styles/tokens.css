@@ -18,7 +18,7 @@
   --white: #fff;
   --black: #000;
 
-  /* Category: Pallete Colors */
+  /* Category: Palette Colors */
   --color-primary: light-dark(oklch(55% 0.18 34.884), oklch(45% 0.18 34.884));
   --color-on-primary: light-dark(#ffffff, #000000);
   --color-primary-container: light-dark(oklch(90% 0.072 34.884), oklch(25% 0.108 34.884));
