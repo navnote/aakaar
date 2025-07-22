@@ -6,6 +6,7 @@
 		"dev": "pnpm turbo run dev",
 		"clean": "pnpm turbo run clean",
 		"clean:nm": "rm -rf node_modules && turbo run clean:nm",
+		"test": "pnpm turbo run test",
 		"ts": "pnpm turbo run ts",
 		"check": "pnpm biome check .",
 		"check:fix": "pnpm biome check . --write .",

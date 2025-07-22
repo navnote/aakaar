@@ -17,6 +17,7 @@ export const setup = new Command()
 			},
 			tokens: {
 				color: "a42700",
+				strategy: "harmony",
 				output: "src/design/css",
 			},
 			react: {
