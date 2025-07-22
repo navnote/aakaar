@@ -112,6 +112,7 @@ export const buildCategoryDesignTokens = (
 
 export const runCss = (color: string) => {
 	const categoryTokens = buildCategoryDesignTokens(color);
+	console.log(categoryTokens);
 	const output = [];
 	// Root
 	output.push("@theme {");

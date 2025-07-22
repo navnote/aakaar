@@ -1,0 +1,14 @@
+{
+	"host": "http://localhost:5173",
+	"core": {
+		"path": "src/design",
+		"import": "../../core"
+	},
+	"tokens": {
+		"color": "a42700",
+		"output": "apps/docs/src/styles"
+	},
+	"react": {
+		"output": "src/design/components"
+	}
+}
