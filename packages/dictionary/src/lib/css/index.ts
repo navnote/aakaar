@@ -1,5 +1,6 @@
 import {
 	type CategoryDesignTokens,
+	type ColorStrategy,
 	type CssObject,
 	type DesignToken,
 	VariableCase,
@@ -43,8 +44,9 @@ const buildForCategory = (category: string, tokens: DesignToken[]) => {
 
 export const buildCategoryDesignTokens = (
 	color: string,
+	strategy: ColorStrategy = "harmony",
 ): CategoryDesignTokens[] => {
-	const strategyResult = colorStrategy("material", color);
+	const strategyResult = colorStrategy(strategy, color);
 	return [
 		{
 			category: "Reset Colors",
@@ -110,9 +112,8 @@ export const buildCategoryDesignTokens = (
 	];
 };
 
-export const runCss = (color: string) => {
-	const categoryTokens = buildCategoryDesignTokens(color);
-	console.log(categoryTokens);
+export const runCss = (color: string, strategy: ColorStrategy = "harmony") => {
+	const categoryTokens = buildCategoryDesignTokens(color, strategy);
 	const output = [];
 	// Root
 	output.push("@theme {");

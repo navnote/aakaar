@@ -86,3 +86,5 @@ export type ColorStrategyOutput = {
 	lightDark: AakaarColorScheme;
 	blackAndWhite: BlackAndWhiteScheme;
 };
+
+export type ColorStrategy = "material" | "harmony";

@@ -12,12 +12,19 @@ export const token = new Command()
 		"Hex code of the source color, example, 006875. If it is not provided, the default color is used i.e. 006875",
 	)
 	.option("-o, --output <output>", "Output path for generated tokens.")
-	.action(async ({ color, output }) => {
+	.option(
+		"-s, --strategy <strategy>",
+		"Color generation strategy: 'material' or 'harmony'. Default is 'material'",
+		"material",
+	)
+	.action(async ({ color, output, strategy }) => {
 		verify();
 		const finalColor = color || config.tokens.color;
 		const finalOutput = output || config.tokens.output;
-		console.log(`Generating tokens for color: ${finalColor}`);
-		const cssOutput = runCss(`#${finalColor}`);
+		console.log(
+			`Generating tokens for color: ${finalColor} using ${strategy} strategy`,
+		);
+		const cssOutput = runCss(`#${finalColor}`, strategy);
 		if (!existsSync(finalOutput)) {
 			mkdirSync(finalOutput, {
 				recursive: true,

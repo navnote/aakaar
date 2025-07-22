@@ -1,0 +1,114 @@
+@theme {
+  /* Category: Reset Colors */
+  --color-*: initial;
+
+  /* Category: Primary Colors */
+  --color-primary-0: oklch(50% 0.13 290);
+  --color-primary-10: oklch(55% 0.13 290);
+  --color-primary-20: oklch(65% 0.13 290);
+  --color-primary-30: oklch(84% 0.09 300);
+  --color-primary-40: oklch(100% 0 none);
+  --color-primary-50: oklch(100% 0 none);
+  --color-primary-60: oklch(100% 0 none);
+  --color-primary-70: oklch(100% 0 none);
+  --color-primary-80: oklch(100% 0 none);
+  --color-primary-90: oklch(100% 0 none);
+  --color-primary-95: oklch(100% 0 none);
+  --color-primary-100: oklch(100% 0 none);
+  --white: #fff;
+  --black: #000;
+
+  /* Category: Pallete Colors */
+  --color-primary: light-dark(rgb(100% 100% 100%), rgb(100% 100% 100%));
+  --color-on-primary: light-dark(oklch(100% 0 none), oklch(0% 0 none));
+  --color-primary-container: light-dark(rgb(100% 100% 100%), rgb(100% 100% 100%));
+  --color-on-primary-container: light-dark(rgb(100% 100% 100%), rgb(100% 100% 100%));
+  --color-secondary: light-dark(hsl(338.18 0% 100%), hsl(338.18 0% 100%));
+  --color-on-secondary: light-dark(#ffffff, #000000);
+  --color-secondary-container: light-dark(hsl(338.18 0% 100%), hsl(338.18 0% 100%));
+  --color-on-secondary-container: light-dark(hsl(338.18 0% 100%), hsl(338.18 0% 100%));
+  --color-tertiary: light-dark(hsl(338.18 0% 100%), hsl(338.18 0% 100%));
+  --color-on-tertiary: light-dark(#ffffff, #000000);
+  --color-tertiary-container: light-dark(hsl(338.18 0% 100%), hsl(338.18 0% 100%));
+  --color-on-tertiary-container: light-dark(hsl(338.18 0% 100%), hsl(338.18 0% 100%));
+  --color-error: light-dark(hsl(0 0.8% 0.6%), hsl(0 0.8% 0.6%));
+  --color-on-error: light-dark(#ffffff, #000000);
+  --color-error-container: light-dark(hsl(345.12 0.59099% 1.3165%), hsl(345.12 0.95904% 0.3073%));
+  --color-on-error-container: light-dark(hsl(345.12 0.73833% 0.67448%), hsl(345.12 0.73833% 0.67448%));
+  --color-background: light-dark(hsl(69.58 0.01% 0.99%), hsl(69.578 0.01% 0.22%));
+  --color-on-background: light-dark(#000000, #ffffff);
+  --color-surface: light-dark(hsl(69.58 0.01% 0.99%), hsl(69.578 0.01% 0.22%));
+  --color-on-surface: light-dark(#000000, #ffffff);
+  --color-surface-variant: light-dark(hsl(69.58 0.03% 0.92%), hsl(69.578 0.02% 0.4%));
+  --color-on-surface-variant: light-dark(#000000, #ffffff);
+  --color-outline: light-dark(hsl(69.58 0.02% 0.57%), hsl(69.578 0.02% 0.66%));
+  --color-outline-variant: light-dark(hsl(69.58 0.03% 0.83%), hsl(69.578 0.02% 0.4%));
+  --color-shadow: light-dark(#000000, #000000);
+  --color-scrim: light-dark(#000000, #000000);
+  --color-inverse-surface: light-dark(hsl(69.58 0.01% 0.31%), hsl(69.578 0.01% 0.92%));
+  --color-inverse-on-surface: light-dark(#ffffff, #000000);
+  --color-inverse-primary: light-dark(hsl(69.58 0.09% 0.84%), hsl(69.578 0.17% 0.5%));
+
+  /* Category: Scale */
+  --scale: 1;
+
+  /* Category: Base */
+  --base: 1rem;
+
+  /* Category: Reset spacing */
+  --spacing-*: initial;
+
+  /* Category: Spacing */
+  --spacing-0: 0;
+  --spacing-xs: calc(var(--scale) * var(--base) * 0.25);
+  --spacing-sm: calc(var(--scale) * var(--base) * 0.5);
+  --spacing-md: calc(var(--scale) * var(--base) * 1);
+  --spacing-lg: calc(var(--scale) * var(--base) * 1.5);
+  --spacing-xl: calc(var(--scale) * var(--base) * 2);
+  --spacing-full: 100%;
+
+  /* Category: FontSize */
+  --font-size-xs: calc(var(--scale) * var(--base) * 0.75);
+  --font-size-sm: calc(var(--scale) * var(--base) * 0.875);
+  --font-size-md: calc(var(--scale) * var(--base) * 1);
+  --font-size-lg: calc(var(--scale) * var(--base) * 1.25);
+  --font-size-xl: calc(var(--scale) * var(--base) * 1.5);
+
+  /* Category: BorderRadius */
+  --radius-0: 0;
+  --radius-xs: calc(var(--scale) * var(--base) * 0.25);
+  --radius-sm: calc(var(--scale) * var(--base) * 0.375);
+  --radius-md: calc(var(--scale) * var(--base) * 0.5);
+  --radius-lg: calc(var(--scale) * var(--base) * 0.75);
+  --radius-xl: calc(var(--scale) * var(--base) * 1);
+  --radius-full: calc(var(--scale) * var(--base) * 999);
+  --radius-default: var(--radius-md);
+
+  /* Category: Shadows */
+  --shadow-0: none;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-full: 0 0 0 100vh rgba(0, 0, 0, 0.5);
+
+  /* Category: Drop Shadows */
+  --drop-shadow-0: none;
+  --drop-shadow-xs: 0 1px 1px rgb(0 0 0 / 0.05);
+  --drop-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.15);
+  --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
+  --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+  --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 0.1);
+  --drop-shadow-full: 0 25px 25px rgb(0 0 0 / 0.15);
+
+  /* Category: Inset Shadows */
+  --inset-shadow-0: none;
+  --inset-shadow-xs: inset 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --inset-shadow-sm: inset 0 4px 6px -1px rgb(0 0 0 / 0.1), inset 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --inset-shadow-md: inset 0 10px 15px -3px rgb(0 0 0 / 0.1), inset 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --inset-shadow-lg: inset 0 20px 25px -5px rgb(0 0 0 / 0.1), inset 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --inset-shadow-xl: inset 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --inset-shadow-full: inset 0 0 0 100vh rgba(0, 0, 0, 0.5);
+
+}
