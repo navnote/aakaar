@@ -1,4 +1,8 @@
-import type { CategoryDesignTokens, Size } from "@aakaar/dictionary";
+import type {
+	CategoryDesignTokens,
+	ColorStrategy,
+	Size,
+} from "@aakaar/dictionary";
 import type { PackageManager } from "@aakaar/global";
 
 export type Theme = "light" | "dark";
@@ -34,4 +38,6 @@ export type AppContextType = {
 	setFontFamily: (font: FontFamily) => void;
 	isSidebarOpen: boolean;
 	setIsSidebarOpen: (isSidebarOpen: boolean) => void;
+	strategy: ColorStrategy;
+	setStrategy: (strategy: ColorStrategy) => void;
 };

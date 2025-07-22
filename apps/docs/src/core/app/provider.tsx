@@ -1,4 +1,5 @@
 import {
+	type ColorStrategy,
 	Size,
 	buildCategoryDesignTokens,
 	transformTokenToCssObject,
@@ -50,6 +51,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const categoryTokens = useMemo(() => {
 		return buildCategoryDesignTokens(primary, "harmony");
 	}, [primary]);
+
+	const [strategy, setStrategy] = useState<ColorStrategy>(
+		(fetchLocalStorageItem("strategy") as ColorStrategy) ?? "material",
+	);
 
 	useEffect(() => {
 		const rootElem = document.querySelector<HTMLElement>(":root");
@@ -119,6 +124,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 		},
 		isSidebarOpen,
 		setIsSidebarOpen,
+		strategy,
+		setStrategy: (strategy: ColorStrategy) => {
+			setStrategy(strategy);
+			commitLocalStorageItem("strategy", strategy);
+		},
 	};
 
 	return (
