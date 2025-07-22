@@ -12,7 +12,7 @@ export const harmonyColorStrategy = (color: string): ColorStrategyOutput => {
 	return {
 		primaryPalette: harmonyPrimaryPaletteTokens(sourceColor),
 		lightDark: harmonyLightDarkTokens(sourceColor),
-		blackAndWhite: harmonyBlackAndWhiteTokens(),
+		blackAndWhite: harmonyBlackAndWhiteTokens(sourceColor),
 	};
 };
 

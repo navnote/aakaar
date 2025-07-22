@@ -482,15 +482,34 @@ export const harmonyPrimaryPaletteTokens = (
 	) as PrimaryPalette;
 };
 
-export const harmonyBlackAndWhiteTokens = (): BlackAndWhiteScheme => {
+export const harmonyBlackAndWhiteTokens = (
+	sourceColor?: Color,
+): BlackAndWhiteScheme => {
+	// Generate harmonized black and white with subtle tinting for better visual quality
+	let baseHue = 0;
+	if (sourceColor) {
+		const sourceOklch = sourceColor.to("oklch");
+		baseHue = Number.isNaN(sourceOklch.h) ? 0 : sourceOklch.h;
+	}
+
+	// Enhanced white: slightly warm with minimal tinting for better eye comfort
+	const enhancedWhite = new Color("oklch", [0.99, 0.002, baseHue]);
+
+	// Enhanced black: rich dark with subtle warmth, avoiding pure black harshness
+	const enhancedBlack = new Color("oklch", [0.05, 0.005, baseHue]);
+
 	return {
 		white: {
 			name: "white",
-			value: "#fff",
+			value: transformHexToOkLch(
+				`light-dark(${enhancedWhite.toString({ format: "hex" })}, ${enhancedWhite.toString({ format: "hex" })})`,
+			),
 		},
 		black: {
 			name: "black",
-			value: "#000",
+			value: transformHexToOkLch(
+				`light-dark(${enhancedBlack.toString({ format: "hex" })}, ${enhancedBlack.toString({ format: "hex" })})`,
+			),
 		},
 	};
 };

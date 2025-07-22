@@ -116,6 +116,7 @@ export const runCss = (color: string, strategy: ColorStrategy = "harmony") => {
 	const categoryTokens = buildCategoryDesignTokens(color, strategy);
 	const output = [];
 	// Root
+	output.push(`/* Aakaar Design Tokens: Source: ${color} */`);
 	output.push("@theme {");
 	for (const category of categoryTokens) {
 		output.push(...buildForCategory(category.category, category.tokens));
