@@ -5,7 +5,6 @@ import {
 	VariableCase,
 } from "../types";
 import { transformCase } from "../utils/case";
-import { lightDarkTokens, primaryPaletteTokens, theme } from "./colors";
 import {
 	dropShadowSizeTokens,
 	insetShadowSizeTokens,
@@ -18,6 +17,7 @@ import {
 	scaleToken,
 	spacingTokens,
 } from "./size";
+import { colorStrategy } from "./strategy";
 
 export const transformTokenToCssObject = (token: DesignToken): CssObject => {
 	const name = `--${transformCase(token.name, VariableCase.KEBAB)}`;
@@ -41,21 +41,10 @@ const buildForCategory = (category: string, tokens: DesignToken[]) => {
 	return output;
 };
 
-const blackAndWhiteTokens: DesignToken[] = [
-	{
-		name: "white",
-		value: "#fff",
-	},
-	{
-		name: "black",
-		value: "#000",
-	},
-];
-
 export const buildCategoryDesignTokens = (
 	color: string,
 ): CategoryDesignTokens[] => {
-	const generatedTheme = theme(color);
+	const strategyResult = colorStrategy("material", color);
 	return [
 		{
 			category: "Reset Colors",
@@ -68,11 +57,13 @@ export const buildCategoryDesignTokens = (
 		},
 		{
 			category: "Primary Colors",
-			tokens: primaryPaletteTokens(generatedTheme).concat(blackAndWhiteTokens),
+			tokens: Object.values(strategyResult.primaryPalette).concat(
+				Object.values(strategyResult.blackAndWhite),
+			),
 		},
 		{
 			category: "Pallete Colors",
-			tokens: lightDarkTokens(generatedTheme),
+			tokens: Object.values(strategyResult.lightDark),
 		},
 
 		{

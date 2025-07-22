@@ -18,6 +18,9 @@
 		"clean": "rm -rf dist",
 		"clean:nm": "rm -rf node_modules",
 		"dev": "tsup src/index.ts --watch --format esm,cjs --dts",
+		"test": "vitest",
+		"test:ui": "vitest --ui",
+		"test:run": "vitest run",
 		"prepublishOnly": "pnpm run build",
 		"publish:internet": "pnpm publish --access public",
 		"publish:local": "pnpm publish --registry http://localhost:4873 --git-checks=false"
@@ -25,5 +28,9 @@
 	"dependencies": {
 		"@material/material-color-utilities": "^0.3.0",
 		"colorjs.io": "^0.5.2"
+	},
+	"devDependencies": {
+		"@vitest/ui": "^3.2.4",
+		"vitest": "^3.2.4"
 	}
 }
