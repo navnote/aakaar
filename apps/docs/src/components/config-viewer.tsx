@@ -12,8 +12,15 @@ import { useAppContext } from "../core/app";
 import { FormattedCode } from "./code";
 
 export const ConfigViewer = () => {
-	const { categoryTokens, fontFamily, theme, radius, packageManager, base } =
-		useAppContext();
+	const {
+		categoryTokens,
+		fontFamily,
+		theme,
+		radius,
+		packageManager,
+		base,
+		strategy,
+	} = useAppContext();
 
 	return (
 		<Dialog>
@@ -32,6 +39,10 @@ export const ConfigViewer = () => {
 							<tr>
 								<td className="text-sm font-bold p-xs">Font</td>
 								<td className="p-xs">{fontFamily}</td>
+							</tr>
+							<tr>
+								<td className="text-sm font-bold p-xs">Color Strategy</td>
+								<td className="p-xs">{strategy}</td>
 							</tr>
 							<tr>
 								<td className="text-sm font-bold p-xs">Theme</td>

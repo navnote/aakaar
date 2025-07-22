@@ -25,6 +25,10 @@ const commitLocalStorageItem = (key: string, value: string) => {
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+	const [strategy, setStrategy] = useState<ColorStrategy>(
+		(fetchLocalStorageItem("strategy") as ColorStrategy) ?? "material",
+	);
+
 	const [theme, setTheme] = useState<Theme>(
 		(fetchLocalStorageItem("theme") as Theme) ?? "light",
 	);
@@ -49,12 +53,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	);
 
 	const categoryTokens = useMemo(() => {
-		return buildCategoryDesignTokens(primary, "harmony");
-	}, [primary]);
-
-	const [strategy, setStrategy] = useState<ColorStrategy>(
-		(fetchLocalStorageItem("strategy") as ColorStrategy) ?? "material",
-	);
+		return buildCategoryDesignTokens(primary, strategy);
+	}, [primary, strategy]);
 
 	useEffect(() => {
 		const rootElem = document.querySelector<HTMLElement>(":root");

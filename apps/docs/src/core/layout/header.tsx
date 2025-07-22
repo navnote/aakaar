@@ -8,6 +8,7 @@ import {
 	DialogTrigger,
 } from "@aakaar/react";
 import { IconBrandGithub, IconMenu2, IconSettings } from "@tabler/icons-react";
+import { StrategyToggle } from "src/components/strategy-toggle";
 import { BaseToggle } from "../../components/base-toggle";
 import { ColorPicker } from "../../components/color-picker";
 import { ConfigViewer } from "../../components/config-viewer";
@@ -32,6 +33,7 @@ export const Header = () => {
 			<RadiusToggle />
 			<BaseToggle />
 			<FontToggle />
+			<StrategyToggle />
 			<ConfigViewer />
 			<a href="https://github.com/navnote/aakaar" target="_blank">
 				<Button size="icon">
