@@ -73,7 +73,7 @@ const generateHarmoniousHue = (
 ): number => {
 	switch (harmonyType) {
 		case "analogous":
-			return (baseHue + index * 30) % 360;
+			return (baseHue + index * 30 + 360) % 360;
 		case "complementary":
 			return (baseHue + 180) % 360;
 		case "triadic":
@@ -162,8 +162,8 @@ export const harmonyLightDarkTokens = (
 		secondaryHue,
 	]);
 
-	// Generate tertiary colors using split-complementary harmony
-	const tertiaryHue = generateHarmoniousHue(baseHue, "split-complementary", 0);
+	// Generate tertiary colors using analogous harmony (opposite direction from secondary)
+	const tertiaryHue = generateHarmoniousHue(baseHue, "analogous", -1);
 	const tertiaryChroma = generateOptimalChroma(baseChroma, "tertiary");
 	const lightTertiary = new Color("oklch", [
 		optimizeLightnessForContrast(baseLightness, tertiaryChroma, true),
