@@ -32,7 +32,7 @@ export const FormattedCode = ({
 	};
 
 	return (
-		<pre className={"relative p-md"}>
+		<div className={"relative"}>
 			{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
 			<span dangerouslySetInnerHTML={{ __html: formattedCode }} />
 			{enableCopy && (
@@ -45,6 +45,6 @@ export const FormattedCode = ({
 					{isCopied ? <IconCheck size={16} /> : <IconCopy size={16} />}
 				</Button>
 			)}
-		</pre>
+		</div>
 	);
 };

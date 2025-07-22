@@ -20,11 +20,12 @@ export const token = new Command()
 	.action(async ({ color, output, strategy }) => {
 		verify();
 		const finalColor = color || config.tokens.color;
+		const finalStrategy = strategy || config.tokens.strategy;
 		const finalOutput = output || config.tokens.output;
 		console.log(
-			`Generating tokens for color: ${finalColor} using ${strategy} strategy`,
+			`Generating tokens for color: ${finalColor} using ${finalStrategy} strategy`,
 		);
-		const cssOutput = runCss(`#${finalColor}`, strategy);
+		const cssOutput = runCss(`#${finalColor}`, finalStrategy);
 		if (!existsSync(finalOutput)) {
 			mkdirSync(finalOutput, {
 				recursive: true,
