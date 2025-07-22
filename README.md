@@ -162,7 +162,7 @@ We use Google's Material Design 3 tokens to create a consistent and beautiful de
   --white: #fff;
   --black: #000;
 
-  /* Category: Pallete Colors */
+  /* Category: Palette Colors */
   --color-primary: light-dark(oklch(50% 0.17 35), oklch(84% 0.09 35));
   --color-on-primary: light-dark(oklch(100% 0 none), oklch(32% 0.11 35));
   --color-primary-container: light-dark(oklch(92% 0.04 36), oklch(41% 0.14 35));
@@ -256,4 +256,4 @@ We use Google's Material Design 3 tokens to create a consistent and beautiful de
   --inset-shadow-full: inset 0 0 0 100vh rgba(0, 0, 0, 0.5);
 
 }
-```
+```# Test commit

@@ -24,30 +24,32 @@ export default () => {
 
 			<b>Only press y when you have correctly chosen path for following:</b>
 			<FormattedCode
-				code={`// aakaar.json
-        export type AakaarConfig = {
-          host: string; // The host of the aakaar server
-          core: {
-            path: string; // The path to the core files
-            import: string; // The import path from where to import the core file
-          };
-          tokens: {
-            color: string; // The source color of the tokens
-            output: string; // The output path for the tokens
-          };
-          react: {
-            output: string; // The output path for the react components
-          };
-        };`}
+				code={`
+// aakaar.json
+export type AakaarConfig = {
+	host: string; // The host of the aakaar server
+	core: {
+		path: string; // The path to the core files
+		import: string; // The import path from where to import the core file
+	};
+	tokens: {
+		color: string; // The source color of the tokens
+		strategy: string; // Strategy used to generate tokens i.e. 'material' or 'harmony'
+		output: string; // The output path for the tokens
+	};
+	react: {
+		output: string; // The output path for the react components
+	};
+};`}
 			/>
 			<b>Your file structure should look like this:</b>
 			<FormattedCode
 				code={`
-            // src/
-            //   design/
-            //     css/tokens.css
-            //     components/
-            //     core.ts
+// src/
+//   design/
+//     css/tokens.css
+//     components/
+//     core.ts
             `}
 			/>
 			<h2>Setup tokens</h2>

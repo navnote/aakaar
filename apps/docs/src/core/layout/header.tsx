@@ -8,6 +8,7 @@ import {
 	DialogTrigger,
 } from "@aakaar/react";
 import { IconBrandGithub, IconMenu2, IconSettings } from "@tabler/icons-react";
+import { StrategyToggle } from "src/components/strategy-toggle";
 import { BaseToggle } from "../../components/base-toggle";
 import { ColorPicker } from "../../components/color-picker";
 import { ConfigViewer } from "../../components/config-viewer";
@@ -32,6 +33,7 @@ export const Header = () => {
 			<RadiusToggle />
 			<BaseToggle />
 			<FontToggle />
+			<StrategyToggle />
 			<ConfigViewer />
 			<a href="https://github.com/navnote/aakaar" target="_blank">
 				<Button size="icon">
@@ -76,16 +78,16 @@ export const Header = () => {
 							className="text-on-surface-variant cursor-pointer"
 						/>
 					</DialogTrigger>
-					<DialogContent className="pt-lg  w-full">
+					<DialogContent className="pt-lg w-full">
 						<DialogTitle className="text-sm hidden">
 							Play with the theme
 						</DialogTitle>
-						<div className="flex gap-xs items-center justify-center ">
+						<div className="flex gap-xs items-center justify-center">
 							{toggleOptions}
 						</div>
 					</DialogContent>
 				</Dialog>
-				<div className="hidden md:flex items-center w-full justify-center md:justify-end gap-xs overflow-x-auto">
+				<div className="hidden m-sm p-sm md:flex items-center w-full justify-center md:justify-end gap-xs overflow-x-auto">
 					{toggleOptions}
 				</div>
 			</div>

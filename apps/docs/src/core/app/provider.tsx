@@ -1,4 +1,5 @@
 import {
+	type ColorStrategy,
 	Size,
 	buildCategoryDesignTokens,
 	transformTokenToCssObject,
@@ -24,6 +25,10 @@ const commitLocalStorageItem = (key: string, value: string) => {
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+	const [strategy, setStrategy] = useState<ColorStrategy>(
+		(fetchLocalStorageItem("strategy") as ColorStrategy) ?? "material",
+	);
+
 	const [theme, setTheme] = useState<Theme>(
 		(fetchLocalStorageItem("theme") as Theme) ?? "light",
 	);
@@ -48,8 +53,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	);
 
 	const categoryTokens = useMemo(() => {
-		return buildCategoryDesignTokens(primary);
-	}, [primary]);
+		return buildCategoryDesignTokens(primary, strategy);
+	}, [primary, strategy]);
 
 	useEffect(() => {
 		const rootElem = document.querySelector<HTMLElement>(":root");
@@ -119,6 +124,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 		},
 		isSidebarOpen,
 		setIsSidebarOpen,
+		strategy,
+		setStrategy: (strategy: ColorStrategy) => {
+			setStrategy(strategy);
+			commitLocalStorageItem("strategy", strategy);
+		},
 	};
 
 	return (

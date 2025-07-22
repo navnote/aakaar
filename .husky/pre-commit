@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 # Run code formatting and linting checks
 echo "🔍 Running check:fix before commit..."
@@ -7,9 +6,13 @@ echo "🔍 Running check:fix before commit..."
 # Run the check:fix command
 pnpm check:fix
 
-# Stage formatting changes only for files that were already staged
+# Stage formatting changes only for files that were already staged and exist
 echo "📝 Staging formatting changes for committed files..."
-git diff --cached --name-only | xargs -r git add
+git diff --cached --name-only | while read -r file; do
+    if [ -f "$file" ]; then
+        git add "$file"
+    fi
+done
 
 # Check if there are any changes to commit
 if [ -z "$(git diff --cached --name-only)" ]; then

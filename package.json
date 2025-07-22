@@ -6,6 +6,7 @@
 		"dev": "pnpm turbo run dev",
 		"clean": "pnpm turbo run clean",
 		"clean:nm": "rm -rf node_modules && turbo run clean:nm",
+		"test": "pnpm turbo run test",
 		"ts": "pnpm turbo run ts",
 		"check": "pnpm biome check .",
 		"check:fix": "pnpm biome check . --write .",
@@ -45,7 +46,7 @@
 	"dependencies": {
 		"@base-ui-components/react": "^1.0.0-beta.0",
 		"@material/material-color-utilities": "^0.3.0",
-		"@tabler/icons-react": "^3.34.0",
+		"@tabler/icons-react": "^3.34.1",
 		"@tailwindcss/vite": "^4.1.8",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",

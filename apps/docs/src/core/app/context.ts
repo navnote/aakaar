@@ -1,4 +1,4 @@
-import { Size } from "@aakaar/dictionary";
+import { type ColorStrategy, Size } from "@aakaar/dictionary";
 import type { PackageManager } from "@aakaar/global";
 import { createContext, useContext } from "react";
 import type { AppContextType, Base, FontFamily, Theme } from "./types";
@@ -19,6 +19,8 @@ export const AppContext = createContext<AppContextType>({
 	setFontFamily: (_font: FontFamily) => {},
 	isSidebarOpen: false,
 	setIsSidebarOpen: (_isSidebarOpen: boolean) => {},
+	strategy: "material",
+	setStrategy: (_strategy: ColorStrategy) => {},
 });
 
 export const useAppContext = () => {

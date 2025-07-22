@@ -12,8 +12,16 @@ import { useAppContext } from "../core/app";
 import { FormattedCode } from "./code";
 
 export const ConfigViewer = () => {
-	const { categoryTokens, fontFamily, theme, radius, packageManager, base } =
-		useAppContext();
+	const {
+		categoryTokens,
+		fontFamily,
+		theme,
+		radius,
+		packageManager,
+		base,
+		strategy,
+		primary,
+	} = useAppContext();
 
 	return (
 		<Dialog>
@@ -32,6 +40,10 @@ export const ConfigViewer = () => {
 							<tr>
 								<td className="text-sm font-bold p-xs">Font</td>
 								<td className="p-xs">{fontFamily}</td>
+							</tr>
+							<tr>
+								<td className="text-sm font-bold p-xs">Color Strategy</td>
+								<td className="p-xs">{strategy}</td>
 							</tr>
 							<tr>
 								<td className="text-sm font-bold p-xs">Theme</td>
@@ -54,14 +66,14 @@ export const ConfigViewer = () => {
 					<div className="flex flex-col gap-xs">
 						<h4 className="text-sm font-bold">Tokens</h4>
 						<FormattedCode
-							code={categoryTokens
+							code={`/* Aakaar Design Tokens: Source: ${primary} */\n${categoryTokens
 								.map(({ category, tokens }) => {
 									return `/* ${category} */\n${tokens
 										.map(transformTokenToCssObject)
 										.map(({ name, value }) => `${name}: ${value};`)
 										.join("\n")}`;
 								})
-								.join("\n\n")}
+								.join("\n\n")}`}
 							lang="css"
 						/>
 					</div>
