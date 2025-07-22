@@ -20,6 +20,7 @@ export const ConfigViewer = () => {
 		packageManager,
 		base,
 		strategy,
+		primary,
 	} = useAppContext();
 
 	return (
@@ -65,14 +66,14 @@ export const ConfigViewer = () => {
 					<div className="flex flex-col gap-xs">
 						<h4 className="text-sm font-bold">Tokens</h4>
 						<FormattedCode
-							code={categoryTokens
+							code={`/* Aakaar Design Tokens: Source: ${primary} */\n${categoryTokens
 								.map(({ category, tokens }) => {
 									return `/* ${category} */\n${tokens
 										.map(transformTokenToCssObject)
 										.map(({ name, value }) => `${name}: ${value};`)
 										.join("\n")}`;
 								})
-								.join("\n\n")}
+								.join("\n\n")}`}
 							lang="css"
 						/>
 					</div>
