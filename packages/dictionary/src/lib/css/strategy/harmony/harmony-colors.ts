@@ -31,533 +31,274 @@ const transformColorToToken = (name: string, color: string): DesignToken => {
 	};
 };
 
-// Color harmony functions
-const getComplementaryColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	// Ensure hue is a valid number
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 180, hsl.s, hsl.l]);
-};
-
-const getTriadicColor1 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	// Ensure hue is a valid number
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 120, hsl.s, hsl.l]);
-};
-
-const getTriadicColor2 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 240, hsl.s, hsl.l]);
-};
-
-const getAnalogousColor1 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 30, hsl.s, hsl.l]);
-};
-
-const getAnalogousColor2 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue - 30, hsl.s, hsl.l]);
-};
-
-const getSplitComplementary1 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 150, hsl.s, hsl.l]);
-};
-
-const getSplitComplementary2 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 210, hsl.s, hsl.l]);
-};
-
-const getTetradicColor1 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 90, hsl.s, hsl.l]);
-};
-
-const getTetradicColor2 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 180, hsl.s, hsl.l]);
-};
-
-const getTetradicColor3 = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue + 270, hsl.s, hsl.l]);
-};
-
-// Generate surface colors by desaturating and adjusting lightness
-const getSurfaceColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue, hsl.s * 0.05, 0.98]); // Very light, very low saturation
-};
-
-const getSurfaceVariantColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue, hsl.s * 0.08, 0.96]); // Light, very low saturation
-};
-
-const getBackgroundColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue, hsl.s * 0.02, 0.99]); // Almost white, minimal tint
-};
-
-// Generate error colors (high saturation red)
-const getErrorColor = (): Color => {
-	return new Color("hsl", [0, 0.8, 0.6]); // High saturation red
-};
-
-const getErrorContainerColor = (): Color => {
-	return new Color("hsl", [0, 0.3, 0.9]); // Light red
-};
-
-// Generate inverse colors
-const getInverseSurfaceColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue, hsl.s * 0.1, 0.1]); // Dark version
-};
-
-const getInverseOnSurfaceColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue, hsl.s * 0.1, 0.95]); // Light version
-};
-
-const getInversePrimaryColor = (sourceColor: Color): Color => {
-	const hsl = sourceColor.to("hsl");
-	const hue = Number.isNaN(hsl.h) ? 0 : hsl.h;
-	return new Color("hsl", [hue, hsl.s * 0.8, 0.9]); // Light, high saturation
-};
-
-// Calculate proper "on" colors based on contrast
-const getOnColor = (backgroundColor: Color): string => {
-	const hsl = backgroundColor.to("hsl");
-	// If background is light, use dark text; if dark, use light text
-	return hsl.l > 0.6 ? "#000000" : "#ffffff";
-};
-
-// Generate light theme colors
-const generateLightTheme = (sourceColor: Color) => {
-	// Use the source color directly as primary (no modification)
-	const primary = sourceColor;
-	const secondary = getComplementaryColor(sourceColor);
-	const tertiary = getTriadicColor1(sourceColor);
-	const error = getErrorColor();
-
-	// Light theme: proper contrast ratios for accessibility
-	const sourceHsl = sourceColor.to("hsl");
-	const sourceHue = Number.isNaN(sourceHsl.h) ? 0 : sourceHsl.h;
-	const background = new Color("hsl", [sourceHue, 0.02, 0.98]); // Very light tint
-	const surface = new Color("hsl", [sourceHue, 0.02, 0.98]); // Very light tint
-	const surfaceVariant = new Color("hsl", [sourceHue, 0.05, 0.94]); // Light tint
-	const outline = new Color("hsl", [sourceHue, 0.08, 0.6]); // Medium contrast
-	const outlineVariant = new Color("hsl", [sourceHue, 0.05, 0.85]); // Light contrast
-	const inverseSurface = new Color("hsl", [sourceHue, 0.05, 0.25]); // Dark for inverse
-	const inversePrimary = new Color("hsl", [sourceHue, 0.15, 0.9]); // Light inverse primary
-
-	// Generate container colors with proper contrast
-	const primaryHsl = primary.to("hsl");
-	const secondaryHsl = secondary.to("hsl");
-	const tertiaryHsl = tertiary.to("hsl");
-
-	// Container colors should be lighter versions of primary colors
-	const primaryContainer = new Color("hsl", [
-		primaryHsl.h,
-		Math.min(primaryHsl.s * 0.4, 0.3),
-		Math.min(primaryHsl.l + 0.25, 0.92),
-	]);
-	const secondaryContainer = new Color("hsl", [
-		secondaryHsl.h,
-		Math.min(secondaryHsl.s * 0.4, 0.3),
-		Math.min(secondaryHsl.l + 0.25, 0.92),
-	]);
-	const tertiaryContainer = new Color("hsl", [
-		tertiaryHsl.h,
-		Math.min(tertiaryHsl.s * 0.4, 0.3),
-		Math.min(tertiaryHsl.l + 0.25, 0.92),
-	]);
-
-	// On colors should have good contrast with their containers
-	const onPrimaryContainer = new Color("hsl", [
-		primaryHsl.h,
-		Math.min(primaryHsl.s * 0.9, 0.8),
-		Math.max(primaryHsl.l - 0.4, 0.15),
-	]);
-	const onSecondaryContainer = new Color("hsl", [
-		secondaryHsl.h,
-		Math.min(secondaryHsl.s * 0.9, 0.8),
-		Math.max(secondaryHsl.l - 0.4, 0.15),
-	]);
-	const onTertiaryContainer = new Color("hsl", [
-		tertiaryHsl.h,
-		Math.min(tertiaryHsl.s * 0.9, 0.8),
-		Math.max(tertiaryHsl.l - 0.4, 0.15),
-	]);
-
-	return {
-		primary: primary.to("srgb").toString({ format: "hex" }),
-		onPrimary: "#ffffff",
-		primaryContainer: primaryContainer.to("srgb").toString({ format: "hex" }),
-		onPrimaryContainer: onPrimaryContainer
-			.to("srgb")
-			.toString({ format: "hex" }),
-		secondary: secondary.to("srgb").toString({ format: "hex" }),
-		onSecondary: "#ffffff",
-		secondaryContainer: secondaryContainer
-			.to("srgb")
-			.toString({ format: "hex" }),
-		onSecondaryContainer: onSecondaryContainer
-			.to("srgb")
-			.toString({ format: "hex" }),
-		tertiary: tertiary.to("srgb").toString({ format: "hex" }),
-		onTertiary: "#ffffff",
-		tertiaryContainer: tertiaryContainer.to("srgb").toString({ format: "hex" }),
-		onTertiaryContainer: onTertiaryContainer
-			.to("srgb")
-			.toString({ format: "hex" }),
-		error: error.toString({ format: "hex" }),
-		onError: "#ffffff",
-		errorContainer: new Color("hsl", [0, 0.25, 0.95]).toString({
-			format: "hex",
-		}),
-		onErrorContainer: new Color("hsl", [0, 0.85, 0.25]).toString({
-			format: "hex",
-		}),
-		background: background.toString({ format: "hex" }),
-		onBackground: "#000000",
-		surface: surface.toString({ format: "hex" }),
-		onSurface: "#000000",
-		surfaceVariant: surfaceVariant.toString({ format: "hex" }),
-		onSurfaceVariant: "#000000",
-		outline: outline.toString({ format: "hex" }),
-		outlineVariant: outlineVariant.toString({ format: "hex" }),
-		shadow: "#000000",
-		scrim: "#000000",
-		inverseSurface: inverseSurface.toString({ format: "hex" }),
-		inverseOnSurface: "#ffffff",
-		inversePrimary: inversePrimary.toString({ format: "hex" }),
-		inverseOnPrimary: "#000000",
-	};
-};
-
-// Generate dark theme colors
-const generateDarkTheme = (sourceColor: Color) => {
-	// Use the source color directly as primary (no modification)
-	const primary = sourceColor;
-	const secondary = getComplementaryColor(sourceColor);
-	const tertiary = getTriadicColor1(sourceColor);
-	const error = getErrorColor();
-
-	// Dark theme: proper contrast ratios for accessibility
-	const sourceHsl = sourceColor.to("hsl");
-	const sourceHue = Number.isNaN(sourceHsl.h) ? 0 : sourceHsl.h;
-	const background = new Color("hsl", [sourceHue, 0.03, 0.12]); // Very dark tint
-	const surface = new Color("hsl", [sourceHue, 0.03, 0.12]); // Very dark tint
-	const surfaceVariant = new Color("hsl", [sourceHue, 0.05, 0.22]); // Dark tint
-	const outline = new Color("hsl", [sourceHue, 0.08, 0.7]); // Light contrast
-	const outlineVariant = new Color("hsl", [sourceHue, 0.05, 0.35]); // Dark contrast
-	const inverseSurface = new Color("hsl", [sourceHue, 0.05, 0.9]); // Light for inverse
-	const inversePrimary = new Color("hsl", [sourceHue, 0.2, 0.6]); // Dark inverse primary
-
-	// Generate container colors with proper contrast for dark theme
-	const primaryHsl = primary.to("hsl");
-	const secondaryHsl = secondary.to("hsl");
-	const tertiaryHsl = tertiary.to("hsl");
-
-	// Container colors should be darker versions of primary colors
-	const primaryContainer = new Color("hsl", [
-		primaryHsl.h,
-		Math.min(primaryHsl.s * 0.6, 0.4),
-		Math.max(primaryHsl.l - 0.2, 0.15),
-	]);
-	const secondaryContainer = new Color("hsl", [
-		secondaryHsl.h,
-		Math.min(secondaryHsl.s * 0.6, 0.4),
-		Math.max(secondaryHsl.l - 0.2, 0.15),
-	]);
-	const tertiaryContainer = new Color("hsl", [
-		tertiaryHsl.h,
-		Math.min(tertiaryHsl.s * 0.6, 0.4),
-		Math.max(tertiaryHsl.l - 0.2, 0.15),
-	]);
-
-	// On colors should have good contrast with their containers
-	const onPrimaryContainer = new Color("hsl", [
-		primaryHsl.h,
-		Math.min(primaryHsl.s * 0.3, 0.2),
-		Math.min(primaryHsl.l + 0.3, 0.9),
-	]);
-	const onSecondaryContainer = new Color("hsl", [
-		secondaryHsl.h,
-		Math.min(secondaryHsl.s * 0.3, 0.2),
-		Math.min(secondaryHsl.l + 0.3, 0.9),
-	]);
-	const onTertiaryContainer = new Color("hsl", [
-		tertiaryHsl.h,
-		Math.min(tertiaryHsl.s * 0.3, 0.2),
-		Math.min(tertiaryHsl.l + 0.3, 0.9),
-	]);
-
-	return {
-		primary: primary.toString({ format: "hex" }),
-		onPrimary: "#000000",
-		primaryContainer: primaryContainer.toString({ format: "hex" }),
-		onPrimaryContainer: onPrimaryContainer.toString({ format: "hex" }),
-		secondary: secondary.toString({ format: "hex" }),
-		onSecondary: "#000000",
-		secondaryContainer: secondaryContainer.toString({ format: "hex" }),
-		onSecondaryContainer: onSecondaryContainer.toString({ format: "hex" }),
-		tertiary: tertiary.toString({ format: "hex" }),
-		onTertiary: "#000000",
-		tertiaryContainer: tertiaryContainer.toString({ format: "hex" }),
-		onTertiaryContainer: onTertiaryContainer.toString({ format: "hex" }),
-		error: error.toString({ format: "hex" }),
-		onError: "#000000",
-		errorContainer: new Color("hsl", [0, 0.85, 0.25]).toString({
-			format: "hex",
-		}),
-		onErrorContainer: new Color("hsl", [0, 0.25, 0.95]).toString({
-			format: "hex",
-		}),
-		background: background.toString({ format: "hex" }),
-		onBackground: "#ffffff",
-		surface: surface.toString({ format: "hex" }),
-		onSurface: "#ffffff",
-		surfaceVariant: surfaceVariant.toString({ format: "hex" }),
-		onSurfaceVariant: "#ffffff",
-		outline: outline.toString({ format: "hex" }),
-		outlineVariant: outlineVariant.toString({ format: "hex" }),
-		shadow: "#000000",
-		scrim: "#000000",
-		inverseSurface: inverseSurface.toString({ format: "hex" }),
-		inverseOnSurface: "#000000",
-		inversePrimary: inversePrimary.toString({ format: "hex" }),
-		inverseOnPrimary: "#ffffff",
-	};
-};
-
 export const harmonyLightDarkTokens = (
 	sourceColor: Color,
 ): AakaarColorScheme => {
-	// Use the source color directly as primary
-	const primary = sourceColor.to("oklch").toString({ precision: 2 });
+	// Start with the source color as our base
+	const baseColor = sourceColor;
+	const baseOklch = baseColor.to("oklch");
+	const baseHue = Number.isNaN(baseOklch.h) ? 0 : baseOklch.h;
+	const baseChroma = baseOklch.c;
+	const baseLightness = baseOklch.l;
 
-	// Generate complementary and triadic colors using OKLCH
-	const primaryOklch = sourceColor.to("oklch");
-	const secondary = new Color("oklch", [
-		primaryOklch.l,
-		primaryOklch.c,
-		(primaryOklch.h + 180) % 360,
-	]).toString({ precision: 2 });
-	const tertiary = new Color("oklch", [
-		primaryOklch.l,
-		primaryOklch.c,
-		(primaryOklch.h + 120) % 360,
-	]).toString({ precision: 2 });
+	// Generate a harmonious palette with strong guarantees for visibility
+	// Primary: Create separate light and dark versions
+	const primaryLightness = Math.min(baseLightness, 0.55); // Much stricter limit
+	const primaryChroma = Math.max(baseChroma, 0.18); // Higher minimum saturation
+	let lightPrimary = new Color("oklch", [
+		primaryLightness,
+		primaryChroma,
+		baseHue,
+	]);
+	let darkPrimary = new Color("oklch", [
+		Math.max(primaryLightness - 0.1, 0.45),
+		primaryChroma,
+		baseHue,
+	]);
 
-	// Generate light and dark theme colors
-	const lightBackground = new Color("oklch", [
-		0.98,
-		0.01,
-		primaryOklch.h,
-	]).toString({ precision: 2 });
-	const darkBackground = new Color("oklch", [
-		0.12,
-		0.02,
-		primaryOklch.h,
-	]).toString({ precision: 2 });
+	// Fallback: If primary is still too light (close to white), use a default blue
+	const lightPrimaryOklch = lightPrimary.to("oklch");
+	if (lightPrimaryOklch.l > 0.8 || lightPrimaryOklch.c < 0.1) {
+		console.warn("Primary color too light, using fallback blue");
+		lightPrimary = new Color("oklch", [0.55, 0.18, 240]); // Default blue
+		darkPrimary = new Color("oklch", [0.45, 0.18, 240]); // Darker blue
+	}
 
-	const lightSurface = new Color("oklch", [
-		0.98,
-		0.01,
-		primaryOklch.h,
-	]).toString({ precision: 2 });
-	const darkSurface = new Color("oklch", [0.12, 0.02, primaryOklch.h]).toString(
-		{ precision: 2 },
-	);
+	// Secondary: Analogous color (30° away) - separate light and dark
+	const secondaryHue = (baseHue + 30) % 360;
+	const lightSecondary = new Color("oklch", [
+		primaryLightness,
+		primaryChroma * 0.8,
+		secondaryHue,
+	]);
+	const darkSecondary = new Color("oklch", [
+		Math.max(primaryLightness - 0.1, 0.45),
+		primaryChroma * 0.8,
+		secondaryHue,
+	]);
 
+	// Tertiary: Closer analogous color (60° away) - separate light and dark
+	const tertiaryHue = (baseHue + 60) % 360;
+	const lightTertiary = new Color("oklch", [
+		primaryLightness,
+		primaryChroma * 0.7,
+		tertiaryHue,
+	]);
+	const darkTertiary = new Color("oklch", [
+		Math.max(primaryLightness - 0.1, 0.45),
+		primaryChroma * 0.7,
+		tertiaryHue,
+	]);
+
+	// Error: Always a red, but harmonized - separate light and dark
+	const lightError = new Color("oklch", [
+		0.6,
+		Math.max(primaryChroma * 0.9, 0.15),
+		25,
+	]);
+	const darkError = new Color("oklch", [
+		0.5,
+		Math.max(primaryChroma * 0.9, 0.15),
+		25,
+	]);
+
+	// Background and Surface colors
+	const lightBackground = new Color("oklch", [0.98, 0.005, baseHue]);
+	const darkBackground = new Color("oklch", [0.12, 0.01, baseHue]);
+
+	const lightSurface = new Color("oklch", [0.96, 0.01, baseHue]);
+	const darkSurface = new Color("oklch", [0.15, 0.01, baseHue]);
+
+	// Container colors - lighter versions of their base colors
 	const lightPrimaryContainer = new Color("oklch", [
-		0.92,
-		primaryOklch.c * 0.4,
-		primaryOklch.h,
-	]).toString({ precision: 2 });
+		0.9,
+		primaryChroma * 0.4,
+		baseHue,
+	]);
 	const darkPrimaryContainer = new Color("oklch", [
 		0.25,
-		primaryOklch.c * 0.6,
-		primaryOklch.h,
-	]).toString({ precision: 2 });
+		primaryChroma * 0.6,
+		baseHue,
+	]);
 
 	const lightSecondaryContainer = new Color("oklch", [
-		0.92,
-		primaryOklch.c * 0.3,
-		(primaryOklch.h + 180) % 360,
-	]).toString({ precision: 2 });
+		0.89,
+		primaryChroma * 0.35,
+		secondaryHue,
+	]);
 	const darkSecondaryContainer = new Color("oklch", [
-		0.25,
-		primaryOklch.c * 0.5,
-		(primaryOklch.h + 180) % 360,
-	]).toString({ precision: 2 });
+		0.23,
+		primaryChroma * 0.55,
+		secondaryHue,
+	]);
 
 	const lightTertiaryContainer = new Color("oklch", [
-		0.92,
-		primaryOklch.c * 0.3,
-		(primaryOklch.h + 120) % 360,
-	]).toString({ precision: 2 });
+		0.88,
+		primaryChroma * 0.3,
+		tertiaryHue,
+	]);
 	const darkTertiaryContainer = new Color("oklch", [
-		0.25,
-		primaryOklch.c * 0.5,
-		(primaryOklch.h + 120) % 360,
-	]).toString({ precision: 2 });
+		0.22,
+		primaryChroma * 0.5,
+		tertiaryHue,
+	]);
 
-	// Error colors
-	const error = new Color("oklch", [0.55, 0.15, 25]).toString({ precision: 2 });
-	const lightErrorContainer = new Color("oklch", [0.95, 0.05, 25]).toString({
-		precision: 2,
-	});
-	const darkErrorContainer = new Color("oklch", [0.25, 0.15, 25]).toString({
-		precision: 2,
-	});
+	// Error container
+	const lightErrorContainer = new Color("oklch", [0.95, 0.05, 25]);
+	const darkErrorContainer = new Color("oklch", [0.25, 0.15, 25]);
+
+	// Surface variant
+	const lightSurfaceVariant = new Color("oklch", [0.93, 0.012, baseHue]);
+	const darkSurfaceVariant = new Color("oklch", [0.25, 0.02, baseHue]);
+
+	// Outline colors
+	const lightOutline = new Color("oklch", [0.65, 0.03, baseHue]);
+	const darkOutline = new Color("oklch", [0.75, 0.03, baseHue]);
+	const lightOutlineVariant = new Color("oklch", [0.88, 0.015, baseHue]);
+	const darkOutlineVariant = new Color("oklch", [0.4, 0.015, baseHue]);
+
+	// Inverse colors
+	const lightInverseSurface = new Color("oklch", [0.25, 0.02, baseHue]);
+	const darkInverseSurface = new Color("oklch", [0.9, 0.02, baseHue]);
+	const lightInversePrimary = new Color("oklch", [0.9, 0.1, baseHue]);
+	const darkInversePrimary = new Color("oklch", [0.6, 0.15, baseHue]);
+
+	// Helper function to calculate "on" colors with proper contrast for both light and dark
+	function calculateOnColor(
+		lightBackground: Color,
+		darkBackground: Color,
+	): string {
+		const lightBgOklch = lightBackground.to("oklch");
+		const darkBgOklch = darkBackground.to("oklch");
+
+		// For light-dark function, we need to return a single value that works for both
+		// Since we're using light-dark(), we'll use the light mode calculation as the base
+		// and let the CSS light-dark() function handle the switching
+		return lightBgOklch.l > 0.6 ? "#000000" : "#ffffff";
+	}
 
 	return {
-		// Primary colors
+		// Primary colors - the main brand color
 		primary: transformColorToToken(
 			"primary",
-			`light-dark(${primary}, ${primary})`,
+			`light-dark(${lightPrimary.toString({ format: "hex" })}, ${darkPrimary.toString({ format: "hex" })})`,
 		),
 		onPrimary: transformColorToToken(
 			"onPrimary",
-			"light-dark(oklch(100% 0 none), oklch(0% 0 none))",
+			"light-dark(#ffffff, #000000)",
 		),
 		primaryContainer: transformColorToToken(
 			"primaryContainer",
-			`light-dark(${lightPrimaryContainer}, ${darkPrimaryContainer})`,
+			`light-dark(${lightPrimaryContainer.toString({ format: "hex" })}, ${darkPrimaryContainer.toString({ format: "hex" })})`,
 		),
 		onPrimaryContainer: transformColorToToken(
 			"onPrimaryContainer",
-			"light-dark(oklch(25% 0.1 0), oklch(90% 0.05 0))",
+			"light-dark(#000000, #ffffff)",
 		),
 
-		// Secondary colors
+		// Secondary colors - supporting accent
 		secondary: transformColorToToken(
 			"secondary",
-			`light-dark(${secondary}, ${secondary})`,
+			`light-dark(${lightSecondary.toString({ format: "hex" })}, ${darkSecondary.toString({ format: "hex" })})`,
 		),
 		onSecondary: transformColorToToken(
 			"onSecondary",
-			"light-dark(oklch(100% 0 none), oklch(0% 0 none))",
+			"light-dark(#ffffff, #000000)",
 		),
 		secondaryContainer: transformColorToToken(
 			"secondaryContainer",
-			`light-dark(${lightSecondaryContainer}, ${darkSecondaryContainer})`,
+			`light-dark(${lightSecondaryContainer.toString({ format: "hex" })}, ${darkSecondaryContainer.toString({ format: "hex" })})`,
 		),
 		onSecondaryContainer: transformColorToToken(
 			"onSecondaryContainer",
-			"light-dark(oklch(25% 0.1 180), oklch(90% 0.05 180))",
+			"light-dark(#000000, #ffffff)",
 		),
 
-		// Tertiary colors
+		// Tertiary colors - additional accent
 		tertiary: transformColorToToken(
 			"tertiary",
-			`light-dark(${tertiary}, ${tertiary})`,
+			`light-dark(${lightTertiary.toString({ format: "hex" })}, ${darkTertiary.toString({ format: "hex" })})`,
 		),
 		onTertiary: transformColorToToken(
 			"onTertiary",
-			"light-dark(oklch(100% 0 none), oklch(0% 0 none))",
+			"light-dark(#ffffff, #000000)",
 		),
 		tertiaryContainer: transformColorToToken(
 			"tertiaryContainer",
-			`light-dark(${lightTertiaryContainer}, ${darkTertiaryContainer})`,
+			`light-dark(${lightTertiaryContainer.toString({ format: "hex" })}, ${darkTertiaryContainer.toString({ format: "hex" })})`,
 		),
 		onTertiaryContainer: transformColorToToken(
 			"onTertiaryContainer",
-			"light-dark(oklch(25% 0.1 120), oklch(90% 0.05 120))",
+			"light-dark(#000000, #ffffff)",
 		),
 
-		// Error colors
-		error: transformColorToToken("error", `light-dark(${error}, ${error})`),
-		onError: transformColorToToken(
-			"onError",
-			"light-dark(oklch(100% 0 none), oklch(0% 0 none))",
+		// Error colors - for error states
+		error: transformColorToToken(
+			"error",
+			`light-dark(${lightError.toString({ format: "hex" })}, ${darkError.toString({ format: "hex" })})`,
 		),
+		onError: transformColorToToken("onError", "light-dark(#ffffff, #000000)"),
 		errorContainer: transformColorToToken(
 			"errorContainer",
-			`light-dark(${lightErrorContainer}, ${darkErrorContainer})`,
+			`light-dark(${lightErrorContainer.toString({ format: "hex" })}, ${darkErrorContainer.toString({ format: "hex" })})`,
 		),
 		onErrorContainer: transformColorToToken(
 			"onErrorContainer",
-			"light-dark(oklch(25% 0.1 25), oklch(90% 0.05 25))",
+			"light-dark(#000000, #ffffff)",
 		),
 
-		// Background and surface
+		// Background and surface colors
 		background: transformColorToToken(
 			"background",
-			`light-dark(${lightBackground}, ${darkBackground})`,
+			`light-dark(${lightBackground.toString({ format: "hex" })}, ${darkBackground.toString({ format: "hex" })})`,
 		),
 		onBackground: transformColorToToken(
 			"onBackground",
-			"light-dark(oklch(0% 0 none), oklch(100% 0 none))",
+			"light-dark(#000000, #ffffff)",
 		),
 		surface: transformColorToToken(
 			"surface",
-			`light-dark(${lightSurface}, ${darkSurface})`,
+			`light-dark(${lightSurface.toString({ format: "hex" })}, ${darkSurface.toString({ format: "hex" })})`,
 		),
 		onSurface: transformColorToToken(
 			"onSurface",
-			"light-dark(oklch(0% 0 none), oklch(100% 0 none))",
+			"light-dark(#000000, #ffffff)",
 		),
 		surfaceVariant: transformColorToToken(
 			"surfaceVariant",
-			`light-dark(oklch(94% 0.02 ${primaryOklch.h}), oklch(22% 0.02 ${primaryOklch.h})`,
+			`light-dark(${lightSurfaceVariant.toString({ format: "hex" })}, ${darkSurfaceVariant.toString({ format: "hex" })})`,
 		),
 		onSurfaceVariant: transformColorToToken(
 			"onSurfaceVariant",
-			"light-dark(oklch(0% 0 none), oklch(100% 0 none))",
+			"light-dark(#000000, #ffffff)",
 		),
 
 		// Outline colors
 		outline: transformColorToToken(
 			"outline",
-			`light-dark(oklch(60% 0.02 ${primaryOklch.h}), oklch(70% 0.02 ${primaryOklch.h})`,
+			`light-dark(${lightOutline.toString({ format: "hex" })}, ${darkOutline.toString({ format: "hex" })})`,
 		),
 		outlineVariant: transformColorToToken(
 			"outlineVariant",
-			`light-dark(oklch(85% 0.02 ${primaryOklch.h}), oklch(35% 0.02 ${primaryOklch.h})`,
+			`light-dark(${lightOutlineVariant.toString({ format: "hex" })}, ${darkOutlineVariant.toString({ format: "hex" })})`,
 		),
 
 		// Shadow and scrim
-		shadow: transformColorToToken(
-			"shadow",
-			"light-dark(oklch(0% 0 none), oklch(0% 0 none))",
-		),
-		scrim: transformColorToToken(
-			"scrim",
-			"light-dark(oklch(0% 0 none), oklch(0% 0 none))",
-		),
+		shadow: transformColorToToken("shadow", "#000000"),
+		scrim: transformColorToToken("scrim", "#000000"),
 
 		// Inverse colors
 		inverseSurface: transformColorToToken(
 			"inverseSurface",
-			`light-dark(oklch(25% 0.02 ${primaryOklch.h}), oklch(90% 0.02 ${primaryOklch.h})`,
+			`light-dark(${lightInverseSurface.toString({ format: "hex" })}, ${darkInverseSurface.toString({ format: "hex" })})`,
 		),
 		inverseOnSurface: transformColorToToken(
 			"inverseOnSurface",
-			"light-dark(oklch(100% 0 none), oklch(0% 0 none))",
+			"light-dark(#ffffff, #000000)",
 		),
 		inversePrimary: transformColorToToken(
 			"inversePrimary",
-			`light-dark(oklch(90% 0.1 ${primaryOklch.h}), oklch(60% 0.15 ${primaryOklch.h})`,
+			`light-dark(${lightInversePrimary.toString({ format: "hex" })}, ${darkInversePrimary.toString({ format: "hex" })})`,
 		),
 	};
 };

@@ -14,8 +14,8 @@ export const token = new Command()
 	.option("-o, --output <output>", "Output path for generated tokens.")
 	.option(
 		"-s, --strategy <strategy>",
-		"Color generation strategy: 'material' or 'harmony'. Default is 'material'",
-		"material",
+		"Color generation strategy: 'material' or 'harmony'. Default is 'harmony'",
+		"harmony",
 	)
 	.action(async ({ color, output, strategy }) => {
 		verify();

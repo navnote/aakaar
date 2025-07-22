@@ -48,7 +48,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	);
 
 	const categoryTokens = useMemo(() => {
-		return buildCategoryDesignTokens(primary);
+		return buildCategoryDesignTokens(primary, "harmony");
 	}, [primary]);
 
 	useEffect(() => {
