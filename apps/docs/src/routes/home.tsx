@@ -9,7 +9,7 @@ export default function Home() {
 			<div className="w-full min-h-[70vh]">
 				<div className="mx-auto px-xs">
 					<div className="relative flex min-h-[80vh] w-full flex-col items-center justify-center overflow-hidden">
-						<div className="z-10 flex flex-col items-center gap-xs">
+						<div className="z-10 flex flex-col items-center gap-xs bg-surface/30 rounded-default p-md">
 							<Logo size="lg" className="animate-pulse" />
 							<span className="text-center text-xl font-medium">
 								Build the form of your design system
