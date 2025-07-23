@@ -30,16 +30,20 @@ export const add = new Command()
 		const componentConfig = (await response.json()) as ComponentRegistry;
 
 		if (componentConfig.dependencies) {
-			await execa(
-				packageManager,
-				[
-					packageManager === "npm" ? "install" : "add",
-					...componentConfig.dependencies,
-				],
-				{
-					cwd,
-				},
-			);
+			if (!config.disableInstall) {
+				await execa(
+					packageManager,
+					[
+						packageManager === "npm" ? "install" : "add",
+						...componentConfig.dependencies,
+					],
+					{
+						cwd,
+					},
+				);
+			} else {
+				console.log(`Skipping installation of dependencies for ${component}`);
+			}
 		}
 
 		if (componentConfig.files.length > 0) {

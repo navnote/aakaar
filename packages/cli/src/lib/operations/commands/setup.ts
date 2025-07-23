@@ -2,36 +2,14 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createInterface } from "node:readline";
 import { Command } from "commander";
 import type { AakaarConfig } from "../types";
+import { readConfig } from "../utils/config";
 import { verify } from "../utils/verify";
 export const setup = new Command()
 	.name("setup")
 	.description("setup the aakaar ui")
 	.action(async () => {
 		await verify();
-		// Create aakaar.json in the root of the project.
-		const aakaarJson: AakaarConfig = {
-			host: "http://aakaar.navnote.com",
-			core: {
-				path: "src/design",
-				import: "../../core",
-			},
-			tokens: {
-				color: "a42700",
-				strategy: "harmony",
-				output: "src/design/css",
-			},
-			react: {
-				output: "src/design/components",
-			},
-		};
-		const finalAakaarJson = existsSync("aakaar.json")
-			? JSON.parse(readFileSync("aakaar.json", "utf-8"))
-			: aakaarJson;
-		if (!existsSync("aakaar.json")) {
-			writeFileSync("aakaar.json", JSON.stringify(aakaarJson, null, 2));
-		} else {
-			console.log("aakaar.json already exists");
-		}
+		const finalAakaarJson = readConfig();
 
 		const proceed = await new Promise<string>((resolve) => {
 			const readline = createInterface({

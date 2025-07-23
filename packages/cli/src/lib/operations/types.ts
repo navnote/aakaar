@@ -2,6 +2,7 @@ import type { ColorStrategy } from "@aakaar/dictionary";
 
 export type AakaarConfig = {
 	host: string; // The host of the aakaar server
+	disableInstall?: boolean; // Whether to disable the installation of dependencies
 	core: {
 		path: string; // The path to the core files
 		import: string; // The import path from where to import the core file

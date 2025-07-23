@@ -1,12 +1,13 @@
 {
-	"host": "http://localhost:5173",
+	"host": "http://aakaar.navnote.com",
 	"core": {
 		"path": "src/design",
 		"import": "../../core"
 	},
 	"tokens": {
 		"color": "a42700",
-		"output": "apps/docs/src/styles"
+		"strategy": "harmony",
+		"output": "src/design/css"
 	},
 	"react": {
 		"output": "src/design/components"
