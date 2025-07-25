@@ -14,7 +14,7 @@ export default () => {
 			<div>
 				<FormattedCode
 					isCli
-					code="pnpm add tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge"
+					code="pnpm add tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge framer-motion"
 				/>
 			</div>
 			<h2>Run setup</h2>

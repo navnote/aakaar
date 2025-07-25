@@ -6,4 +6,5 @@ export const REQUIRED_PACKAGES = [
 	"tailwind-merge",
 	"react",
 	"react-dom",
+	"framer-motion",
 ];
