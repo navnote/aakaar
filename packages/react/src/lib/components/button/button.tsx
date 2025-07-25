@@ -1,6 +1,7 @@
 import { mergeProps } from "@base-ui-components/react";
 import { type VariantProps, cva } from "class-variance-authority";
 import { clsx } from "clsx";
+import { motion as framerMotion } from "framer-motion";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
 import {
@@ -10,6 +11,10 @@ import {
 	colors,
 	flexBox,
 	interactivity,
+	motion,
+	padding,
+	paddingX,
+	paddingY,
 	shadows,
 	shape,
 	spacing,
@@ -41,10 +46,10 @@ const buttonVariants = cva(`${buttonStyles.base}`, {
 			ghost: `${colors.accent.justPrimary} shadow-none`,
 		},
 		size: {
-			sm: "h-sm py-sm px-md text-sm",
-			md: "h-md py-md px-md text-md",
-			lg: "h-lg py-lg px-md text-lg",
-			icon: "p-xs",
+			sm: cn("h-sm", paddingY.small, paddingX.medium, typography.size.small),
+			md: cn("h-md", paddingY.medium, paddingX.medium, typography.size.medium),
+			lg: cn("h-lg", paddingY.large, paddingX.medium, typography.size.large),
+			icon: padding.extraSmall,
 		},
 	},
 	defaultVariants: {
@@ -53,23 +58,51 @@ const buttonVariants = cva(`${buttonStyles.base}`, {
 	},
 });
 
+type ButtonBaseProps = Omit<
+	React.ButtonHTMLAttributes<HTMLButtonElement>,
+	| "onDrag"
+	| "onDragEnd"
+	| "onDragEnter"
+	| "onDragExit"
+	| "onDragLeave"
+	| "onDragOver"
+	| "onDragStart"
+	| "onDrop"
+	| "onAnimationStart"
+	| "onAnimationEnd"
+	| "onAnimationIteration"
+	| "onTransitionEnd"
+>;
+
 export interface ButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+	extends ButtonBaseProps,
 		VariantProps<typeof buttonVariants> {
 	asChild?: boolean;
+	animate?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, asChild = false, ...props }, ref) => {
-		const Comp = asChild ? "span" : "button";
+	(
+		{ className, variant, size, asChild = false, animate = true, ...props },
+		ref,
+	) => {
+		const Comp = asChild ? framerMotion.span : framerMotion.button;
 		const mergedProps = asChild
 			? mergeProps(props, { role: "button", tabIndex: 0 })
 			: props;
+
+		const motionProps = animate
+			? {
+					whileTap: motion.tap.scale,
+					transition: motion.transitions.default,
+				}
+			: {};
 
 		return (
 			<Comp
 				className={twMerge(clsx(buttonVariants({ variant, size, className })))}
 				ref={ref}
+				{...motionProps}
 				{...mergedProps}
 			/>
 		);

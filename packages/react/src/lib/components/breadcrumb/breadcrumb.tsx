@@ -4,8 +4,11 @@ import * as React from "react";
 import {
 	alignment,
 	cn,
+	colors,
+	dimensions,
 	flexBox,
 	interactivity,
+	spacing,
 	typography,
 } from "../../core/core";
 
@@ -15,13 +18,16 @@ const breadcrumbStyles = {
 		flexBox.row,
 		alignment.center,
 		typography.size.small,
-		"flex-wrap gap-xs break-words text-on-background sm:gap-md list-none",
+		"flex-wrap break-words list-none",
+		spacing.small,
+		colors.surface,
+		"sm:gap-md",
 	),
-	item: cn(flexBox.inlineCenter, "gap-xs"),
+	item: cn(flexBox.inlineCenter, spacing.small),
 	link: cn(interactivity.transitions.colors, "hover:text-primary"),
-	page: cn(typography.weight.regular, "text-primary"),
+	page: cn(typography.weight.regular),
 	separator: "[&>svg]:size-md",
-	ellipsis: cn(alignment.center, "size-md"),
+	ellipsis: cn(alignment.center, dimensions.medium),
 };
 const Breadcrumb = React.forwardRef<
 	HTMLElement,
@@ -113,7 +119,7 @@ const BreadcrumbEllipsis = ({
 		className={cn(breadcrumbStyles.ellipsis, className)}
 		{...props}
 	>
-		<IconDots className="size-md" />
+		<IconDots className={dimensions.medium} />
 		<span className="sr-only">More</span>
 	</span>
 );

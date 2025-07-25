@@ -21,7 +21,7 @@ const inputStyles = {
 		interactivity.states.disabled,
 		"h-10",
 		"file:border-0 file:bg-transparent",
-		"file:text-sm file:font-medium file:text-primary",
+		cn("file:text-sm file:font-medium"),
 	),
 };
 

@@ -28,7 +28,8 @@ const selectStyles = {
 		typography.size.small,
 		interactivity.states.clickable,
 		interactivity.states.disabled,
-		"h-xl [&>span]:line-clamp-1",
+		"h-xl",
+		typography.noWrap,
 	),
 	content: cn(
 		shape.roundedWithBorder,
@@ -37,6 +38,7 @@ const selectStyles = {
 		utilities.zIndex.modal,
 		utilities.overflow.hidden,
 		shadows.depth.low,
+		measurements.height.full,
 		"max-h-[15rem] overflow-y-auto",
 	),
 	viewport: cn(measurements.width.minimum, "max-h-[15rem]"),
@@ -49,7 +51,8 @@ const selectStyles = {
 		interactivity.dataStates.selected,
 		interactivity.states.hover,
 		measurements.width.full,
-		"pl-lg relative",
+		paddingX.large,
+		positioning.relative,
 	),
 	scrollButton: cn(utilities.cursor.default, alignment.center),
 	label: cn(
@@ -58,8 +61,8 @@ const selectStyles = {
 		typography.size.small,
 		typography.weight.semibold,
 	),
-	icon: "size-md",
-	separator: "h-px bg-outline-variant",
+	icon: dimensions.icon,
+	separator: cn("h-px", colors.surface),
 };
 
 const Select = BaseSelect.Root;
@@ -156,7 +159,7 @@ const SelectItem = React.forwardRef<
 	>
 		<BaseSelect.ItemText>{children}</BaseSelect.ItemText>
 		<BaseSelect.ItemIndicator className={selectStyles.icon}>
-			<IconCheck />
+			<IconCheck className={selectStyles.icon} />
 		</BaseSelect.ItemIndicator>
 	</BaseSelect.Item>
 ));

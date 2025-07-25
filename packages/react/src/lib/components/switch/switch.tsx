@@ -5,7 +5,6 @@ import {
 	borders,
 	cn,
 	colors,
-	dimensions,
 	interactivity,
 	shadows,
 	shape,
@@ -20,18 +19,19 @@ const switchStyles = {
 		interactivity.states.disabled,
 		borders.variant,
 		colors.backgrounds.surface,
-		"peer h-lg w-[3rem] shrink-0",
+		"peer w-[calc(var(--base)*2)] h-[calc(var(--base)*1.25)] shrink-0 relative",
 	),
 	thumb: cn(
 		shape.circle,
 		interactivity.transitions.transform,
 		utilities.cursor.noEvents,
-		dimensions.large,
+		"w-[calc(var(--base)*1.25)] h-[calc(var(--base)*1.25)]",
 		colors.primary,
 		interactivity.dataStates.checked,
 		shadows.depth.medium,
-		"ring-0",
-		"-translate-x-sm data-[checked]:translate-x-sm",
+		"ring-0 absolute left-0 top-0",
+		"data-[checked]:translate-x-[calc(var(--base)*0.75)]",
+		"transition-transform duration-200 ease-in-out",
 	),
 };
 
@@ -44,7 +44,7 @@ const Switch = React.forwardRef<
 		{...props}
 		ref={ref}
 	>
-		<BaseSwitch.Thumb className={cn(switchStyles.thumb, className)} />
+		<BaseSwitch.Thumb className={cn(switchStyles.thumb)} />
 	</BaseSwitch.Root>
 ));
 Switch.displayName = "Switch";

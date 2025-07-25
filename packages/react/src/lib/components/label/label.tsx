@@ -1,11 +1,12 @@
 import * as React from "react";
-import { cn, typography } from "../../core/core";
+import { cn, interactivity, typography } from "../../core/core";
 
 const labelStyles = {
 	base: cn(
 		typography.size.medium,
 		typography.weight.medium,
-		"leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+		typography.noWrap,
+		interactivity.states.disabled,
 	),
 };
 

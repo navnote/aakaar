@@ -1,7 +1,6 @@
 import { Dialog as BaseDialog } from "@base-ui-components/react";
 import { IconX } from "@tabler/icons-react";
 import * as React from "react";
-
 import {
 	alignment,
 	cn,
@@ -52,10 +51,10 @@ const dialogStyles = {
 		interactivity.dataStates.checked,
 		interactivity.dataStates.selected,
 	),
-	header: cn(flexBox.column, "space-y-md text-center sm:text-left"),
+	header: cn(flexBox.column, spacing.medium, "text-center sm:text-left"),
 	footer: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-xs",
 	title: cn(typography.weight.semibold, "text-lg leading-none tracking-tight"),
-	description: cn(typography.size.small, "text-on-surface"),
+	description: cn(typography.size.small, colors.surface),
 	closeIcon: cn(dimensions.medium),
 };
 

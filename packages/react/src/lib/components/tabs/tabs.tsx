@@ -10,6 +10,7 @@ import {
 	padding,
 	shadows,
 	shape,
+	spacing,
 	typography,
 } from "../../core/core";
 
@@ -30,7 +31,7 @@ const tabsStyles = {
 		secondary: colors.backgrounds.surface,
 	},
 	list: cn(shape.rounded, flexBox.inlineCenter, colors.surface, "h-auto"),
-	content: cn(shape.rounded, "mt-sm"),
+	content: cn(shape.rounded, spacing.small),
 };
 const tabTriggerVariance = cva(`${tabsStyles.trigger}`, {
 	variants: {

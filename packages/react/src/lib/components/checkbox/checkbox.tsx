@@ -5,6 +5,7 @@ import { IconCheck } from "@tabler/icons-react";
 import {
 	alignment,
 	cn,
+	colors,
 	dimensions,
 	interactivity,
 	shadows,
@@ -20,8 +21,8 @@ const checkboxStyles = {
 		interactivity.dataStates.checked,
 		interactivity.states.disabled,
 	),
-	icon: dimensions.medium,
-	indicator: cn(alignment.center, "text-current"),
+	icon: dimensions.icon,
+	indicator: cn(alignment.center, colors.primary),
 };
 
 const Checkbox = React.forwardRef<

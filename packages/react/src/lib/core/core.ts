@@ -53,7 +53,7 @@ export const dimensions = {
 	large: "size-lg",
 	extraLarge: "size-xl",
 	fullWidth: "w-full",
-	icon: "size-[1.2em]",
+	icon: "size-[calc(var(--scale)*var(--base)*0.75)]",
 };
 
 export const alignment = {
@@ -195,5 +195,79 @@ export const utilities = {
 	},
 	zIndex: {
 		modal: "z-50",
+	},
+};
+
+// Motion patterns and animations
+export const motion = {
+	variants: {
+		fade: {
+			initial: { opacity: 0 },
+			animate: { opacity: 1 },
+			exit: { opacity: 0 },
+		},
+		slideUp: {
+			initial: { opacity: 0, y: 20 },
+			animate: { opacity: 1, y: 0 },
+			exit: { opacity: 0, y: -20 },
+		},
+		slideDown: {
+			initial: { opacity: 0, y: -20 },
+			animate: { opacity: 1, y: 0 },
+			exit: { opacity: 0, y: 20 },
+		},
+		scale: {
+			initial: { opacity: 0, scale: 0.95 },
+			animate: { opacity: 1, scale: 1 },
+			exit: { opacity: 0, scale: 0.95 },
+		},
+		spring: {
+			initial: { opacity: 0, y: 30 },
+			animate: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					type: "spring",
+					damping: 20,
+					stiffness: 100,
+				},
+			},
+			exit: { opacity: 0, y: 30 },
+		},
+	},
+	transitions: {
+		default: {
+			duration: 0.2,
+			ease: "easeInOut",
+		},
+		fast: {
+			duration: 0.15,
+			ease: "easeInOut",
+		},
+		slow: {
+			duration: 0.4,
+			ease: "easeInOut",
+		},
+		spring: {
+			type: "spring",
+			damping: 20,
+			stiffness: 100,
+		},
+	},
+	hover: {
+		scale: {
+			scale: 1.02,
+			transition: { duration: 0.15 },
+		},
+		lift: {
+			y: -2,
+			transition: { duration: 0.2 },
+		},
+	},
+	tap: {
+		scale: {
+			scale: 0.98,
+			transition: { duration: 0.1 },
+		},
 	},
 };

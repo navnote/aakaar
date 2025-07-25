@@ -1,12 +1,15 @@
 import { Accordion as BaseAccordion } from "@base-ui-components/react";
 import { IconChevronDown } from "@tabler/icons-react";
+import { motion as framerMotion } from "framer-motion";
 import * as React from "react";
 import {
 	alignment,
 	cn,
 	flexBox,
 	interactivity,
+	motion,
 	padding,
+	paddingY,
 	typography,
 	utilities,
 } from "../../core/core";
@@ -19,7 +22,7 @@ const accordionStyles = {
 		padding.extraSmall,
 		typography.weight.medium,
 		interactivity.transitions.all,
-		"flex-1 hover:underline [&[data-state=open]>svg]:rotate-180",
+		"flex-1 hover:underline",
 	),
 	content: {
 		base: cn(
@@ -27,7 +30,7 @@ const accordionStyles = {
 			typography.size.small,
 			interactivity.transitions.all,
 		),
-		inner: "pb-xs pt-0",
+		inner: cn(paddingY.extraSmall, "pt-0"),
 	},
 };
 
@@ -48,18 +51,33 @@ AccordionItem.displayName = "AccordionItem";
 const AccordionTrigger = React.forwardRef<
 	React.ElementRef<typeof BaseAccordion.Trigger>,
 	React.ComponentPropsWithoutRef<typeof BaseAccordion.Trigger>
->(({ className, children, ...props }, ref) => (
-	<BaseAccordion.Header className="flex">
-		<BaseAccordion.Trigger
-			ref={ref}
-			className={cn(accordionStyles.trigger, className)}
-			{...props}
-		>
-			{children}
-			<IconChevronDown className="size-lg shrink-0 transition-transform duration-200" />
-		</BaseAccordion.Trigger>
-	</BaseAccordion.Header>
-));
+>(({ className, children, ...props }, ref) => {
+	const [isOpen, setIsOpen] = React.useState(false);
+
+	return (
+		<BaseAccordion.Header className="flex">
+			<BaseAccordion.Trigger
+				ref={ref}
+				className={cn(accordionStyles.trigger, className)}
+				onClick={() => setIsOpen(!isOpen)}
+				{...props}
+			>
+				{children}
+				<framerMotion.div
+					animate={isOpen ? "open" : "closed"}
+					variants={{
+						open: { rotate: 180 },
+						closed: { rotate: 0 },
+					}}
+					transition={motion.transitions.default}
+					className="size-lg shrink-0"
+				>
+					<IconChevronDown className="size-lg" />
+				</framerMotion.div>
+			</BaseAccordion.Trigger>
+		</BaseAccordion.Header>
+	);
+});
 AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef<
@@ -71,9 +89,29 @@ const AccordionContent = React.forwardRef<
 		className={cn(accordionStyles.content.base)}
 		{...props}
 	>
-		<div className={cn(accordionStyles.content.inner, className)}>
+		<framerMotion.div
+			variants={{
+				open: {
+					height: "auto",
+					opacity: 1,
+					transition: {
+						height: motion.transitions.spring,
+						opacity: motion.transitions.default,
+					},
+				},
+				closed: {
+					height: 0,
+					opacity: 0,
+					transition: {
+						height: motion.transitions.default,
+						opacity: motion.transitions.fast,
+					},
+				},
+			}}
+			className={cn(accordionStyles.content.inner, className)}
+		>
 			{children}
-		</div>
+		</framerMotion.div>
 	</BaseAccordion.Panel>
 ));
 

@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/package",
 	"name": "@aakaar/react",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"exports": {
 		".": "./src/index.ts"
 	},
@@ -22,6 +22,7 @@
 		"@tabler/icons-react": "^3.34.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
+		"framer-motion": "^11.0.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"tailwind-merge": "^3.3.0"

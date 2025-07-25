@@ -13,8 +13,12 @@ import {
 const cardStyles = {
 	base: cn(shape.roundedWithBorder, colors.surface, shadows.depth.low),
 	header: cn(flexBox.column, padding.medium),
-	title: cn(typography.weight.semibold, "leading-none tracking-tight mt-0"),
-	description: cn(typography.size.small, "text-on-surface"),
+	title: cn(
+		typography.weight.semibold,
+		typography.noWrap,
+		"tracking-tight mt-0",
+	),
+	description: cn(typography.size.small, colors.surface),
 	content: cn(padding.medium, "pt-0"),
 	footer: cn(alignment.start, padding.medium, "pt-0"),
 };

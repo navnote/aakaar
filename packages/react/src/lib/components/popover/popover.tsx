@@ -16,7 +16,7 @@ const popoverStyles = {
 		padding.extraSmall,
 		shadows.depth.medium,
 		utilities.zIndex.modal,
-		"outline-none",
+		utilities.cursor.default,
 	),
 };
 

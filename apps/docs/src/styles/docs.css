@@ -1,7 +1,6 @@
 /* Add this to prevent layout shift when scrollbar appears */
 html,
 body {
-  scrollbar-gutter: stable;
   min-height: 101vh;
 }
 
