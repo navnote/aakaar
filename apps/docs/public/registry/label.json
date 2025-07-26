@@ -4,7 +4,7 @@
   "files": [
     {
       "name": "label.tsx",
-      "content": "import * as React from \"react\";\nimport { cn, typography } from \"../../core/core\";\n\nconst labelStyles = {\n\tbase: cn(\n\t\ttypography.size.medium,\n\t\ttypography.weight.medium,\n\t\t\"leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n\t),\n};\n\nconst Label = React.forwardRef<\n\tHTMLLabelElement,\n\tReact.LabelHTMLAttributes<HTMLLabelElement>\n>(({ className, ...props }, ref) => (\n\t<label ref={ref} className={cn(labelStyles.base, className)} {...props} />\n));\nLabel.displayName = \"Label\";\n\nexport { Label };\n"
+      "content": "import * as React from \"react\";\nimport { cn, interactivity, typography } from \"../../core/core\";\n\nconst labelStyles = {\n\tbase: cn(\n\t\ttypography.size.medium,\n\t\ttypography.weight.medium,\n\t\ttypography.noWrap,\n\t\tinteractivity.states.disabled,\n\t),\n};\n\nconst Label = React.forwardRef<\n\tHTMLLabelElement,\n\tReact.LabelHTMLAttributes<HTMLLabelElement>\n>(({ className, ...props }, ref) => (\n\t<label ref={ref} className={cn(labelStyles.base, className)} {...props} />\n));\nLabel.displayName = \"Label\";\n\nexport { Label };\n"
     }
   ]
 }
