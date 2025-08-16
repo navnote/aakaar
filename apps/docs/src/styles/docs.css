@@ -2,6 +2,7 @@
 html,
 body {
   min-height: 101vh;
+  scrollbar-width: thin;
 }
 
 *::-webkit-scrollbar-track {

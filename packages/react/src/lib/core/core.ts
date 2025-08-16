@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from "clsx";
+import { easeIn, easeInOut, easeOut } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
@@ -238,36 +239,45 @@ export const motion = {
 	transitions: {
 		default: {
 			duration: 0.2,
-			ease: "easeInOut",
+			ease: easeInOut,
 		},
 		fast: {
 			duration: 0.15,
-			ease: "easeInOut",
+			ease: easeInOut,
 		},
 		slow: {
 			duration: 0.4,
-			ease: "easeInOut",
+			ease: easeInOut,
 		},
 		spring: {
 			type: "spring",
 			damping: 20,
 			stiffness: 100,
 		},
+		hover: {
+			duration: 0.15,
+			ease: easeOut,
+		},
+		hoverLift: {
+			duration: 0.2,
+			ease: easeOut,
+		},
+		tap: {
+			duration: 0.1,
+			ease: easeIn,
+		},
 	},
 	hover: {
 		scale: {
 			scale: 1.02,
-			transition: { duration: 0.15 },
 		},
 		lift: {
 			y: -2,
-			transition: { duration: 0.2 },
 		},
 	},
 	tap: {
 		scale: {
 			scale: 0.98,
-			transition: { duration: 0.1 },
 		},
 	},
 };

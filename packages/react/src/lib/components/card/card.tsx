@@ -6,12 +6,11 @@ import {
 	flexBox,
 	padding,
 	shadows,
-	shape,
 	typography,
 } from "../../core/core";
 
 const cardStyles = {
-	base: cn(shape.roundedWithBorder, colors.surface, shadows.depth.low),
+	base: cn(colors.surface, shadows.depth.low),
 	header: cn(flexBox.column, padding.medium),
 	title: cn(
 		typography.weight.semibold,

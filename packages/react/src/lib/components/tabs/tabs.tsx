@@ -8,7 +8,6 @@ import {
 	flexBox,
 	interactivity,
 	padding,
-	shadows,
 	shape,
 	spacing,
 	typography,
@@ -22,9 +21,8 @@ const tabsStyles = {
 		padding.medium,
 		typography.size.small,
 		interactivity.states.disabled,
-		shadows.depth.low,
 		padding.small,
-		"data-[selected]:text-tertiary data-[selected]:font-bold",
+		"data-[selected]:text-tertiary data-[selected]:font-bold data-[selected]:border-b-2 border-b-[1px] border-b-outline",
 	),
 	variant: {
 		primary: colors.backgrounds.surfaceVariant,

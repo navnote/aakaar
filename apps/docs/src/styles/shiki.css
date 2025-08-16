@@ -16,7 +16,6 @@
 pre.shiki {
   @apply m-0;
   @apply p-sm;
-  @apply rounded-default;
   @apply overflow-auto;
 }
 

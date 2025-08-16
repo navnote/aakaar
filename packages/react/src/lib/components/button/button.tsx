@@ -86,7 +86,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		{ className, variant, size, asChild = false, animate = true, ...props },
 		ref,
 	) => {
-		const Comp = asChild ? framerMotion.span : framerMotion.button;
 		const mergedProps = asChild
 			? mergeProps(props, { role: "button", tabIndex: 0 })
 			: props;
@@ -94,12 +93,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		const motionProps = animate
 			? {
 					whileTap: motion.tap.scale,
-					transition: motion.transitions.default,
+					transition: motion.transitions.tap,
 				}
 			: {};
 
 		return (
-			<Comp
+			<framerMotion.button
 				className={twMerge(clsx(buttonVariants({ variant, size, className })))}
 				ref={ref}
 				{...motionProps}
