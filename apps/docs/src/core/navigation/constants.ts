@@ -92,6 +92,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/textarea",
 		title: "Textarea",
 	},
+	tooltip: {
+		path: "/docs/components/tooltip",
+		title: "Tooltip",
+	},
 };
 
 export const COMPONENTS_NAVIGATION_ITEMS: AakaarNavigation[] = Object.entries(

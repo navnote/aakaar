@@ -30,6 +30,7 @@ export enum AakaarComponent {
 	switch = "switch",
 	tabs = "tabs",
 	textarea = "textarea",
+	tooltip = "tooltip",
 }
 
 export type AakaarComponentName = keyof typeof AakaarComponent;

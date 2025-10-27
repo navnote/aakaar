@@ -15,6 +15,7 @@ import Select from "./routes/docs/components/select";
 import Switch from "./routes/docs/components/switch";
 import Tabs from "./routes/docs/components/tabs";
 import Textarea from "./routes/docs/components/textarea";
+import Tooltip from "./routes/docs/components/tooltip";
 import Installation from "./routes/docs/installation";
 import Introduction from "./routes/docs/introduction";
 import Home from "./routes/home";
@@ -44,6 +45,7 @@ function App() {
 						<Route path="switch" element={<Switch />} />
 						<Route path="tabs" element={<Tabs />} />
 						<Route path="textarea" element={<Textarea />} />
+						<Route path="tooltip" element={<Tooltip />} />
 					</Route>
 				</Route>
 			</Route>

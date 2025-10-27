@@ -14,6 +14,7 @@ export * from "./lib/components/select/select";
 export * from "./lib/components/switch/switch";
 export * from "./lib/components/tabs/tabs";
 export * from "./lib/components/textarea/textarea";
+export * from "./lib/components/tooltip/tooltip";
 export * from "./lib/patterns/dots/dots";
 export * from "./lib/patterns/grid/grid";
 export * from "./lib/core/core";

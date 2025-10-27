@@ -1,0 +1,12 @@
+{
+    "name": "tooltip",
+    "dependencies": [
+        "@base-ui-components/react"
+    ],
+    "files": [
+        {
+            "name": "tooltip.tsx",
+            "content": "import { Tooltip as BaseTooltip } from \"@base-ui-components/react\";\nimport * as React from \"react\";\nimport {\n\tcn,\n\tcolors,\n\tpadding,\n\ttypography,\n\tutilities,\n\tshadows,\n\tshape,\n} from \"../../core/core\";\n\nconst tooltipStyles = {\n\tcontent: cn(\n\t\tshape.rounded,\n\t\tcolors.backgrounds.surface,\n\t\tpadding.small,\n\t\ttypography.size.small,\n\t\tutilities.zIndex.modal,\n\t\tshadows.depth.medium,\n\t\t\"max-w-xs\",\n\t),\n\tarrow: cn(colors.backgrounds.surface),\n};\n\nconst Tooltip = BaseTooltip.Root;\nconst TooltipTrigger = BaseTooltip.Trigger;\n\nconst TooltipContent = React.forwardRef<\n\tReact.ElementRef<typeof BaseTooltip.Popup>,\n\tReact.ComponentPropsWithoutRef<typeof BaseTooltip.Popup>\n>(({ className, ...props }, ref) => (\n\t<BaseTooltip.Portal>\n\t\t<BaseTooltip.Positioner>\n\t\t\t<BaseTooltip.Popup\n\t\t\t\tref={ref}\n\t\t\t\tclassName={cn(tooltipStyles.content, className)}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<BaseTooltip.Arrow className={tooltipStyles.arrow} />\n\t\t\t</BaseTooltip.Popup>\n\t\t</BaseTooltip.Positioner>\n\t</BaseTooltip.Portal>\n));\nTooltipContent.displayName = \"TooltipContent\";\n\nexport { Tooltip, TooltipContent, TooltipTrigger };\n"
+        }
+    ]
+}
