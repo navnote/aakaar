@@ -5,6 +5,7 @@ import {
 	cn,
 	colors,
 	interactivity,
+	measurements,
 	padding,
 	positioning,
 	shadows,
@@ -20,7 +21,8 @@ const sliderStyles = {
 	),
 	track: cn(
 		positioning.relative,
-		"w-[200px] rounded",
+		measurements.width.minimum,
+		shape.rounded,
 		colors.containers.secondary,
 		shape.circlePrimary,
 	),

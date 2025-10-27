@@ -12,6 +12,7 @@ import Input from "./routes/docs/components/input";
 import Label from "./routes/docs/components/label";
 import Menu from "./routes/docs/components/menu";
 import Popover from "./routes/docs/components/popover";
+import Progress from "./routes/docs/components/progress";
 import Radio from "./routes/docs/components/radio";
 import Select from "./routes/docs/components/select";
 import Slider from "./routes/docs/components/slider";
@@ -45,6 +46,7 @@ function App() {
 						<Route path="label" element={<Label />} />
 						<Route path="menu" element={<Menu />} />
 						<Route path="popover" element={<Popover />} />
+						<Route path="progress" element={<Progress />} />
 						<Route path="radio" element={<Radio />} />
 						<Route path="select" element={<Select />} />
 						<Route path="slider" element={<Slider />} />

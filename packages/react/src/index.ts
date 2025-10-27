@@ -11,6 +11,7 @@ export * from "./lib/components/label/label";
 export * from "./lib/components/menu/menu";
 export * from "./lib/components/phone/phone";
 export * from "./lib/components/popover/popover";
+export * from "./lib/components/progress/progress";
 export * from "./lib/components/radio/radio";
 export * from "./lib/components/select/select";
 export * from "./lib/components/slider/slider";

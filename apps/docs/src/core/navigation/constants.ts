@@ -80,6 +80,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/popover",
 		title: "Popover",
 	},
+	progress: {
+		path: "/docs/components/progress",
+		title: "Progress",
+	},
 	radio: {
 		path: "/docs/components/radio",
 		title: "Radio",
