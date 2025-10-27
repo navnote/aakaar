@@ -36,6 +36,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/accordion",
 		title: "Accordion",
 	},
+	"alert-dialog": {
+		path: "/docs/components/alert-dialog",
+		title: "Alert Dialog",
+	},
 	avatar: {
 		path: "/docs/components/avatar",
 		title: "Avatar",

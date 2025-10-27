@@ -1,4 +1,5 @@
 export * from "./lib/components/accordion/accordion";
+export * from "./lib/components/alert-dialog/alert-dialog";
 export * from "./lib/components/avatar/avatar";
 export * from "./lib/components/breadcrumb/breadcrumb";
 export * from "./lib/components/button/button";
