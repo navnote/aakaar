@@ -14,6 +14,7 @@ import Menu from "./routes/docs/components/menu";
 import Popover from "./routes/docs/components/popover";
 import Radio from "./routes/docs/components/radio";
 import Select from "./routes/docs/components/select";
+import Slider from "./routes/docs/components/slider";
 import Switch from "./routes/docs/components/switch";
 import Tabs from "./routes/docs/components/tabs";
 import Textarea from "./routes/docs/components/textarea";
@@ -46,6 +47,7 @@ function App() {
 						<Route path="popover" element={<Popover />} />
 						<Route path="radio" element={<Radio />} />
 						<Route path="select" element={<Select />} />
+						<Route path="slider" element={<Slider />} />
 						<Route path="switch" element={<Switch />} />
 						<Route path="tabs" element={<Tabs />} />
 						<Route path="textarea" element={<Textarea />} />
