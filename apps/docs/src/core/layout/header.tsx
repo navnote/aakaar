@@ -33,7 +33,7 @@ export const Header = () => {
 			<RadiusToggle />
 			<BaseToggle />
 			<FontToggle />
-			<StrategyToggle />
+			{/* <StrategyToggle /> */}
 			<ConfigViewer />
 			<a href="https://github.com/navnote/aakaar" target="_blank">
 				<Button size="icon">

@@ -25,9 +25,7 @@ const commitLocalStorageItem = (key: string, value: string) => {
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-	const [strategy, setStrategy] = useState<ColorStrategy>(
-		(fetchLocalStorageItem("strategy") as ColorStrategy) ?? "material",
-	);
+	const [strategy, setStrategy] = useState<ColorStrategy>("material");
 
 	const [theme, setTheme] = useState<Theme>(
 		(fetchLocalStorageItem("theme") as Theme) ?? "light",
