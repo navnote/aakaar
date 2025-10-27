@@ -25,12 +25,16 @@ const COMPONENTS = [
 	"dialog",
 	"input",
 	"label",
+	"menu",
 	"popover",
+	"progress",
 	"radio",
 	"select",
+	"slider",
 	"switch",
 	"tabs",
 	"textarea",
+	"toast",
 ];
 
 const buildComponentRegistry = async (

@@ -163,6 +163,7 @@ export const positioning = {
 	},
 	corners: {
 		topRight: "right-xs top-xs",
+		bottomRight: "right-xs bottom-xs",
 	},
 };
 

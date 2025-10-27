@@ -108,6 +108,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/textarea",
 		title: "Textarea",
 	},
+	toast: {
+		path: "/docs/components/toast",
+		title: "Toast",
+	},
 	tooltip: {
 		path: "/docs/components/tooltip",
 		title: "Tooltip",
