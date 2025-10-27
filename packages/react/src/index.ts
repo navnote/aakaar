@@ -8,6 +8,7 @@ export * from "./lib/components/checkbox/checkbox";
 export * from "./lib/components/dialog/dialog";
 export * from "./lib/components/input/input";
 export * from "./lib/components/label/label";
+export * from "./lib/components/menu/menu";
 export * from "./lib/components/phone/phone";
 export * from "./lib/components/popover/popover";
 export * from "./lib/components/radio/radio";

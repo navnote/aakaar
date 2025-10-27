@@ -10,6 +10,7 @@ import Checkbox from "./routes/docs/components/checkbox";
 import Dialog from "./routes/docs/components/dialog";
 import Input from "./routes/docs/components/input";
 import Label from "./routes/docs/components/label";
+import Menu from "./routes/docs/components/menu";
 import Popover from "./routes/docs/components/popover";
 import Radio from "./routes/docs/components/radio";
 import Select from "./routes/docs/components/select";
@@ -41,6 +42,7 @@ function App() {
 						<Route path="dialog" element={<Dialog />} />
 						<Route path="input" element={<Input />} />
 						<Route path="label" element={<Label />} />
+						<Route path="menu" element={<Menu />} />
 						<Route path="popover" element={<Popover />} />
 						<Route path="radio" element={<Radio />} />
 						<Route path="select" element={<Select />} />

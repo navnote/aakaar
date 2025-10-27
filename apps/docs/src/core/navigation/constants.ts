@@ -72,6 +72,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/label",
 		title: "Label",
 	},
+	menu: {
+		path: "/docs/components/menu",
+		title: "Menu",
+	},
 	popover: {
 		path: "/docs/components/popover",
 		title: "Popover",

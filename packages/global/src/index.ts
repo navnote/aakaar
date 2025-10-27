@@ -25,6 +25,7 @@ export enum AakaarComponent {
 	dialog = "dialog",
 	input = "input",
 	label = "label",
+	menu = "menu",
 	popover = "popover",
 	radio = "radio",
 	select = "select",
