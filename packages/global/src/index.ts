@@ -34,7 +34,6 @@ export enum AakaarComponent {
 	switch = "switch",
 	tabs = "tabs",
 	textarea = "textarea",
-	toast = "toast",
 	tooltip = "tooltip",
 }
 

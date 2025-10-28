@@ -19,7 +19,6 @@ import Slider from "./routes/docs/components/slider";
 import Switch from "./routes/docs/components/switch";
 import Tabs from "./routes/docs/components/tabs";
 import Textarea from "./routes/docs/components/textarea";
-import Toast from "./routes/docs/components/toast";
 import Tooltip from "./routes/docs/components/tooltip";
 import Installation from "./routes/docs/installation";
 import Introduction from "./routes/docs/introduction";
@@ -54,7 +53,6 @@ function App() {
 						<Route path="switch" element={<Switch />} />
 						<Route path="tabs" element={<Tabs />} />
 						<Route path="textarea" element={<Textarea />} />
-						<Route path="toast" element={<Toast />} />
 						<Route path="tooltip" element={<Tooltip />} />
 					</Route>
 				</Route>

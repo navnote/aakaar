@@ -34,7 +34,6 @@ const COMPONENTS = [
 	"switch",
 	"tabs",
 	"textarea",
-	"toast",
 ];
 
 const buildComponentRegistry = async (
