@@ -14,7 +14,7 @@ export const Logo = ({
 	const { setIsSidebarOpen } = useAppContext();
 	return (
 		<Link
-			className={`flex gap-0 items-baseline p-sm text-primary select-none  no-underline justify-center ${sizeClass} ${className}`}
+			className={`flex gap-0 items-baseline p-sm text-primary select-none  no-underline justify-center relative ${sizeClass} ${className}`}
 			to="/"
 			onClick={() => setIsSidebarOpen(false)}
 		>
@@ -25,6 +25,11 @@ export const Logo = ({
 				}}
 			/>
 			<span>akaar</span>
+			{size === "md" && (
+				<span className="ml-xs px-xs py-xxs text-xs bg-primary-container/10 text-primary rounded-sm font-medium absolute top-xs right-xs">
+					v0.0.X
+				</span>
+			)}
 		</Link>
 	);
 };
