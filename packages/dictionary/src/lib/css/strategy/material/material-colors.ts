@@ -3,7 +3,7 @@ import {
 	argbFromHex,
 	hexFromArgb,
 	themeFromSourceColor,
-} from "@material/material-color-utilities";
+} from "@ktibow/material-color-utilities-nightly";
 import Color from "colorjs.io";
 import type {
 	AakaarColorScheme,

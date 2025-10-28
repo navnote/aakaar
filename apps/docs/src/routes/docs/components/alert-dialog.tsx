@@ -50,7 +50,7 @@ export default () => {
 			>
 				<AlertDialog>
 					<AlertDialogTrigger>
-						<Button variant="error">Delete account</Button>
+						<Button variant="primary">Delete account</Button>
 					</AlertDialogTrigger>
 					<AlertDialogContent>
 						<AlertDialogHeader>
@@ -61,11 +61,11 @@ export default () => {
 							</AlertDialogDescription>
 						</AlertDialogHeader>
 						<AlertDialogFooter>
-							<AlertDialogClose asChild>
+							<AlertDialogClose>
 								<Button variant="ghost">Cancel</Button>
 							</AlertDialogClose>
-							<AlertDialogClose asChild>
-								<Button variant="error">Yes, delete account</Button>
+							<AlertDialogClose>
+								<Button variant="primary">Yes, delete account</Button>
 							</AlertDialogClose>
 						</AlertDialogFooter>
 					</AlertDialogContent>
@@ -73,7 +73,7 @@ export default () => {
 			</Demo>
 			<Installation
 				registry={AlertDialogRegistry}
-				componentName="alert-dialog"
+				componentName="alertDialog"
 			/>
 		</article>
 	);

@@ -1,6 +1,6 @@
 {
 	"name": "@aakaar/dictionary",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
@@ -26,7 +26,7 @@
 		"publish:local": "pnpm publish --registry http://localhost:4873 --git-checks=false"
 	},
 	"dependencies": {
-		"@material/material-color-utilities": "^0.3.0",
+		"@ktibow/material-color-utilities-nightly": "^0.3.0",
 		"colorjs.io": "^0.5.2"
 	},
 	"devDependencies": {

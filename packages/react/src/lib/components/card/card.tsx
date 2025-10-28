@@ -1,16 +1,17 @@
 import * as React from "react";
 import {
 	alignment,
+	borders,
 	cn,
 	colors,
 	flexBox,
 	padding,
-	shadows,
+	shape,
 	typography,
 } from "../../core/core";
 
 const cardStyles = {
-	base: cn(colors.surface, shadows.depth.low),
+	base: cn(colors.surface, borders.variant, shape.rounded),
 	header: cn(flexBox.column, padding.medium),
 	title: cn(
 		typography.weight.semibold,

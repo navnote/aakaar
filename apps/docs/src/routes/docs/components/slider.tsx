@@ -5,7 +5,6 @@ import {
 	SliderRange,
 	SliderThumb,
 	SliderTrack,
-	SliderValue,
 } from "@aakaar/react";
 import SliderRegistry from "../../../../public/registry/slider.json";
 import { Demo } from "../../../components/code";

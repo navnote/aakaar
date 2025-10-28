@@ -44,8 +44,8 @@
 		"node": ">=18"
 	},
 	"dependencies": {
-		"@base-ui-components/react": "^1.0.0-beta.0",
-		"@material/material-color-utilities": "^0.3.0",
+		"@base-ui-components/react": "^1.0.0-beta.4",
+		"@ktibow/material-color-utilities-nightly": "^0.3.11761036883000",
 		"@tabler/icons-react": "^3.34.1",
 		"@tailwindcss/vite": "^4.1.8",
 		"class-variance-authority": "^0.7.1",

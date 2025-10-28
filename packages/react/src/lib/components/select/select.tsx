@@ -68,7 +68,13 @@ const selectStyles = {
 const Select = BaseSelect.Root;
 const SelectGroup = BaseSelect.Group;
 
-const SelectValue = BaseSelect.Value;
+const SelectValue = React.forwardRef<
+	React.ElementRef<typeof BaseSelect.Value>,
+	React.ComponentPropsWithoutRef<typeof BaseSelect.Value>
+>(({ className, ...props }, ref) => (
+	<BaseSelect.Value ref={ref} className={className} {...props} />
+));
+SelectValue.displayName = "SelectValue";
 
 const SelectTrigger = React.forwardRef<
 	React.ElementRef<typeof BaseSelect.Trigger>,
