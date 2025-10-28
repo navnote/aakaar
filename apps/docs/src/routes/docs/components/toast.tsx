@@ -4,7 +4,6 @@ import {
 	ToastClose,
 	ToastDescription,
 	ToastPortal,
-	ToastProvider,
 	ToastTitle,
 	ToastViewport,
 } from "@aakaar/react";
@@ -54,11 +53,22 @@ export default () => {
 			<h1>Toast</h1>
 			<p>A succinct message that is displayed temporarily.</p>
 			<h2>Demo</h2>
-			<ToastProvider>
-				<Demo
-					code={`
+			<Demo
+				code={`
 import { Toast } from "@base-ui-components/react";
-import { Toast as AakaarToast, ToastClose, ToastDescription, ToastTitle } from "@aakaar/react";
+import { Toast as AakaarToast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@aakaar/react";
+
+// Wrap your app with ToastProvider
+function App() {
+  return (
+    <ToastProvider>
+      <ToastButton />
+      <ToastViewport>
+        <ToastList />
+      </ToastViewport>
+    </ToastProvider>
+  );
+}
 
 function ToastButton() {
   const toastManager = Toast.useToastManager();
@@ -94,15 +104,14 @@ function ToastList() {
   );
 }
       `}
-				>
-					<ToastButton />
-				</Demo>
-				<ToastPortal>
-					<ToastViewport>
-						<ToastList />
-					</ToastViewport>
-				</ToastPortal>
-			</ToastProvider>
+			>
+				<ToastButton />
+			</Demo>
+			<ToastPortal>
+				<ToastViewport>
+					<ToastList />
+				</ToastViewport>
+			</ToastPortal>
 			<Installation registry={ToastRegistry} componentName="toast" />
 		</article>
 	);

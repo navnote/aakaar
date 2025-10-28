@@ -1,6 +1,6 @@
 {
 	"name": "@aakaar/scripts",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
 		"dev": "tsc --project tsconfig.json --watch",
