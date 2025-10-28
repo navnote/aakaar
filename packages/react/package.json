@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/package",
 	"name": "@aakaar/react",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"exports": {
 		".": "./src/index.ts"
 	},
