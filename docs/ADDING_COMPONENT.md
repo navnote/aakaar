@@ -25,9 +25,9 @@ When adding a new component (e.g., `badge`), you need to modify **8 files** acro
 
 **Files to create:**
 - `{component-name}.tsx` - The actual component implementation
-- `{component-name}.deps.json` - Component dependencies (optional, if component has external deps)
+- `{component-name}.deps.json` - Component dependencies (optional, only if component requires external npm packages)
 
-**Why:** This is the core component code that users will install. The `.deps.json` file tells the CLI which npm packages need to be installed when adding this component.
+**Why:** This is the core component code that users will install. The `.deps.json` file tells the CLI which npm packages need to be installed when adding this component. Only create this file if your component uses external npm packages that aren't already project dependencies (e.g., `@base-ui-components/react`, `@tabler/icons-react`). Components that only use utilities from `core.ts` don't need a deps.json file.
 
 **Example structure:**
 ```
@@ -198,7 +198,7 @@ When adding a new component (e.g., `badge`):
 
 - [ ] **1. Create component files**
   - [ ] `packages/react/src/lib/components/badge/badge.tsx`
-  - [ ] `packages/react/src/lib/components/badge/badge.deps.json` (if needed)
+  - [ ] `packages/react/src/lib/components/badge/badge.deps.json` (only if component uses external npm packages like @base-ui-components/react)
 
 - [ ] **2. Update type definitions**
   - [ ] Add to `AakaarComponent` enum in `packages/global/src/index.ts`
