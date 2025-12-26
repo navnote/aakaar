@@ -23,7 +23,9 @@ const alertStyles = {
 const alertVariants = cva(`${alertStyles.base}`, {
 	variants: {
 		variant: {
-			default: cn(colors.surface, "border-outline-variant"),
+			default: cn(colors.accent.primary, "border-outline-variant"),
+			secondary: cn(colors.accent.secondary, "border-outline-variant"),
+			tertiary: cn(colors.accent.tertiary, "border-outline-variant"),
 			destructive: cn(
 				colors.status.errorContainer,
 				"border-[color:var(--color-error)]",

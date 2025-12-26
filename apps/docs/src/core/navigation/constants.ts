@@ -68,6 +68,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/button-group",
 		title: "Button Group",
 	},
+	calendar: {
+		path: "/docs/components/calendar",
+		title: "Calendar",
+	},
 	card: {
 		path: "/docs/components/card",
 		title: "Card",

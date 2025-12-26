@@ -1,6 +1,5 @@
-Components in shadcn but NOT in aakaar (30 components)
+Components in shadcn but NOT in aakaar (29 components)
 
-calendar
 carousel
 chart
 combobox

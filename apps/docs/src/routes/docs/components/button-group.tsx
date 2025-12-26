@@ -58,7 +58,7 @@ export default () => {
 
 			<Installation
 				registry={ButtonGroupRegistry}
-				componentName="button-group"
+				componentName="buttonGroup"
 			/>
 		</article>
 	);

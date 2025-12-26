@@ -316,7 +316,7 @@ src/
 | **Customization** | Token-level (system-wide) | Component-level |
 | **Setup Complexity** | Medium (requires token generation) | Low (quick init) |
 | **Consistency** | High (token-driven) | Medium (manual coordination) |
-| **Component Count** | 24 components | 54 components |
+| **Component Count** | 25 components | 54 components |
 | **Theming** | Token regeneration | CSS variables / Tailwind config |
 | **CLI Commands** | `setup`, `token`, `add` | `init`, `add`, `diff` |
 | **File Structure** | `design/` directory | `components/ui/` directory |

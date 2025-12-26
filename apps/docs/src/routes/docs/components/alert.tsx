@@ -12,6 +12,18 @@ export default () => {
 					You can add components and dependencies to your app using the CLI.
 				</AlertDescription>
 			</Alert>
+			<Alert variant="secondary">
+				<AlertTitle>Heads up!</AlertTitle>
+				<AlertDescription>
+					You can add components and dependencies to your app using the CLI.
+				</AlertDescription>
+			</Alert>
+			<Alert variant="tertiary">
+				<AlertTitle>Heads up!</AlertTitle>
+				<AlertDescription>
+					You can add components and dependencies to your app using the CLI.
+				</AlertDescription>
+			</Alert>
 			<Alert variant="destructive">
 				<AlertTitle>Error</AlertTitle>
 				<AlertDescription>

@@ -9,6 +9,7 @@ import Badge from "./routes/docs/components/badge";
 import Breadcrumb from "./routes/docs/components/breadcrumb";
 import Button from "./routes/docs/components/button";
 import ButtonGroup from "./routes/docs/components/button-group";
+import Calendar from "./routes/docs/components/calendar";
 import Card from "./routes/docs/components/card";
 import Checkbox from "./routes/docs/components/checkbox";
 import Dialog from "./routes/docs/components/dialog";
@@ -47,6 +48,7 @@ function App() {
 						<Route path="breadcrumb" element={<Breadcrumb />} />
 						<Route path="button" element={<Button />} />
 						<Route path="button-group" element={<ButtonGroup />} />
+						<Route path="calendar" element={<Calendar />} />
 						<Route path="card" element={<Card />} />
 						<Route path="checkbox" element={<Checkbox />} />
 						<Route path="dialog" element={<Dialog />} />

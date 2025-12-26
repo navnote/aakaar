@@ -24,6 +24,7 @@ export enum AakaarComponent {
 	breadcrumb = "breadcrumb",
 	button = "button",
 	buttonGroup = "button-group",
+	calendar = "calendar",
 	card = "card",
 	checkbox = "checkbox",
 	dialog = "dialog",

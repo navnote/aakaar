@@ -37,7 +37,7 @@ const buttonStyles = {
 	),
 };
 
-const buttonVariants = cva(`${buttonStyles.base}`, {
+export const buttonVariants = cva(`${buttonStyles.base}`, {
 	variants: {
 		variant: {
 			...colors.accent,
