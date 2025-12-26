@@ -16,6 +16,7 @@ export type ComponentRegistry = {
 
 export enum AakaarComponent {
 	accordion = "accordion",
+	alert = "alert",
 	alertDialog = "alert-dialog",
 	avatar = "avatar",
 	breadcrumb = "breadcrumb",

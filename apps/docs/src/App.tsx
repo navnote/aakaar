@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import { BaseLayout } from "./core/layout/base";
 import Accordion from "./routes/docs/components/accordion";
+import Alert from "./routes/docs/components/alert";
 import AlertDialog from "./routes/docs/components/alert-dialog";
 import Avatar from "./routes/docs/components/avatar";
 import Breadcrumb from "./routes/docs/components/breadcrumb";
@@ -35,6 +36,7 @@ function App() {
 
 					<Route path="components">
 						<Route path="accordion" element={<Accordion />} />
+						<Route path="alert" element={<Alert />} />
 						<Route path="alert-dialog" element={<AlertDialog />} />
 						<Route path="avatar" element={<Avatar />} />
 						<Route path="breadcrumb" element={<Breadcrumb />} />
