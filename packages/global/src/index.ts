@@ -18,6 +18,7 @@ export enum AakaarComponent {
 	accordion = "accordion",
 	alert = "alert",
 	alertDialog = "alert-dialog",
+	aspectRatio = "aspect-ratio",
 	avatar = "avatar",
 	badge = "badge",
 	breadcrumb = "breadcrumb",

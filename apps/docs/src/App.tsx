@@ -3,6 +3,7 @@ import { BaseLayout } from "./core/layout/base";
 import Accordion from "./routes/docs/components/accordion";
 import Alert from "./routes/docs/components/alert";
 import AlertDialog from "./routes/docs/components/alert-dialog";
+import AspectRatio from "./routes/docs/components/aspect-ratio";
 import Avatar from "./routes/docs/components/avatar";
 import Badge from "./routes/docs/components/badge";
 import Breadcrumb from "./routes/docs/components/breadcrumb";
@@ -39,6 +40,7 @@ function App() {
 						<Route path="accordion" element={<Accordion />} />
 						<Route path="alert" element={<Alert />} />
 						<Route path="alert-dialog" element={<AlertDialog />} />
+						<Route path="aspect-ratio" element={<AspectRatio />} />
 						<Route path="avatar" element={<Avatar />} />
 						<Route path="badge" element={<Badge />} />
 						<Route path="breadcrumb" element={<Breadcrumb />} />

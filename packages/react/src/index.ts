@@ -1,6 +1,7 @@
 export * from "./lib/components/accordion/accordion";
 export * from "./lib/components/alert/alert";
 export * from "./lib/components/alert-dialog/alert-dialog";
+export * from "./lib/components/aspect-ratio/aspect-ratio";
 export * from "./lib/components/avatar/avatar";
 export * from "./lib/components/badge/badge";
 export * from "./lib/components/breadcrumb/breadcrumb";

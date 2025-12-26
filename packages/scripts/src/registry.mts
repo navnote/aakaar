@@ -18,6 +18,7 @@ type ComponentRegistry = {
 const COMPONENTS = [
 	"accordion",
 	"alert",
+	"aspect-ratio",
 	"avatar",
 	"badge",
 	"breadcrumb",

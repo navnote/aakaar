@@ -44,6 +44,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/alert-dialog",
 		title: "Alert Dialog",
 	},
+	"aspect-ratio": {
+		path: "/docs/components/aspect-ratio",
+		title: "Aspect Ratio",
+	},
 	avatar: {
 		path: "/docs/components/avatar",
 		title: "Avatar",
