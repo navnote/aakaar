@@ -27,6 +27,23 @@ export const Header = () => {
 		<>
 			<RandomToggle />
 			<PmToggle />
+			<ThemeToggle />
+			<RadiusToggle />
+			<BaseToggle />
+			<FontToggle />
+			{/* <StrategyToggle /> */}
+			<ConfigViewer />
+			<a href="https://github.com/navnote/aakaar" target="_blank">
+				<Button size="icon">
+					<IconBrandGithub size={20} />
+				</Button>
+			</a>
+		</>
+	);
+	const toggleOptionsWithColorPicker = (
+		<>
+			<RandomToggle />
+			<PmToggle />
 			<ColorPicker />
 			<ThemeToggle />
 			<RadiusToggle />
@@ -81,13 +98,16 @@ export const Header = () => {
 						<DialogTitle className="text-sm hidden">
 							Play with the theme
 						</DialogTitle>
-						<div className="flex gap-xs items-center justify-center">
-							{toggleOptions}
+						<div className="flex flex-col gap-md items-center">
+							<div className="flex flex-wrap gap-xs items-center justify-center">
+								{toggleOptions}
+							</div>
+							<ColorPicker inline />
 						</div>
 					</DialogContent>
 				</Dialog>
 				<div className="hidden m-sm p-sm md:flex items-center w-full justify-center md:justify-end gap-xs overflow-x-auto">
-					{toggleOptions}
+					{toggleOptionsWithColorPicker}
 				</div>
 			</div>
 		</header>

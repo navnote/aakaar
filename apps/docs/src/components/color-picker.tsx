@@ -3,8 +3,19 @@ import { IconColorPicker } from "@tabler/icons-react";
 import { HexColorPicker } from "react-colorful";
 import { useAppContext } from "../core/app/context";
 
-export const ColorPicker = () => {
+export const ColorPicker = ({ inline }: { inline?: boolean }) => {
 	const { primary, setPrimary } = useAppContext();
+
+	if (inline) {
+		return (
+			<div className="flex flex-col items-center gap-xs">
+				<HexColorPicker
+					color={primary}
+					onChange={(color) => setPrimary(color)}
+				/>
+			</div>
+		);
+	}
 
 	return (
 		<Popover>
