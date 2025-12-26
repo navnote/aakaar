@@ -1,6 +1,5 @@
-Components in shadcn but NOT in aakaar (31 components)
+Components in shadcn but NOT in aakaar (30 components)
 
-button-group
 calendar
 carousel
 chart

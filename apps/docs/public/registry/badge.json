@@ -1,0 +1,9 @@
+{
+  "name": "badge",
+  "files": [
+    {
+      "name": "badge.tsx",
+      "content": "import { type VariantProps, cva } from \"class-variance-authority\";\nimport * as React from \"react\";\nimport {\n\tcn,\n\tcolors,\n\tflexBox,\n\tpaddingX,\n\tpaddingY,\n\tshape,\n\ttypography,\n} from \"../../core/core\";\n\nconst badgeVariants = cva(\n\tcn(\n\t\tflexBox.inlineCenter,\n\t\tshape.rounded,\n\t\tpaddingX.small,\n\t\tpaddingY.extraSmall,\n\t\ttypography.size.small,\n\t\ttypography.weight.medium,\n\t\ttypography.noWrap,\n\t),\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: colors.surface,\n\t\t\t\tsecondary: colors.containers.secondary,\n\t\t\t\tdestructive: colors.status.errorContainer,\n\t\t\t\toutline: cn(colors.transparent, \"border border-outline-variant\"),\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t},\n\t},\n);\n\nexport interface BadgeProps\n\textends React.HTMLAttributes<HTMLDivElement>,\n\t\tVariantProps<typeof badgeVariants> {}\n\nconst Badge = React.forwardRef<HTMLDivElement, BadgeProps>(\n\t({ className, variant, ...props }, ref) => (\n\t\t<div\n\t\t\tref={ref}\n\t\t\tclassName={cn(badgeVariants({ variant }), className)}\n\t\t\t{...props}\n\t\t/>\n\t),\n);\nBadge.displayName = \"Badge\";\n\nexport { Badge, badgeVariants };\n"
+    }
+  ]
+}

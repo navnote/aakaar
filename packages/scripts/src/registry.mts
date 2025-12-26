@@ -23,6 +23,7 @@ const COMPONENTS = [
 	"badge",
 	"breadcrumb",
 	"button",
+	"button-group",
 	"card",
 	"checkbox",
 	"dialog",

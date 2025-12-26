@@ -6,6 +6,7 @@ export * from "./lib/components/avatar/avatar";
 export * from "./lib/components/badge/badge";
 export * from "./lib/components/breadcrumb/breadcrumb";
 export * from "./lib/components/button/button";
+export * from "./lib/components/button-group/button-group";
 export * from "./lib/components/card/card";
 export * from "./lib/components/checkbox/checkbox";
 export * from "./lib/components/dialog/dialog";

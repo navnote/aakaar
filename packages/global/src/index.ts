@@ -23,6 +23,7 @@ export enum AakaarComponent {
 	badge = "badge",
 	breadcrumb = "breadcrumb",
 	button = "button",
+	buttonGroup = "button-group",
 	card = "card",
 	checkbox = "checkbox",
 	dialog = "dialog",

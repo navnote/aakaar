@@ -1,0 +1,9 @@
+{
+  "name": "button-group",
+  "files": [
+    {
+      "name": "button-group.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"../../core/core\";\n\nexport interface ButtonGroupProps\n\textends React.HTMLAttributes<HTMLDivElement> {\n\torientation?: \"horizontal\" | \"vertical\";\n}\n\nconst ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(\n\t({ className, orientation = \"horizontal\", ...props }, ref) => (\n\t\t<div\n\t\t\tref={ref}\n\t\t\trole=\"group\"\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-flex\",\n\t\t\t\torientation === \"horizontal\" ? \"flex-row\" : \"flex-col\",\n\t\t\t\t\"[&>button:not(:first-child)]:rounded-l-none\",\n\t\t\t\t\"[&>button:not(:last-child)]:rounded-r-none\",\n\t\t\t\t\"[&>button:not(:first-child)]:-ml-px\",\n\t\t\t\torientation === \"vertical\" && \"[&>button:not(:first-child)]:-mt-px\",\n\t\t\t\torientation === \"vertical\" && \"[&>button:not(:first-child)]:rounded-t-none\",\n\t\t\t\torientation === \"vertical\" && \"[&>button:not(:last-child)]:rounded-b-none\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t),\n);\nButtonGroup.displayName = \"ButtonGroup\";\n\nexport { ButtonGroup };\n\n"
+    }
+  ]
+}
