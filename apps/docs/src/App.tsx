@@ -4,6 +4,7 @@ import Accordion from "./routes/docs/components/accordion";
 import Alert from "./routes/docs/components/alert";
 import AlertDialog from "./routes/docs/components/alert-dialog";
 import Avatar from "./routes/docs/components/avatar";
+import Badge from "./routes/docs/components/badge";
 import Breadcrumb from "./routes/docs/components/breadcrumb";
 import Button from "./routes/docs/components/button";
 import Card from "./routes/docs/components/card";
@@ -39,6 +40,7 @@ function App() {
 						<Route path="alert" element={<Alert />} />
 						<Route path="alert-dialog" element={<AlertDialog />} />
 						<Route path="avatar" element={<Avatar />} />
+						<Route path="badge" element={<Badge />} />
 						<Route path="breadcrumb" element={<Breadcrumb />} />
 						<Route path="button" element={<Button />} />
 						<Route path="card" element={<Card />} />

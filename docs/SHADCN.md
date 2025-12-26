@@ -1,7 +1,6 @@
-Components in shadcn but NOT in aakaar (33 components)
+Components in shadcn but NOT in aakaar (32 components)
 
 aspect-ratio
-badge
 button-group
 calendar
 carousel

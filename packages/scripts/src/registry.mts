@@ -19,6 +19,7 @@ const COMPONENTS = [
 	"accordion",
 	"alert",
 	"avatar",
+	"badge",
 	"breadcrumb",
 	"button",
 	"card",

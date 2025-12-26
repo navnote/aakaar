@@ -2,6 +2,7 @@ export * from "./lib/components/accordion/accordion";
 export * from "./lib/components/alert/alert";
 export * from "./lib/components/alert-dialog/alert-dialog";
 export * from "./lib/components/avatar/avatar";
+export * from "./lib/components/badge/badge";
 export * from "./lib/components/breadcrumb/breadcrumb";
 export * from "./lib/components/button/button";
 export * from "./lib/components/card/card";

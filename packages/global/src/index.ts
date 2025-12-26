@@ -19,6 +19,7 @@ export enum AakaarComponent {
 	alert = "alert",
 	alertDialog = "alert-dialog",
 	avatar = "avatar",
+	badge = "badge",
 	breadcrumb = "breadcrumb",
 	button = "button",
 	card = "card",

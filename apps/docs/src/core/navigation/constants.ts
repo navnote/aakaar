@@ -48,6 +48,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/avatar",
 		title: "Avatar",
 	},
+	badge: {
+		path: "/docs/components/badge",
+		title: "Badge",
+	},
 	breadcrumb: {
 		path: "/docs/components/breadcrumb",
 		title: "Breadcrumb",
