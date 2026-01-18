@@ -1,4 +1,7 @@
-import { AlertDialog as BaseAlertDialog } from "@base-ui-components/react";
+import {
+	AlertDialog as BaseAlertDialog,
+	mergeProps,
+} from "@base-ui-components/react";
 import * as React from "react";
 import {
 	alignment,
@@ -45,7 +48,36 @@ const alertDialogStyles = {
 };
 
 const AlertDialog = BaseAlertDialog.Root;
-const AlertDialogTrigger = BaseAlertDialog.Trigger;
+const AlertDialogTrigger = React.forwardRef<
+	HTMLButtonElement,
+	React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Trigger> & {
+		asChild?: boolean;
+	}
+>(({ asChild, children, ...props }, ref) => {
+	if (asChild && React.isValidElement(children)) {
+		return (
+			<BaseAlertDialog.Trigger
+				{...props}
+				ref={ref}
+				render={(triggerProps) => {
+					return React.cloneElement(
+						children as React.ReactElement,
+						mergeProps(
+							triggerProps as React.ComponentProps<"button">,
+							children.props as React.ComponentProps<"button">,
+						),
+					);
+				}}
+			/>
+		);
+	}
+	return (
+		<BaseAlertDialog.Trigger {...props} ref={ref}>
+			{children}
+		</BaseAlertDialog.Trigger>
+	);
+});
+AlertDialogTrigger.displayName = "AlertDialogTrigger";
 const AlertDialogClose = BaseAlertDialog.Close;
 
 const AlertDialogOverlay = React.forwardRef<

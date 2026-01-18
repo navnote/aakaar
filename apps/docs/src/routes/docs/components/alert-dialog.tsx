@@ -25,7 +25,7 @@ export default () => {
 			<Demo
 				code={`
 <AlertDialog>
-  <AlertDialogTrigger>
+  <AlertDialogTrigger asChild>
     <Button variant="destructive">Delete account</Button>
   </AlertDialogTrigger>
   <AlertDialogContent>
@@ -49,7 +49,7 @@ export default () => {
         `}
 			>
 				<AlertDialog>
-					<AlertDialogTrigger>
+					<AlertDialogTrigger asChild>
 						<Button variant="primary">Delete account</Button>
 					</AlertDialogTrigger>
 					<AlertDialogContent>

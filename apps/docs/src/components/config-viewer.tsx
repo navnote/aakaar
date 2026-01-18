@@ -25,7 +25,7 @@ export const ConfigViewer = () => {
 
 	return (
 		<Dialog>
-			<DialogTrigger>
+			<DialogTrigger asChild>
 				<Button size={"icon"}>
 					<IconSettingsSearch size={20} />
 				</Button>

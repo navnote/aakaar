@@ -1,4 +1,4 @@
-import { Dialog as BaseDialog } from "@base-ui-components/react";
+import { Dialog as BaseDialog, mergeProps } from "@base-ui-components/react";
 import { IconX } from "@tabler/icons-react";
 import * as React from "react";
 import {
@@ -60,7 +60,36 @@ const dialogStyles = {
 
 const Dialog = BaseDialog.Root;
 
-const DialogTrigger = BaseDialog.Trigger;
+const DialogTrigger = React.forwardRef<
+	HTMLButtonElement,
+	React.ComponentPropsWithoutRef<typeof BaseDialog.Trigger> & {
+		asChild?: boolean;
+	}
+>(({ asChild, children, ...props }, ref) => {
+	if (asChild && React.isValidElement(children)) {
+		return (
+			<BaseDialog.Trigger
+				{...props}
+				ref={ref}
+				render={(triggerProps) => {
+					return React.cloneElement(
+						children as React.ReactElement,
+						mergeProps(
+							triggerProps as React.ComponentProps<"button">,
+							children.props as React.ComponentProps<"button">,
+						),
+					);
+				}}
+			/>
+		);
+	}
+	return (
+		<BaseDialog.Trigger {...props} ref={ref}>
+			{children}
+		</BaseDialog.Trigger>
+	);
+});
+DialogTrigger.displayName = "DialogTrigger";
 
 const DialogPortal = BaseDialog.Portal;
 

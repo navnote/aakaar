@@ -16,8 +16,8 @@ export const RadiusToggle = () => {
 	return (
 		<Button variant="primary" size="icon" onClick={handleClick}>
 			<span
-				className="text-sm w-[20px] flex items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap"
-				style={{ fontSize: "0.875rem", maxWidth: "20px" }}
+				className="w-[20px] h-[20px] flex items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap"
+				style={{ fontSize: "14px" }}
 			>
 				{radius === Size.zero ? "0" : radius.replace("px", "")}
 			</span>
