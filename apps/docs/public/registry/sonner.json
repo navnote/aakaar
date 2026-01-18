@@ -1,0 +1,13 @@
+{
+  "name": "sonner",
+  "dependencies": [
+    "sonner",
+    "@tabler/icons-react"
+  ],
+  "files": [
+    {
+      "name": "sonner.tsx",
+      "content": "import {\n    IconAlertTriangle,\n    IconCircleCheck,\n    IconCircleX,\n    IconInfoCircle,\n    IconLoader2,\n} from \"@tabler/icons-react\";\nimport * as React from \"react\";\nimport { Toaster as Sonner, type ToasterProps } from \"sonner\";\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n    return (\n        <Sonner\n            className=\"toaster group\"\n            icons={{\n                success: <IconCircleCheck className=\"size-4\" />,\n                info: <IconInfoCircle className=\"size-4\" />,\n                warning: <IconAlertTriangle className=\"size-4\" />,\n                error: <IconCircleX className=\"size-4\" />,\n                loading: <IconLoader2 className=\"size-4 animate-spin\" />,\n            }}\n            style={\n                {\n                    \"--normal-bg\": \"hsl(var(--color-surface))\",\n                    \"--normal-text\": \"hsl(var(--color-on-surface))\",\n                    \"--normal-border\": \"hsl(var(--color-outline-variant))\",\n                    \"--success-bg\": \"hsl(var(--color-primary-container))\",\n                    \"--success-text\": \"hsl(var(--color-on-primary-container))\",\n                    \"--success-border\": \"hsl(var(--color-primary))\",\n                    \"--info-bg\": \"hsl(var(--color-secondary-container))\",\n                    \"--info-text\": \"hsl(var(--color-on-secondary-container))\",\n                    \"--info-border\": \"hsl(var(--color-secondary))\",\n                    \"--warning-bg\": \"hsl(var(--color-tertiary-container))\",\n                    \"--warning-text\": \"hsl(var(--color-on-tertiary-container))\",\n                    \"--warning-border\": \"hsl(var(--color-tertiary))\",\n                    \"--error-bg\": \"hsl(var(--color-error-container))\",\n                    \"--error-text\": \"hsl(var(--color-on-error-container))\",\n                    \"--error-border\": \"hsl(var(--color-error))\",\n                    \"--border-radius\": \"var(--radius-default)\",\n                } as React.CSSProperties\n            }\n            {...props}\n        />\n    );\n};\n\nexport { Toaster };\n"
+    }
+  ]
+}

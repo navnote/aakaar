@@ -116,6 +116,10 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/slider",
 		title: "Slider",
 	},
+	sonner: {
+		path: "/docs/components/sonner",
+		title: "Sonner",
+	},
 	switch: {
 		path: "/docs/components/switch",
 		title: "Switch",

@@ -20,6 +20,7 @@ export * from "./lib/components/progress/progress";
 export * from "./lib/components/radio/radio";
 export * from "./lib/components/select/select";
 export * from "./lib/components/slider/slider";
+export * from "./lib/components/sonner/sonner";
 export * from "./lib/components/switch/switch";
 export * from "./lib/components/tabs/tabs";
 export * from "./lib/components/textarea/textarea";

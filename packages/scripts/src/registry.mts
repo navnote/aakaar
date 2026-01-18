@@ -36,6 +36,7 @@ const COMPONENTS = [
 	"radio",
 	"select",
 	"slider",
+	"sonner",
 	"switch",
 	"tabs",
 	"textarea",

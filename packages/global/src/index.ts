@@ -36,6 +36,7 @@ export enum AakaarComponent {
 	radio = "radio",
 	select = "select",
 	slider = "slider",
+	sonner = "sonner",
 	switch = "switch",
 	tabs = "tabs",
 	textarea = "textarea",
