@@ -13,11 +13,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
 		<Sonner
 			className="toaster group"
 			icons={{
-				success: <IconCircleCheck className="size-4" />,
-				info: <IconInfoCircle className="size-4" />,
-				warning: <IconAlertTriangle className="size-4" />,
-				error: <IconCircleX className="size-4" />,
-				loading: <IconLoader2 className="size-4 animate-spin" />,
+				success: <IconCircleCheck className="size-md" />,
+				info: <IconInfoCircle className="size-md" />,
+				warning: <IconAlertTriangle className="size-md" />,
+				error: <IconCircleX className="size-md" />,
+				loading: <IconLoader2 className="size-md animate-spin" />,
 			}}
 			style={
 				{

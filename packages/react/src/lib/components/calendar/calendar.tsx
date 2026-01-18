@@ -110,7 +110,7 @@ const Calendar = ({
 				week: cn(
 					flexBox.row,
 					dimensions.fullWidth,
-					"mt-2",
+					"mt-sm",
 					defaultClassNames.week,
 				),
 				day: cn(
