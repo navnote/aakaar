@@ -10,6 +10,7 @@ export type Theme = "light" | "dark";
 export type Base = "0.9rem" | "1rem" | "1.25rem" | "1.5rem";
 
 export type FontFamily =
+	| "Sora"
 	| "Poppins"
 	| "Montserrat"
 	| "Raleway"

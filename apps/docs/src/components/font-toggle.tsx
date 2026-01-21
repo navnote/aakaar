@@ -7,7 +7,7 @@ import type { FontFamily } from "../core/app/types";
 const FONTS: { category: string; fonts: FontFamily[] }[] = [
 	{
 		category: "Professional",
-		fonts: ["Poppins", "Montserrat", "Raleway", "Nunito", "Ubuntu"],
+		fonts: ["Sora", "Poppins", "Montserrat", "Raleway", "Nunito", "Ubuntu"],
 	},
 	{
 		category: "Dyslexic-friendly",
