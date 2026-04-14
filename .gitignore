@@ -26,6 +26,7 @@ coverage
 out/
 build
 dist
+src/design
 
 # Debug
 npm-debug.log*
@@ -37,3 +38,4 @@ yarn-error.log*
 *.pem
 
 /tmp
+.sisyphus

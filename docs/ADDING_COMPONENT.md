@@ -188,7 +188,7 @@ export default () => {
 - Get dependency information
 - Install the component into user projects
 
-**How to generate:** Run `pnpm run registry` from the root directory after adding the component to `packages/scripts/src/registry.mts`. This generates the JSON file in `apps/docs/public/registry/`.
+**How to generate:** Run `bun run registry` from the root directory after adding the component to `packages/scripts/src/registry.mts`. This generates the JSON file in `apps/docs/public/registry/`.
 
 ---
 

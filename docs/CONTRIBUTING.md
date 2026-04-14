@@ -24,7 +24,7 @@ The project is organized into several packages:
 ## 🛠️ Prerequisites
 
 - Node.js >= 18
-- pnpm >= 9.0.0
+- Bun >= 1.0
 
 ## 🏗️ Installation
 
@@ -36,42 +36,42 @@ cd aakaar
 
 2. Install dependencies:
 ```bash
-pnpm install
+bun install
 ```
 
 ## 🚀 Development
 
 ### Start Development Server
 ```bash
-pnpm dev
+bun run dev
 ```
 
 ### Build Project
 ```bash
-pnpm build
+bun run build:all
 ```
 
 ### Type Checking
 ```bash
-pnpm ts
+bun run ts
 ```
 
 ### Code Quality
 ```bash
 # Check code quality
-pnpm check
+bun run check
 
 # Fix code quality issues
-pnpm check:fix
+bun run check:fix
 ```
 
 ### Local Development with Registry
 ```bash
 # Start local registry
-pnpm local-registry
+bun run local-registry
 
 # Publish packages locally
-pnpm publish:local
+bun run publish:local
 ```
 
 ## 📚 Documentation Website
@@ -79,14 +79,14 @@ pnpm publish:local
 Documentation is present in the `apps/docs` directory. To view the documentation locally run the following command:
 
 ```bash
-pnpm dev
+bun run dev
 ```
 
 ## 📦 Publishing
 
 ### Publish to NPM
 ```bash
-pnpm publish:internet
+bun run publish:internet
 ```
 
 
@@ -124,7 +124,7 @@ We love your input! We want to make contributing to Aakaar as easy and transpare
 ### Prerequisites
 
 - Node.js >= 22
-- pnpm >= 9.0.0
+- Bun >= 1.0
 
 ### Getting Started
 
@@ -136,19 +136,19 @@ We love your input! We want to make contributing to Aakaar as easy and transpare
 
 2. **Install dependencies**
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. **Set up pre-commit hooks** (automatically installed via `setup` script)
    ```bash
-   pnpm setup
+   bun run setup
    ```
 
 ## 🔧 Pre-commit Hooks
 
 This project uses Husky to manage Git hooks that ensure code quality. The pre-commit hook will:
 
-- Run `pnpm check:fix` to format and lint your code
+- Run `bun run check:fix` to format and lint your code
 - Stage any formatting changes automatically
 - Prevent empty commits (when only formatting was changed)
 
@@ -162,15 +162,15 @@ When you make a commit, the pre-commit hook will:
 
 ## 📝 Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build the project
-- `pnpm ts` - Type checking
-- `pnpm check` - Check code formatting and linting
-- `pnpm check:fix` - Fix code formatting and linting issues
-- `pnpm setup` - Install Husky hooks manually
-- `pnpm local-registry` - Start local registry
-- `pnpm publish:local` - Publish packages locally
-- `pnpm publish:internet` - Publish to NPM
+- `bun run dev` - Start development server
+- `bun run build:all` - Build the project
+- `bun run ts` - Type checking
+- `bun run check` - Check code formatting and linting
+- `bun run check:fix` - Fix code formatting and linting issues
+- `bun run setup` - Install Husky hooks manually
+- `bun run local-registry` - Start local registry
+- `bun run publish:local` - Publish packages locally
+- `bun run publish:internet` - Publish to NPM
 
 ## 🎯 Code Quality
 
@@ -187,7 +187,7 @@ We use GitHub to host code, to track issues and feature requests, as well as acc
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
 4. Commit your changes (pre-commit hooks will run automatically)
-5. Run `pnpm ts && pnpm build` to ensure build 
+5. Run `bun run ts && bun run build:all` to ensure build 
 5. Push to the branch (`git push origin feature/amazing-feature`)
 6. Open a Pull Request
 
@@ -228,7 +228,7 @@ The project is organized into several packages:
 Documentation is present in the `apps/docs` directory. To view the documentation locally run:
 
 ```bash
-pnpm dev
+bun run dev
 ```
 
 ## 📝 License
@@ -238,7 +238,7 @@ By contributing, you agree that your contributions will be licensed under the MI
 ## 🙏 Acknowledgments
 
 - [Turborepo](https://turbo.build/repo)
-- [pnpm](https://pnpm.io/)
+- [Bun](https://bun.sh/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 

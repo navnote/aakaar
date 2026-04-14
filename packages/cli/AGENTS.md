@@ -34,7 +34,7 @@ packages/cli/
 ## COMMANDS
 
 ```bash
-pnpm cli setup        # Initialize aakaar in project
-pnpm cli token       # Generate tokens.css
-pnpm cli add <name> # Add component
+bun run cli setup        # Initialize aakaar in project
+bun run cli token       # Generate tokens.css
+bun run cli add <name> # Add component
 ```

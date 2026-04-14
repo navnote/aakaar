@@ -4,7 +4,7 @@
 
 ## OVERVIEW
 
-Build and validation scripts. Runs on `pnpm token`.
+Build and validation scripts. Runs on `bun run registry`.
 
 ## STRUCTURE
 

@@ -1,7 +1,7 @@
 # PROJECT KNOWLEDGE BASE
 
 **Generated:** 2026-04-14
-**Commit:** 698f702
+**Commit:** e456615
 **Branch:** main
 
 ## OVERVIEW
@@ -18,11 +18,13 @@ aakaar/
 │   ├── dictionary/  # Word data for CLI
 │   ├── global/      # Global tokens export
 │   └── scripts/     # Build scripts
-├── src/design/components/  # Component source (button, sonner)
-├── apps/docs/        # Documentation site
+├── src/design/      # Generated component output (gitignored source)
+├── apps/docs/       # Documentation site (Vite + React)
 ├── turbo.json       # Turborepo config
 ├── biome.json       # Biome lint config
-└── aakaar.json      # Aakaar config (color theme)
+├── aakaar.json      # Aakaar config (color theme)
+├── bunfig.toml      # Bun workspace config
+└── bun.lock         # Bun lockfile
 ```
 
 ## WHERE TO LOOK
@@ -31,7 +33,7 @@ aakaar/
 |------|----------|-------|
 | Add new component | `packages/react/src/` + `src/design/components/` | Dual locations - sync required |
 | CLI commands | `packages/cli/src/` | Commander-based |
-| Token generation | `packages/scripts/` | Runs on `pnpm token` |
+| Token generation | `packages/scripts/` | Runs on `bun run registry` |
 | Theme config | `aakaar.json` | color, strategy, output paths |
 | Docs | `apps/docs/` | Vite + React |
 
@@ -46,18 +48,18 @@ aakaar/
 ## ANTI-PATTERNS (THIS PROJECT)
 
 - **NEVER** edit `src/design/components/` directly — edit `packages/react/src/` instead, then copy/sync
-- **NEVER** commit `dist/` folders — gitignored
-- **DON'T** add new packages without updating `pnpm-workspace.yaml`
+- **NEVER** commit `dist/` or `node_modules/` — gitignored
 
-## COMMANDS
+## COMMANDS (BUN)
 
 ```bash
-pnpm build           # Build all packages
-pnpm dev             # Dev all packages
-pnpm check           # Biome lint
-pnpm check:fix       # Biome fix
-pnpm cli add <name>  # Add component
-pnpm cli token       # Generate tokens
+bun run build:all     # Build all packages
+bun run dev          # Dev all packages
+bun run check        # Biome lint
+bun run check:fix    # Biome fix
+bun run cli add <name>  # Add component
+bun run registry     # Generate component registry
+bun run ts           # Type check all packages
 ```
 
 ## NOTES
@@ -65,3 +67,4 @@ pnpm cli token       # Generate tokens
 - Components exist in TWO places: `packages/react/src/` (source) AND `src/design/components/` (consumed)
 - CLI adds to both when running `add` command
 - Dictionary package is large (280 directories) - avoid full scans
+- Use `bun` as package manager (not pnpm/yarn/npm)

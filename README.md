@@ -34,7 +34,7 @@ Aakaar is a modern, customizable component library built on top of Tailwind CSS,
 ## For a new vite project
 
 ```bash
-pnpx @aakaar/cli setup
+bunx @aakaar/cli setup
 ```
 
 ### Install dependencies
@@ -58,7 +58,7 @@ export default defineConfig({
 ### Create tokens
 
 ```bash
-pnpx @aakaar/cli token # Change the tokens.color in aakaar.json file if you want to change color theme
+bunx @aakaar/cli token # Change the tokens.color in aakaar.json file if you want to change color theme
 ```
 
 ### Update stylesheet
@@ -80,8 +80,8 @@ rm src/App.css
 ### Add components to your project
 
 ```bash
-pnpx @aakaar/cli add card
-pnpx @aakaar/cli add button
+bunx @aakaar/cli add card
+bunx @aakaar/cli add button
 ```
 
 ### Finally App.tsx file
@@ -124,8 +124,8 @@ export default function App() {
 
 * Run `bunx @aakaar/cli setup` to initialize aakaar in your project.
 * Run `bun add -D tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge` to install dependencies.
-* Run `pnpx @aakaar/cli token` to generate a new tokens.css file.
-* Run `pnpx @aakaar/cli add card` card component. Or other components you see on [aakaar](https://aakaar.navnote.com).
+* Run `bunx @aakaar/cli token` to generate a new tokens.css file.
+* Run `bunx @aakaar/cli add card` card component. Or other components you see on [aakaar](https://aakaar.navnote.com).
 
 🎉 You are all set to go! You can now start building your application with Aakaar! 🚀
 
@@ -136,7 +136,7 @@ export default function App() {
 Aakaar provides a flexible theming system that allows you to customize the look and feel of your application.
 We use Google's Material Design 3 tokens to create a consistent and beautiful design system for colors.
 
-* You can update aakaar.json file to generate a new tokens.css file. Then run `pnpx @aakaar/cli token` to generate a new tokens.css file.
+* You can update aakaar.json file to generate a new tokens.css file. Then run `bunx @aakaar/cli token` to generate a new tokens.css file.
 * Change the `--base` value to have a different base size for the design system.
 
 ### Example tokens.css file
@@ -256,4 +256,4 @@ We use Google's Material Design 3 tokens to create a consistent and beautiful de
   --inset-shadow-full: inset 0 0 0 100vh rgba(0, 0, 0, 0.5);
 
 }
-```# Test commit
+```
