@@ -1,23 +1,24 @@
 {
 	"$schema": "https://json.schemastore.org/package",
 	"name": "aakaar",
+	"workspaces": ["apps/*", "packages/*"],
 	"scripts": {
-		"build": "pnpm turbo run build",
-		"dev": "pnpm turbo run dev",
-		"clean": "pnpm turbo run clean",
+		"build:all": "turbo run build",
+		"dev": "turbo run dev",
+		"clean": "turbo run clean",
 		"clean:nm": "rm -rf node_modules && turbo run clean:nm",
-		"test": "pnpm turbo run test",
-		"ts": "pnpm turbo run ts",
-		"check": "pnpm biome check .",
-		"check:fix": "pnpm biome check . --write .",
-		"check:deps": "pnpm turbo run check-deps --filter=@aakaar/scripts",
-		"registry": "pnpm turbo run registry --filter=@aakaar/scripts",
-		"preview": "pnpm turbo run preview",
-		"local-registry": "pnpm verdaccio --config .verdaccio/config.yml",
-		"cli": "pnpm node packages/cli/dist/index.js",
+		"test": "turbo run test",
+		"ts": "turbo run ts",
+		"check": "biome check .",
+		"check:fix": "biome check . --write .",
+		"check:deps": "turbo run check-deps --filter=@aakaar/scripts",
+		"registry": "turbo run registry --filter=@aakaar/scripts",
+		"preview": "turbo run preview",
+		"local-registry": "verdaccio --config .verdaccio/config.yml",
+		"cli": "bun node packages/cli/dist/index.js",
 		"setup": "husky",
-		"publish:internet": "pnpm build && pnpm turbo run publish:internet --filter=@aakaar/react --filter=@aakaar/cli --filter=@aakaar/dictionary --filter=@aakaar/global",
-		"publish:local": "rm -rf ./tmp && pnpm build && pnpm turbo run publish:local --filter=@aakaar/react --filter=@aakaar/cli --filter=@aakaar/dictionary --filter=@aakaar/global",
+		"publish:internet": "bun run build:all && turbo run publish:internet --filter=@aakaar/react --filter=@aakaar/cli --filter=@aakaar/dictionary --filter=@aakaar/global",
+		"publish:local": "rm -rf ./tmp && bun run build:all && turbo run publish:local --filter=@aakaar/react --filter=@aakaar/cli --filter=@aakaar/dictionary --filter=@aakaar/global",
 		"prepare": "husky"
 	},
 	"devDependencies": {
@@ -39,7 +40,7 @@
 		"typescript": "5.8.2",
 		"vite": "^6.3.5"
 	},
-	"packageManager": "pnpm@9.0.0",
+	"packageManager": "bun@1.3.10",
 	"engines": {
 		"node": ">=18"
 	},

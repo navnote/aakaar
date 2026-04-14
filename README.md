@@ -40,7 +40,7 @@ pnpx @aakaar/cli setup
 ### Install dependencies
 
 ```bash
-pnpm add -D tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge
+bun add -D tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge
 ```
 
 ### Update vite.config.ts file
@@ -122,8 +122,8 @@ export default function App() {
 
 ## For existing project
 
-* Run `pnpx @aakaar/cli setup` to initialize aakaar in your project.
-* Run `pnpm add -D tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge` to install dependencies.
+* Run `bunx @aakaar/cli setup` to initialize aakaar in your project.
+* Run `bun add -D tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge` to install dependencies.
 * Run `pnpx @aakaar/cli token` to generate a new tokens.css file.
 * Run `pnpx @aakaar/cli add card` card component. Or other components you see on [aakaar](https://aakaar.navnote.com).
 

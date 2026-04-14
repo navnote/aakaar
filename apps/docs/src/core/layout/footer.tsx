@@ -1,7 +1,7 @@
 import { Logo } from "../../components/logo";
 
 export const Footer = () => (
-	<footer className="flex flex-col items-center justify-center gap-xs p-xl border-t-[1px] border-outline-variant">
+	<footer className="flex flex-col items-center justify-center gap-xs py-md px-xl border-t-[1px] border-outline-variant">
 		<div>
 			<Logo />
 			<span>© {new Date().getFullYear()} Aakaar</span>

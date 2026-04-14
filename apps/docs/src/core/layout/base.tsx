@@ -22,11 +22,11 @@ export const BaseLayout = () => {
 					>
 						<Sidebar />
 						<div
-							className={`flex flex-col flex-1 py-xl min-h-[80vh] w-full ${
+							className={`flex flex-col flex-1 py-lg ${
 								isDocs
-									? "col-span-12 sm:col-span-9 md:col-span-9 lg:col-span-10"
-									: ""
-							}`}
+									? "col-span-12 sm:col-span-9 md:col-span-9 lg:col-span-10 min-h-[80vh]"
+									: "min-h-[60vh]"
+							} w-full`}
 						>
 							<Outlet />
 						</div>
