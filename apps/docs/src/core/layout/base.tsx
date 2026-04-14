@@ -12,7 +12,7 @@ export const BaseLayout = () => {
 
 	return (
 		<AppProvider>
-			<div className="bg-background text-on-background flex-1 ">
+			<div className="bg-background text-on-surface-variant flex-1 ">
 				<div className="w-full overflow-auto">
 					<Header />
 					<div
