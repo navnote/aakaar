@@ -20,7 +20,7 @@ const radioStyles = {
 		interactivity.states.clickable,
 		interactivity.states.disabled,
 		"aspect-square",
-		"text-primary",
+		"bg-transparent",
 	),
 };
 
@@ -42,7 +42,7 @@ const RadioGroupItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
 	<Radio.Root ref={ref} className={cn(radioStyles.item, className)} {...props}>
 		<Radio.Indicator className="flex items-center justify-center">
-			<IconCircle className="size-full p-[0.02rem] fill-current text-current" />
+			<IconCircle className="size-full p-[0.02rem] fill-primary text-primary" />
 		</Radio.Indicator>
 	</Radio.Root>
 ));

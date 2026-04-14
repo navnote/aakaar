@@ -19,7 +19,7 @@ const inputStyles = {
 		typography.size.small,
 		shadows.focusRing.primary,
 		interactivity.states.disabled,
-		"h-10",
+		"h-xl",
 		"file:border-0 file:bg-transparent",
 		cn("file:text-sm file:font-medium"),
 	),

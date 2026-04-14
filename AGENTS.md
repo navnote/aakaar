@@ -49,6 +49,23 @@ aakaar/
 
 - **NEVER** edit `src/design/components/` directly — edit `packages/react/src/` instead, then copy/sync
 - **NEVER** commit `dist/` or `node_modules/` — gitignored
+- **NEVER** use hardcoded Tailwind spacing (h-10, w-10, p-4, etc.) — they override the design tokens. Use semantic tokens from core.ts (dimensions.medium, padding.small, etc.) or h-md/w-md which map to --spacing-* variables
+
+## TOKEN SYSTEM
+
+This project uses a custom token system that overrides Tailwind's default spacing. The tokens are generated in `apps/docs/src/styles/tokens.css`:
+
+| Token Type | Example | Maps to |
+|------------|---------|---------|
+| Size (dimensions) | `size-md`, `h-md`, `w-md` | `--spacing-md` (0.25rem base) |
+| Padding | `p-xs`, `p-sm`, `p-md` | `--spacing-*` |
+| Margin | `m-xs`, `m-sm`, `m-md` | `--spacing-*` |
+| Gap | `gap-xs`, `gap-sm`, `gap-md` | `--spacing-*` |
+
+**Why this matters**: Standard Tailwind classes like `h-10`, `p-4`, `w-20` won't work as expected because the spacing scale is redefined. Always use:
+- `dimensions.small/medium/large` for height/width
+- `padding.*` and `spacing.*` from core.ts
+- Or use the semantic tokens: `h-md` (not `h-10`), `p-md` (not `p-4`)
 
 ## COMMANDS (BUN)
 

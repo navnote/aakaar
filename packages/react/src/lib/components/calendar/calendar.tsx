@@ -74,7 +74,6 @@ const Calendar = ({
 					flexBox.row,
 					alignment.center,
 					positioning.relative,
-					"pt-xs",
 					paddingY.small,
 					dimensions.fullWidth,
 				),
