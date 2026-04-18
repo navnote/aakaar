@@ -15,7 +15,8 @@
 			"public/**/*",
 			".turbo",
 			"tmp",
-			"apps/docs/src/styles/tokens.css"
+			"apps/docs/src/styles/tokens.css",
+			"apps/docs/src/styles/tokens-x.css"
 		]
 	},
 	"formatter": {

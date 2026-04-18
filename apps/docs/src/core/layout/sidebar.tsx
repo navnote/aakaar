@@ -15,7 +15,7 @@ export const Sidebar = () => {
 			className={`
 				h-screen w-full fixed left-0 bg-background z-20
 				sm:col-span-3 md:col-span-3 lg:col-span-2
-				sm:h-auto sm:relative sm:bg-transparent sm:border-r-[1px] border-outline-variant
+				sm:h-auto sm:relative sm:bg-transparent sm:border-r border-outline-variant
 				${isSidebarOpen ? "flex" : "hidden"}
 				md:${isDocs ? "flex" : "hidden"}
 			`}

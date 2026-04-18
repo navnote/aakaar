@@ -77,10 +77,10 @@
   /* Category: BorderRadius */
   --radius-0: 0;
   --radius-xs: calc(var(--scale) * var(--base) * 0.25);
-  --radius-sm: calc(var(--scale) * var(--base) * 0.375);
-  --radius-md: calc(var(--scale) * var(--base) * 0.5);
-  --radius-lg: calc(var(--scale) * var(--base) * 0.75);
-  --radius-xl: calc(var(--scale) * var(--base) * 1);
+  --radius-sm: calc(var(--scale) * var(--base) * 0.5);
+  --radius-md: calc(var(--scale) * var(--base) * 0.75);
+  --radius-lg: calc(var(--scale) * var(--base) * 1);
+  --radius-xl: calc(var(--scale) * var(--base) * 1.5);
   --radius-full: calc(var(--scale) * var(--base) * 999);
   --radius-default: var(--radius-md);
 

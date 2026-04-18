@@ -54,7 +54,7 @@ export const dimensions = {
 	large: "size-lg",
 	extraLarge: "size-xl",
 	fullWidth: "w-full",
-	icon: "size-[calc(var(--scale)*var(--base)*0.75)]",
+	icon: "size-[calc(var(--scale)*var(--base)*0.65)]",
 };
 
 export const alignment = {

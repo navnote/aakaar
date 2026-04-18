@@ -88,10 +88,10 @@ export const fontSizeTokens = Object.entries(fontSizeMultipliers).map(
 const radiusMultipliers: Record<Size, number> = {
 	[Size.zero]: 0,
 	[Size.xs]: 0.25,
-	[Size.sm]: 0.375,
-	[Size.md]: 0.5,
-	[Size.lg]: 0.75,
-	[Size.xl]: 1,
+	[Size.sm]: 0.5,
+	[Size.md]: 0.75,
+	[Size.lg]: 1,
+	[Size.xl]: 1.5,
 	[Size.full]: 999, // Large number to effectively create pill shape
 };
 

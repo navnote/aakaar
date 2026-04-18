@@ -112,6 +112,18 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 		path: "/docs/components/select",
 		title: "Select",
 	},
+	separator: {
+		path: "/docs/components/separator",
+		title: "Separator",
+	},
+	sidebar: {
+		path: "/docs/components/sidebar",
+		title: "Sidebar",
+	},
+	skeleton: {
+		path: "/docs/components/skeleton",
+		title: "Skeleton",
+	},
 	slider: {
 		path: "/docs/components/slider",
 		title: "Slider",

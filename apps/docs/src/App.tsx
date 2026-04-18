@@ -20,6 +20,9 @@ import Popover from "./routes/docs/components/popover";
 import Progress from "./routes/docs/components/progress";
 import Radio from "./routes/docs/components/radio";
 import Select from "./routes/docs/components/select";
+import Separator from "./routes/docs/components/separator";
+import Sidebar from "./routes/docs/components/sidebar";
+import Skeleton from "./routes/docs/components/skeleton";
 import Slider from "./routes/docs/components/slider";
 import Sonner from "./routes/docs/components/sonner";
 import Switch from "./routes/docs/components/switch";
@@ -60,6 +63,9 @@ function App() {
 						<Route path="progress" element={<Progress />} />
 						<Route path="radio" element={<Radio />} />
 						<Route path="select" element={<Select />} />
+						<Route path="separator" element={<Separator />} />
+						<Route path="sidebar" element={<Sidebar />} />
+						<Route path="skeleton" element={<Skeleton />} />
 						<Route path="slider" element={<Slider />} />
 						<Route path="sonner" element={<Sonner />} />
 						<Route path="switch" element={<Switch />} />
