@@ -126,10 +126,6 @@ const shadows = {
 	},
 };
 
-const focus = {
-	ring: "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-};
-
 const interactivity = {
 	states: {
 		clickable: "select-none",
@@ -256,7 +252,7 @@ const motion = {
 			ease: easeInOut,
 		},
 		spring: {
-			type: "spring",
+			type: "spring" as const,
 			damping: 20,
 			stiffness: 100,
 		},

@@ -14,12 +14,12 @@ export default () => {
 			<div>
 				<FormattedCode
 					isCli
-					code="pnpm add tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge framer-motion"
+					code="bun add tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge framer-motion"
 				/>
 			</div>
 			<h2>Run setup</h2>
 			<div>
-				<FormattedCode isCli code="pnpx @aakaar/cli setup" />
+				<FormattedCode isCli code="bunx @aakaar/cli setup" />
 			</div>
 
 			<b>Only press y when you have correctly chosen path for following:</b>
@@ -54,7 +54,7 @@ export type AakaarConfig = {
 			/>
 			<h2>Setup tokens</h2>
 			<div>
-				<FormattedCode isCli code="pnpx @aakaar/cli token" />
+				<FormattedCode isCli code="bunx @aakaar/cli token" />
 			</div>
 			<b>
 				This will create a tokens.css file based on the color you have chosen in
@@ -68,7 +68,7 @@ export type AakaarConfig = {
 			/>
 			<h2>Add component</h2>
 			<div>
-				<FormattedCode isCli code="pnpx @aakaar/cli add button" />
+				<FormattedCode isCli code="bunx @aakaar/cli add button" />
 			</div>
 			<h2>Use component</h2>
 			<FormattedCode

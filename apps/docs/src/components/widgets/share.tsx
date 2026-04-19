@@ -18,9 +18,9 @@ import { useState } from "react";
 const RightsSelect = ({ value }: { value: string }) => {
 	const [selectValue, setSelectValue] = useState(value);
 	return (
-		<Select value={selectValue} onValueChange={setSelectValue}>
+		<Select value={selectValue} onValueChange={(v) => v && setSelectValue(v)}>
 			<SelectTrigger className="w-[100px]">
-				<SelectValue placeholder="Edit" />
+				<SelectValue />
 			</SelectTrigger>
 			<SelectContent>
 				<SelectItem value="edit">Edit</SelectItem>

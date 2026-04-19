@@ -8,7 +8,6 @@ import {
 	Dialog,
 	DialogDescription,
 	DialogHeader,
-	DialogOverlay,
 	DialogPortal,
 	DialogTitle,
 } from "../dialog/dialog";

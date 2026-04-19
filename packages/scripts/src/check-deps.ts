@@ -146,7 +146,7 @@ function main(): number {
 	console.log(
 		"   2. Remove the dependencies from individual package.json files",
 	);
-	console.log('   3. Run "pnpm install" to update the lockfile');
+	console.log('   3. Run "bun install" to update the lockfile');
 
 	return 1;
 }

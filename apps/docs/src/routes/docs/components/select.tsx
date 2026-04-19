@@ -49,7 +49,7 @@ export default () => {
 			>
 				<Select>
 					<SelectTrigger className="w-[180px]">
-						<SelectValue placeholder="Select a fruit" />
+						<SelectValue />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectGroup>

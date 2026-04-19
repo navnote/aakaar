@@ -15,35 +15,43 @@ const popoverStyles = {
 
 const Popover = BasePopover.Root;
 
-const PopoverTrigger = React.forwardRef<
-	HTMLButtonElement,
-	React.ComponentPropsWithoutRef<typeof BasePopover.Trigger> & {
-		asChild?: boolean;
-	}
->(({ asChild, children, ...props }, ref) => {
-	if (asChild && React.isValidElement(children)) {
+type PopoverTriggerProps = React.ComponentPropsWithoutRef<
+	typeof BasePopover.Trigger
+> & {
+	asChild?: boolean;
+};
+
+const PopoverTrigger = React.forwardRef(
+	(
+		{ asChild, children, ...props }: PopoverTriggerProps,
+		ref: React.Ref<HTMLButtonElement>,
+	) => {
+		if (asChild && React.isValidElement(children)) {
+			return (
+				<BasePopover.Trigger
+					{...props}
+					ref={ref}
+					render={(triggerProps) => {
+						return React.cloneElement(
+							children as React.ReactElement,
+							mergeProps(
+								triggerProps as React.ComponentProps<"button">,
+								children.props as React.ComponentProps<"button">,
+							),
+						);
+					}}
+				/>
+			);
+		}
 		return (
-			<BasePopover.Trigger
-				{...props}
-				ref={ref}
-				render={(triggerProps) => {
-					return React.cloneElement(
-						children as React.ReactElement,
-						mergeProps(
-							triggerProps as React.ComponentProps<"button">,
-							children.props as React.ComponentProps<"button">,
-						),
-					);
-				}}
-			/>
+			<BasePopover.Trigger {...props} ref={ref}>
+				{children}
+			</BasePopover.Trigger>
 		);
-	}
-	return (
-		<BasePopover.Trigger {...props} ref={ref}>
-			{children}
-		</BasePopover.Trigger>
-	);
-});
+	},
+) as React.ForwardRefExoticComponent<
+	React.RefAttributes<HTMLButtonElement> & PopoverTriggerProps
+>;
 PopoverTrigger.displayName = "PopoverTrigger";
 
 const PopoverContent = React.forwardRef<
