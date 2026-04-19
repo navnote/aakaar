@@ -153,6 +153,7 @@ const COMPONENTS_NAVIGATION_MAP: Record<AakaarComponent, AakaarNavigation> = {
 export const COMPONENTS_NAVIGATION_ITEMS: AakaarNavigation[] = Object.entries(
 	COMPONENTS_NAVIGATION_MAP,
 )
+	.filter(([key]) => import.meta.env.DEV || key !== "sidebar")
 	.sort(([a], [b]) => a.localeCompare(b))
 	.map(([, value]) => value);
 

@@ -3,7 +3,7 @@
   "files": [
     {
       "name": "skeleton.tsx",
-      "content": "import * as React from \"react\";\nimport { cn } from \"../../core/core\";\n\ninterface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}\n\nconst Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(\n\t({ className, ...props }, ref) => {\n\t\treturn (\n\t\t\t<div\n\t\t\t\tref={ref}\n\t\t\t\tclassName={cn(\"animate-pulse rounded-md bg-surface-variant\", className)}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t);\n\t},\n);\nSkeleton.displayName = \"Skeleton\";\n\nexport { Skeleton };\nexport type { SkeletonProps };\n"
+      "content": "import * as React from \"react\";\nimport { coreClass } from \"../../core/core\";\n\ninterface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}\n\nconst Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(\n\t({ className, ...props }, ref) => {\n\t\treturn (\n\t\t\t<div\n\t\t\t\tref={ref}\n\t\t\t\tclassName={coreClass.cn(\n\t\t\t\t\t\"animate-pulse rounded-md bg-surface-variant\",\n\t\t\t\t\tclassName,\n\t\t\t\t)}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t);\n\t},\n);\nSkeleton.displayName = \"Skeleton\";\n\nexport { Skeleton };\nexport type { SkeletonProps };\n"
     }
   ]
 }
