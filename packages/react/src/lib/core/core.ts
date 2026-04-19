@@ -2,9 +2,9 @@ import { type ClassValue, clsx } from "clsx";
 import { easeIn, easeInOut, easeOut } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
-export const colors = {
+const colors = {
 	accent: {
 		justPrimary: "bg-transparent text-primary",
 		primary: "bg-primary text-on-primary",
@@ -34,12 +34,12 @@ export const colors = {
 	overlay: "bg-scrim/80",
 };
 
-export const borders = {
+const borders = {
 	standard: "border border-outline",
 	variant: "border border-outline-variant",
 };
 
-export const shape = {
+const shape = {
 	rounded: "rounded-default",
 	roundedWithBorder:
 		"rounded-default border-[0.0625rem] border-outline-variant",
@@ -48,7 +48,7 @@ export const shape = {
 	circlePrimary: "rounded-full border border-primary",
 };
 
-export const dimensions = {
+const dimensions = {
 	small: "size-sm",
 	medium: "size-md",
 	large: "size-lg",
@@ -57,47 +57,47 @@ export const dimensions = {
 	icon: "size-[calc(var(--scale)*var(--base)*0.65)]",
 };
 
-export const alignment = {
+const alignment = {
 	center: "flex items-center justify-center",
 	spaceBetween: "flex items-center justify-between",
 	start: "flex items-center justify-start",
 	end: "flex items-center justify-end",
 };
 
-export const flexBox = {
+const flexBox = {
 	row: "flex flex-row",
 	column: "flex flex-col",
 	inlineCenter: "inline-flex items-center",
 };
 
-export const spacing = {
+const spacing = {
 	small: "gap-sm",
 	medium: "gap-md",
 	large: "gap-lg",
 };
 
-export const padding = {
+const padding = {
 	extraSmall: "p-xs",
 	small: "p-sm",
 	medium: "p-md",
 	large: "p-lg",
 };
 
-export const paddingX = {
+const paddingX = {
 	extraSmall: "px-xs",
 	small: "px-sm",
 	medium: "px-md",
 	large: "px-lg",
 };
 
-export const paddingY = {
+const paddingY = {
 	extraSmall: "py-xs",
 	small: "py-sm",
 	medium: "py-md",
 	large: "py-lg",
 };
 
-export const typography = {
+const typography = {
 	size: {
 		extraSmall: "text-xs",
 		small: "text-sm",
@@ -113,7 +113,7 @@ export const typography = {
 	noWrap: "whitespace-nowrap",
 };
 
-export const shadows = {
+const shadows = {
 	depth: {
 		none: "shadow-none",
 		low: "shadow-sm",
@@ -126,11 +126,11 @@ export const shadows = {
 	},
 };
 
-export const focus = {
+const focus = {
 	ring: "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
 };
 
-export const interactivity = {
+const interactivity = {
 	states: {
 		clickable: "select-none",
 		hover: "hover:opacity-70",
@@ -153,7 +153,7 @@ export const interactivity = {
 	},
 };
 
-export const positioning = {
+const positioning = {
 	fixed: "fixed",
 	relative: "relative",
 	absolute: "absolute",
@@ -167,11 +167,11 @@ export const positioning = {
 	},
 };
 
-export const transforms = {
+const transforms = {
 	center: "translate-x-[-50%] translate-y-[-50%]",
 };
 
-export const measurements = {
+const measurements = {
 	width: {
 		full: "w-full",
 		minimum: "min-w-[8rem]",
@@ -182,9 +182,10 @@ export const measurements = {
 	},
 };
 
-export const utilities = {
+const utilities = {
 	overflow: {
 		hidden: "overflow-hidden",
+		scroll: "overflow-scroll",
 	},
 	aspectRatio: {
 		square: "aspect-square",
@@ -205,7 +206,7 @@ export const utilities = {
 };
 
 // Motion patterns and animations
-export const motion = {
+const motion = {
 	variants: {
 		fade: {
 			initial: { opacity: 0 },
@@ -285,4 +286,36 @@ export const motion = {
 			scale: 0.98,
 		},
 	},
+};
+
+const layout = flexBox;
+const text = typography;
+const surface = colors.surface;
+const center = alignment.center;
+
+/** Prefixed export for all foundation utilities - use coreClass.surface, coreClass.layout, etc. */
+export const coreClass = {
+	cn,
+	colors,
+	borders,
+	shape,
+	dimensions,
+	alignment,
+	flexBox,
+	layout,
+	text,
+	surface,
+	center,
+	spacing,
+	padding,
+	paddingX,
+	paddingY,
+	typography,
+	shadows,
+	interactivity,
+	positioning,
+	transforms,
+	measurements,
+	utilities,
+	motion,
 };

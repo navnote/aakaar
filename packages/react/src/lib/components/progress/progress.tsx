@@ -1,31 +1,32 @@
 import { Progress as BaseProgress } from "@base-ui-components/react";
 import * as React from "react";
-import {
-	borders,
-	cn,
-	colors,
-	measurements,
-	positioning,
-	shape,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const progressStyles = {
-	root: cn("grid grid-cols-2 gap-1 gap-y-2", measurements.width.minimum),
-	track: cn(
+	root: coreClass.cn(
+		"grid grid-cols-2 gap-1 gap-y-2",
+		coreClass.measurements.width.minimum,
+	),
+	track: coreClass.cn(
 		"col-span-2",
 		"h-xs w-full overflow-hidden",
-		shape.rounded,
-		colors.containers.primary,
-		borders.variant,
+		coreClass.shape.rounded,
+		coreClass.colors.containers.primary,
+		coreClass.borders.variant,
 	),
-	indicator: cn(
-		positioning.relative,
+	indicator: coreClass.cn(
+		coreClass.positioning.relative,
 		"h-full rounded-full",
-		colors.accent.primary,
+		coreClass.colors.accent.primary,
 	),
-	label: cn(typography.size.small, typography.weight.medium),
-	value: cn(typography.size.small, "text-right col-start-2"),
+	label: coreClass.cn(
+		coreClass.typography.size.small,
+		coreClass.typography.weight.medium,
+	),
+	value: coreClass.cn(
+		coreClass.typography.size.small,
+		"text-right col-start-2",
+	),
 };
 
 const Progress = React.forwardRef<
@@ -34,7 +35,7 @@ const Progress = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseProgress.Root
 		ref={ref}
-		className={cn(progressStyles.root, className)}
+		className={coreClass.cn(progressStyles.root, className)}
 		{...props}
 	/>
 ));
@@ -46,7 +47,7 @@ const ProgressTrack = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseProgress.Track
 		ref={ref}
-		className={cn(progressStyles.track, className)}
+		className={coreClass.cn(progressStyles.track, className)}
 		{...props}
 	/>
 ));
@@ -58,7 +59,7 @@ const ProgressIndicator = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseProgress.Indicator
 		ref={ref}
-		className={cn(progressStyles.indicator, className)}
+		className={coreClass.cn(progressStyles.indicator, className)}
 		{...props}
 	/>
 ));
@@ -70,7 +71,7 @@ const ProgressValue = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseProgress.Value
 		ref={ref}
-		className={cn(progressStyles.value, className)}
+		className={coreClass.cn(progressStyles.value, className)}
 		{...props}
 	/>
 ));
@@ -82,7 +83,7 @@ const ProgressLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseProgress.Label
 		ref={ref}
-		className={cn(progressStyles.label, className)}
+		className={coreClass.cn(progressStyles.label, className)}
 		{...props}
 	/>
 ));

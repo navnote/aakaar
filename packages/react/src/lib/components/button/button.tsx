@@ -4,52 +4,52 @@ import { clsx } from "clsx";
 import { motion as framerMotion } from "framer-motion";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import {
-	alignment,
-	borders,
-	cn,
-	colors,
-	flexBox,
-	interactivity,
-	motion,
-	padding,
-	paddingX,
-	paddingY,
-	shadows,
-	shape,
-	spacing,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const buttonStyles = {
-	base: cn(
-		shape.rounded,
-		colors.surface,
-		alignment.center,
-		flexBox.inlineCenter,
-		spacing.small,
-		typography.noWrap,
-		shadows.focusRing.primary,
-		interactivity.states.clickable,
-		interactivity.states.hover,
-		interactivity.states.disabled,
-		interactivity.transitions.opacity,
+	base: coreClass.cn(
+		coreClass.shape.rounded,
+		coreClass.colors.surface,
+		coreClass.alignment.center,
+		coreClass.flexBox.inlineCenter,
+		coreClass.spacing.small,
+		coreClass.typography.noWrap,
+		coreClass.shadows.focusRing.primary,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.states.hover,
+		coreClass.interactivity.states.disabled,
+		coreClass.interactivity.transitions.opacity,
 	),
 };
 
 export const buttonVariants = cva(`${buttonStyles.base}`, {
 	variants: {
 		variant: {
-			...colors.accent,
-			outline: `${colors.accent.justPrimary} ${borders.variant}`,
-			link: `${colors.accent.justPrimary} hover:underline shadow-none`,
-			ghost: `${colors.accent.justPrimary} shadow-none`,
+			...coreClass.colors.accent,
+			outline: `${coreClass.colors.accent.justPrimary} ${coreClass.borders.variant}`,
+			link: `${coreClass.colors.accent.justPrimary} hover:underline shadow-none`,
+			ghost: `${coreClass.colors.accent.justPrimary} shadow-none`,
 		},
 		size: {
-			sm: cn("h-sm", paddingY.small, paddingX.medium, typography.size.small),
-			md: cn("h-md", paddingY.medium, paddingX.medium, typography.size.medium),
-			lg: cn("h-lg", paddingY.large, paddingX.medium, typography.size.large),
-			icon: padding.extraSmall,
+			sm: coreClass.cn(
+				"h-sm",
+				coreClass.paddingY.small,
+				coreClass.paddingX.medium,
+				coreClass.typography.size.small,
+			),
+			md: coreClass.cn(
+				"h-md",
+				coreClass.paddingY.medium,
+				coreClass.paddingX.medium,
+				coreClass.typography.size.medium,
+			),
+			lg: coreClass.cn(
+				"h-lg",
+				coreClass.paddingY.large,
+				coreClass.paddingX.medium,
+				coreClass.typography.size.large,
+			),
+			icon: coreClass.padding.extraSmall,
 		},
 	},
 	defaultVariants: {
@@ -92,8 +92,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 		const motionProps = animate
 			? {
-					whileTap: motion.tap.scale,
-					transition: motion.transitions.tap,
+					whileTap: coreClass.motion.tap.scale,
+					transition: coreClass.motion.transitions.tap,
 				}
 			: {};
 

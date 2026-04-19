@@ -1,4 +1,4 @@
-import { Badge, Button, GridPattern, cn } from "@aakaar/react";
+import { Badge, Button, GridPattern, coreClass } from "@aakaar/react";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { Logo } from "src/components/logo";
@@ -22,21 +22,21 @@ export default function Home() {
 	return (
 		<div className="bg-background text-on-surface-variant overflow-x-hidden overflow-y-hidden">
 			<div
-				className={cn(
+				className={coreClass.cn(
 					"fixed inset-0 -z-10",
 					"bg-[radial-gradient(ellipse_at_top,_var(--color-primary-container)_0%,_transparent_50%)]",
 					"opacity-60",
 				)}
 			/>
 			<div
-				className={cn(
+				className={coreClass.cn(
 					"fixed inset-0 -z-10",
 					"bg-[radial-gradient(ellipse_at_bottom_right,_var(--color-tertiary-container)_0%,_transparent_50%)]",
 					"opacity-40",
 				)}
 			/>
 			<div
-				className={cn(
+				className={coreClass.cn(
 					"fixed inset-0 -z-10",
 					"bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-secondary-container)_0%,_transparent_50%)]",
 					"opacity-30",
@@ -147,7 +147,7 @@ export default function Home() {
 								[10, 17],
 								[15, 25],
 							]}
-							className={cn(
+							className={coreClass.cn(
 								"[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
 								"inset-x-0 inset-y-[-30%] h-[100%] skew-y-12 opacity-[0.3]",
 							)}

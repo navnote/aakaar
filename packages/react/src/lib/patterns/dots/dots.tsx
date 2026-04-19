@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { cn } from "../../core/core";
+import { coreClass } from "../../core/core";
 
 interface DotPatternProps {
 	width?: number;
@@ -27,7 +27,7 @@ export const DotsPattern = ({
 	return (
 		<svg
 			aria-hidden="true"
-			className={cn(
+			className={coreClass.cn(
 				"pointer-events-none absolute inset-0 h-full w-full fill-neutral-400/80",
 				className,
 			)}

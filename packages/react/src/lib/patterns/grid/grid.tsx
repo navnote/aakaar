@@ -1,5 +1,5 @@
 import { type CSSProperties, useId } from "react";
-import { cn } from "../../core/core";
+import { coreClass } from "../../core/core";
 
 interface GridPatternProps {
 	width?: number;
@@ -26,7 +26,7 @@ export const GridPattern = ({
 	return (
 		<svg
 			aria-hidden="true"
-			className={cn(
+			className={coreClass.cn(
 				"pointer-events-none absolute inset-0 h-full w-full fill-secondary stroke-secondary opacity-45",
 				className,
 			)}

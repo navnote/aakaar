@@ -2,27 +2,19 @@ import { Checkbox as BaseCheckbox } from "@base-ui-components/react";
 import * as React from "react";
 
 import { IconCheck } from "@tabler/icons-react";
-import {
-	alignment,
-	cn,
-	colors,
-	dimensions,
-	interactivity,
-	shadows,
-	shape,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const checkboxStyles = {
-	base: cn(
-		shape.roundedXsWithBorder,
-		dimensions.medium,
-		shadows.focusRing.primary,
-		interactivity.states.clickable,
-		interactivity.dataStates.checked,
-		interactivity.states.disabled,
+	base: coreClass.cn(
+		coreClass.shape.roundedXsWithBorder,
+		coreClass.dimensions.medium,
+		coreClass.shadows.focusRing.primary,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.dataStates.checked,
+		coreClass.interactivity.states.disabled,
 	),
-	icon: dimensions.icon,
-	indicator: cn(alignment.center, colors.primary),
+	icon: coreClass.dimensions.icon,
+	indicator: coreClass.cn(coreClass.alignment.center, coreClass.colors.primary),
 };
 
 const Checkbox = React.forwardRef<
@@ -31,7 +23,7 @@ const Checkbox = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseCheckbox.Root
 		ref={ref}
-		className={cn(checkboxStyles.base, className)}
+		className={coreClass.cn(checkboxStyles.base, className)}
 		{...props}
 	>
 		<BaseCheckbox.Indicator className={checkboxStyles.indicator}>

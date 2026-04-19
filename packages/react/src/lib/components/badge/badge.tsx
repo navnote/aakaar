@@ -1,32 +1,27 @@
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
-import {
-	cn,
-	colors,
-	flexBox,
-	paddingX,
-	paddingY,
-	shape,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const badgeVariants = cva(
-	cn(
-		flexBox.inlineCenter,
-		shape.rounded,
-		paddingX.small,
-		paddingY.extraSmall,
-		typography.size.small,
-		typography.weight.medium,
-		typography.noWrap,
+	coreClass.cn(
+		coreClass.flexBox.inlineCenter,
+		coreClass.shape.rounded,
+		coreClass.paddingX.small,
+		coreClass.paddingY.extraSmall,
+		coreClass.typography.size.small,
+		coreClass.typography.weight.medium,
+		coreClass.typography.noWrap,
 	),
 	{
 		variants: {
 			variant: {
-				default: colors.surface,
-				secondary: colors.containers.secondary,
-				destructive: colors.status.errorContainer,
-				outline: cn(colors.transparent, "border border-outline-variant"),
+				default: coreClass.colors.surface,
+				secondary: coreClass.colors.containers.secondary,
+				destructive: coreClass.colors.status.errorContainer,
+				outline: coreClass.cn(
+					coreClass.colors.transparent,
+					"border border-outline-variant",
+				),
 			},
 		},
 		defaultVariants: {
@@ -43,7 +38,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
 	({ className, variant, ...props }, ref) => (
 		<div
 			ref={ref}
-			className={cn(badgeVariants({ variant }), className)}
+			className={coreClass.cn(badgeVariants({ variant }), className)}
 			{...props}
 		/>
 	),

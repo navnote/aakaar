@@ -3,6 +3,7 @@ import {
 	IconChevronLeft,
 	IconChevronRight,
 } from "@tabler/icons-react";
+import type * as React from "react";
 import type { ComponentProps } from "react";
 import {
 	type DayButton,
@@ -10,21 +11,7 @@ import {
 	getDefaultClassNames,
 } from "react-day-picker";
 import { Button, buttonVariants } from "../../components/button/button";
-import {
-	alignment,
-	cn,
-	colors,
-	dimensions,
-	flexBox,
-	interactivity,
-	padding,
-	paddingY,
-	positioning,
-	shape,
-	spacing,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 export type CalendarProps = ComponentProps<typeof DayPicker>;
 
@@ -37,11 +24,11 @@ const Calendar = ({
 	captionLayout = "label",
 	...props
 }: CalendarProps) => {
-	const navButtonStyles = cn(
+	const navButtonStyles = coreClass.cn(
 		buttonVariants({ variant: "ghost", size: "icon" }),
-		colors.transparent,
+		coreClass.colors.transparent,
 		"p-0",
-		interactivity.states.clickable,
+		coreClass.interactivity.states.clickable,
 		"opacity-50 hover:opacity-100 aria-disabled:opacity-50",
 		"hover:bg-surface-variant hover:text-on-surface-variant",
 	);
@@ -50,111 +37,124 @@ const Calendar = ({
 		<DayPicker
 			showOutsideDays={showOutsideDays}
 			captionLayout={captionLayout}
-			className={cn(
-				colors.backgrounds.surface,
-				padding.medium,
+			className={coreClass.cn(
+				coreClass.colors.backgrounds.surface,
+				coreClass.padding.medium,
 				"group/calendar",
 				className,
 			)}
 			classNames={{
-				months: cn(
-					flexBox.column,
-					spacing.medium,
+				months: coreClass.cn(
+					coreClass.flexBox.column,
+					coreClass.spacing.medium,
 					"md:flex-row",
-					positioning.relative,
+					coreClass.positioning.relative,
 					defaultClassNames.months,
 				),
-				month: cn(
-					flexBox.column,
-					dimensions.fullWidth,
-					spacing.medium,
+				month: coreClass.cn(
+					coreClass.flexBox.column,
+					coreClass.dimensions.fullWidth,
+					coreClass.spacing.medium,
 					defaultClassNames.month,
 				),
-				caption: cn(
-					flexBox.row,
-					alignment.center,
-					positioning.relative,
-					paddingY.small,
-					dimensions.fullWidth,
+				caption: coreClass.cn(
+					coreClass.flexBox.row,
+					coreClass.alignment.center,
+					coreClass.positioning.relative,
+					coreClass.paddingY.small,
+					coreClass.dimensions.fullWidth,
 				),
-				month_caption: cn(flexBox.row, alignment.center, dimensions.fullWidth),
-				caption_label: cn(
-					typography.size.small,
-					typography.weight.medium,
-					interactivity.states.clickable,
+				month_caption: coreClass.cn(
+					coreClass.flexBox.row,
+					coreClass.alignment.center,
+					coreClass.dimensions.fullWidth,
+				),
+				caption_label: coreClass.cn(
+					coreClass.typography.size.small,
+					coreClass.typography.weight.medium,
+					coreClass.interactivity.states.clickable,
 					defaultClassNames.caption_label,
 				),
-				nav: cn(
-					alignment.spaceBetween,
-					dimensions.fullWidth,
-					positioning.absolute,
+				nav: coreClass.cn(
+					coreClass.alignment.spaceBetween,
+					coreClass.dimensions.fullWidth,
+					coreClass.positioning.absolute,
 					"top-0 inset-x-0",
 					"z-10",
 					defaultClassNames.nav,
 				),
-				button_previous: cn(navButtonStyles, defaultClassNames.button_previous),
-				button_next: cn(navButtonStyles, defaultClassNames.button_next),
-				table: cn(dimensions.fullWidth, "border-collapse"),
-				weekdays: cn(flexBox.row, defaultClassNames.weekdays),
-				weekday: cn(
+				button_previous: coreClass.cn(
+					navButtonStyles,
+					defaultClassNames.button_previous,
+				),
+				button_next: coreClass.cn(
+					navButtonStyles,
+					defaultClassNames.button_next,
+				),
+				table: coreClass.cn(coreClass.dimensions.fullWidth, "border-collapse"),
+				weekdays: coreClass.cn(
+					coreClass.flexBox.row,
+					defaultClassNames.weekdays,
+				),
+				weekday: coreClass.cn(
 					"text-on-surface-variant",
-					shape.rounded,
+					coreClass.shape.rounded,
 					"flex-1",
-					typography.weight.regular,
-					typography.size.small,
-					alignment.center,
-					interactivity.states.clickable,
+					coreClass.typography.weight.regular,
+					coreClass.typography.size.small,
+					coreClass.alignment.center,
+					coreClass.interactivity.states.clickable,
 					defaultClassNames.weekday,
 				),
-				week: cn(
-					flexBox.row,
-					dimensions.fullWidth,
+				week: coreClass.cn(
+					coreClass.flexBox.row,
+					coreClass.dimensions.fullWidth,
 					"mt-sm",
 					defaultClassNames.week,
 				),
-				day: cn(
-					positioning.relative,
-					dimensions.extraLarge,
+				day: coreClass.cn(
+					coreClass.positioning.relative,
+					coreClass.dimensions.extraLarge,
 					"p-0",
-					alignment.center,
-					interactivity.states.clickable,
-					utilities.aspectRatio.square,
+					coreClass.alignment.center,
+					coreClass.interactivity.states.clickable,
+					coreClass.utilities.aspectRatio.square,
 					"group/day",
 					defaultClassNames.day,
 				),
 				day_selected: "",
-				day_today: cn(
-					colors.backgrounds.surfaceVariant,
-					shape.rounded,
+				day_today: coreClass.cn(
+					coreClass.colors.backgrounds.surfaceVariant,
+					coreClass.shape.rounded,
 					"aria-selected:bg-primary aria-selected:text-on-primary",
 					defaultClassNames.today,
 				),
-				day_outside: cn(
+				day_outside: coreClass.cn(
 					"text-on-surface-variant",
 					"opacity-50",
 					"aria-selected:text-on-surface-variant",
 					defaultClassNames.outside,
 				),
-				day_disabled: cn(
+				day_disabled: coreClass.cn(
 					"text-on-surface-variant",
 					"opacity-50",
 					defaultClassNames.disabled,
 				),
-				day_range_middle: cn(
+				day_range_middle: coreClass.cn(
 					"aria-selected:bg-primary-container",
 					"aria-selected:text-on-primary-container",
 					"rounded-none",
 					defaultClassNames.range_middle,
 				),
-				day_range_start: cn(
+				day_range_start: coreClass.cn(
 					"rounded-l-default bg-primary-container",
 					defaultClassNames.range_start,
 				),
-				day_range_end: cn(
+				day_range_end: coreClass.cn(
 					"rounded-r-default bg-primary-container",
 					defaultClassNames.range_end,
 				),
-				day_hidden: cn("invisible", defaultClassNames.hidden),
+				day_hidden: coreClass.cn("invisible", defaultClassNames.hidden),
 				...classNames,
 			}}
 			components={{
@@ -165,7 +165,7 @@ const Calendar = ({
 							: orientation === "right"
 								? IconChevronRight
 								: IconChevronDown;
-					return <Icon className={cn(dimensions.medium)} />;
+					return <Icon className={coreClass.cn(coreClass.dimensions.medium)} />;
 				},
 				DayButton: CalendarDayButton,
 				...props.components,
@@ -201,7 +201,7 @@ function CalendarDayButton({
 			data-range-start={modifiers.range_start}
 			data-range-end={modifiers.range_end}
 			data-range-middle={modifiers.range_middle}
-			className={cn(
+			className={coreClass.cn(
 				"size-full font-normal",
 				"data-[selected-single=true]:bg-primary data-[selected-single=true]:text-on-primary",
 				"data-[selected-single=true]:hover:bg-primary data-[selected-single=true]:hover:text-on-primary",

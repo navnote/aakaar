@@ -1,61 +1,56 @@
 import { Dialog as BaseDialog, mergeProps } from "@base-ui-components/react";
 import { IconX } from "@tabler/icons-react";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	colors,
-	dimensions,
-	flexBox,
-	interactivity,
-	padding,
-	positioning,
-	shadows,
-	shape,
-	spacing,
-	transforms,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const dialogStyles = {
-	overlay: cn(
-		colors.overlay,
-		alignment.center,
-		positioning.fixed,
-		positioning.inset.full,
-		utilities.zIndex.modal,
-		interactivity.transitions.opacity,
+	overlay: coreClass.cn(
+		coreClass.colors.overlay,
+		coreClass.alignment.center,
+		coreClass.positioning.fixed,
+		coreClass.positioning.inset.full,
+		coreClass.utilities.zIndex.modal,
+		coreClass.interactivity.transitions.opacity,
 	),
-	content: cn(
-		shape.roundedWithBorder,
-		colors.surface,
-		flexBox.column,
-		spacing.medium,
-		padding.medium,
-		shadows.depth.medium,
-		positioning.fixed,
-		positioning.inset.center,
-		transforms.center,
-		utilities.zIndex.modal,
-		interactivity.transitions.all,
+	content: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.colors.surface,
+		coreClass.flexBox.column,
+		coreClass.spacing.medium,
+		coreClass.padding.medium,
+		coreClass.shadows.depth.medium,
+		coreClass.positioning.fixed,
+		coreClass.positioning.inset.center,
+		coreClass.transforms.center,
+		coreClass.utilities.zIndex.modal,
+		coreClass.interactivity.transitions.all,
 	),
-	close: cn(
-		positioning.absolute,
-		positioning.corners.topRight,
-		shape.roundedWithBorder,
-		interactivity.transitions.opacity,
-		interactivity.states.clickable,
-		interactivity.states.disabled,
-		interactivity.dataStates.open,
-		interactivity.dataStates.checked,
-		interactivity.dataStates.selected,
+	close: coreClass.cn(
+		coreClass.positioning.absolute,
+		coreClass.positioning.corners.topRight,
+		coreClass.shape.roundedWithBorder,
+		coreClass.interactivity.transitions.opacity,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.states.disabled,
+		coreClass.interactivity.dataStates.open,
+		coreClass.interactivity.dataStates.checked,
+		coreClass.interactivity.dataStates.selected,
 	),
-	header: cn(flexBox.column, spacing.medium, "text-center sm:text-left"),
+	header: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.spacing.medium,
+		"text-center sm:text-left",
+	),
 	footer: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-xs",
-	title: cn(typography.weight.semibold, "text-lg leading-none tracking-tight"),
-	description: cn(typography.size.small, colors.surface),
-	closeIcon: cn(dimensions.medium),
+	title: coreClass.cn(
+		coreClass.typography.weight.semibold,
+		"text-lg leading-none tracking-tight",
+	),
+	description: coreClass.cn(
+		coreClass.typography.size.small,
+		coreClass.colors.surface,
+	),
+	closeIcon: coreClass.cn(coreClass.dimensions.medium),
 };
 
 const Dialog = BaseDialog.Root;
@@ -101,7 +96,7 @@ const DialogOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseDialog.Backdrop
 		ref={ref}
-		className={cn(dialogStyles.overlay, className)}
+		className={coreClass.cn(dialogStyles.overlay, className)}
 		{...props}
 	/>
 ));
@@ -115,7 +110,7 @@ const DialogContent = React.forwardRef<
 		<DialogOverlay />
 		<BaseDialog.Popup
 			ref={ref}
-			className={cn(dialogStyles.content, className)}
+			className={coreClass.cn(dialogStyles.content, className)}
 			{...props}
 		>
 			{children}
@@ -132,7 +127,7 @@ const DialogHeader = ({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-	<div className={cn(dialogStyles.header, className)} {...props} />
+	<div className={coreClass.cn(dialogStyles.header, className)} {...props} />
 );
 DialogHeader.displayName = "DialogHeader";
 
@@ -140,7 +135,7 @@ const DialogFooter = ({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-	<div className={cn(dialogStyles.footer, className)} {...props} />
+	<div className={coreClass.cn(dialogStyles.footer, className)} {...props} />
 );
 DialogFooter.displayName = "DialogFooter";
 
@@ -150,7 +145,7 @@ const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseDialog.Title
 		ref={ref}
-		className={cn(dialogStyles.title, className)}
+		className={coreClass.cn(dialogStyles.title, className)}
 		{...props}
 	/>
 ));
@@ -162,7 +157,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseDialog.Description
 		ref={ref}
-		className={cn(dialogStyles.description, className)}
+		className={coreClass.cn(dialogStyles.description, className)}
 		{...props}
 	/>
 ));

@@ -1,22 +1,15 @@
 import { Popover as BasePopover, mergeProps } from "@base-ui-components/react";
 import * as React from "react";
-import {
-	cn,
-	colors,
-	padding,
-	shadows,
-	shape,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const popoverStyles = {
-	content: cn(
-		shape.roundedWithBorder,
-		colors.surface,
-		padding.extraSmall,
-		shadows.depth.medium,
-		utilities.zIndex.modal,
-		utilities.cursor.default,
+	content: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.colors.surface,
+		coreClass.padding.extraSmall,
+		coreClass.shadows.depth.medium,
+		coreClass.utilities.zIndex.modal,
+		coreClass.utilities.cursor.default,
 	),
 };
 
@@ -61,7 +54,7 @@ const PopoverContent = React.forwardRef<
 		<BasePopover.Positioner>
 			<BasePopover.Popup
 				ref={ref}
-				className={cn(popoverStyles.content, className)}
+				className={coreClass.cn(popoverStyles.content, className)}
 				{...props}
 			/>
 		</BasePopover.Positioner>

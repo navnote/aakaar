@@ -1,24 +1,16 @@
 import { RadioGroup as BaseRadioGroup, Radio } from "@base-ui-components/react";
 import { IconCircle } from "@tabler/icons-react";
 import * as React from "react";
-import {
-	cn,
-	dimensions,
-	flexBox,
-	interactivity,
-	shadows,
-	shape,
-	spacing,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const radioStyles = {
-	group: cn(flexBox.column, spacing.medium),
-	item: cn(
-		shape.circle,
-		dimensions.medium,
-		shadows.focusRing.primary,
-		interactivity.states.clickable,
-		interactivity.states.disabled,
+	group: coreClass.cn(coreClass.flexBox.column, coreClass.spacing.medium),
+	item: coreClass.cn(
+		coreClass.shape.circle,
+		coreClass.dimensions.medium,
+		coreClass.shadows.focusRing.primary,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.states.disabled,
 		"aspect-square",
 		"bg-transparent",
 	),
@@ -29,7 +21,7 @@ const RadioGroup = React.forwardRef<
 	React.ComponentPropsWithoutRef<typeof BaseRadioGroup>
 >(({ className, ...props }, ref) => (
 	<BaseRadioGroup
-		className={cn(radioStyles.group, className)}
+		className={coreClass.cn(radioStyles.group, className)}
 		{...props}
 		ref={ref}
 	/>
@@ -40,7 +32,11 @@ const RadioGroupItem = React.forwardRef<
 	React.ElementRef<typeof Radio.Root>,
 	React.ComponentPropsWithoutRef<typeof Radio.Root>
 >(({ className, children, ...props }, ref) => (
-	<Radio.Root ref={ref} className={cn(radioStyles.item, className)} {...props}>
+	<Radio.Root
+		ref={ref}
+		className={coreClass.cn(radioStyles.item, className)}
+		{...props}
+	>
 		<Radio.Indicator className="flex items-center justify-center">
 			<IconCircle className="size-full p-[0.02rem] fill-primary text-primary" />
 		</Radio.Indicator>

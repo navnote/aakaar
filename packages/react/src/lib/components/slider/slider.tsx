@@ -1,41 +1,35 @@
 import { Slider as BaseSlider } from "@base-ui-components/react";
 import * as React from "react";
-import {
-	borders,
-	cn,
-	colors,
-	interactivity,
-	measurements,
-	padding,
-	positioning,
-	shadows,
-	shape,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const sliderStyles = {
-	root: cn(positioning.relative, "w-full"),
-	control: cn(
-		positioning.relative,
+	root: coreClass.cn(coreClass.positioning.relative, "w-full"),
+	control: coreClass.cn(
+		coreClass.positioning.relative,
 		"w-full touch-none select-none",
-		padding.large,
+		coreClass.padding.large,
 	),
-	track: cn(
-		positioning.relative,
-		measurements.width.minimum,
-		shape.rounded,
-		colors.containers.secondary,
-		shape.circlePrimary,
+	track: coreClass.cn(
+		coreClass.positioning.relative,
+		coreClass.measurements.width.minimum,
+		coreClass.shape.rounded,
+		coreClass.colors.containers.secondary,
+		coreClass.shape.circlePrimary,
 	),
-	range: cn(positioning.absolute, "h-full rounded", colors.surface),
-	thumb: cn(
+	range: coreClass.cn(
+		coreClass.positioning.absolute,
+		"h-full rounded",
+		coreClass.colors.surface,
+	),
+	thumb: coreClass.cn(
 		"block",
-		shape.circle,
+		coreClass.shape.circle,
 		"size-md",
-		colors.surface,
-		borders.variant,
+		coreClass.colors.surface,
+		coreClass.borders.variant,
 		"select-none cursor-pointer",
-		shadows.depth.medium,
-		interactivity.states.disabled,
+		coreClass.shadows.depth.medium,
+		coreClass.interactivity.states.disabled,
 		"focus-visible:outline-2 focus-visible:outline-primary",
 	),
 };
@@ -46,7 +40,7 @@ const Slider = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSlider.Root
 		ref={ref as never}
-		className={cn(sliderStyles.root, className)}
+		className={coreClass.cn(sliderStyles.root, className)}
 		{...props}
 	/>
 ));
@@ -58,7 +52,7 @@ const SliderTrack = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSlider.Track
 		ref={ref as never}
-		className={cn(sliderStyles.track, className)}
+		className={coreClass.cn(sliderStyles.track, className)}
 		{...props}
 	/>
 ));
@@ -78,7 +72,7 @@ const SliderRange = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSlider.Indicator
 		ref={ref as never}
-		className={cn(sliderStyles.range, className)}
+		className={coreClass.cn(sliderStyles.range, className)}
 		{...props}
 	/>
 ));
@@ -90,7 +84,7 @@ const SliderThumb = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSlider.Thumb
 		ref={ref}
-		className={cn(sliderStyles.thumb, className)}
+		className={coreClass.cn(sliderStyles.thumb, className)}
 		{...props}
 	/>
 ));
@@ -102,7 +96,7 @@ const SliderControl = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSlider.Control
 		ref={ref}
-		className={cn(sliderStyles.control, className)}
+		className={coreClass.cn(sliderStyles.control, className)}
 		{...props}
 	/>
 ));

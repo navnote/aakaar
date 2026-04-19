@@ -1,68 +1,56 @@
 import { Select as BaseSelect } from "@base-ui-components/react";
 import { IconCheck, IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	colors,
-	dimensions,
-	interactivity,
-	measurements,
-	padding,
-	paddingX,
-	paddingY,
-	positioning,
-	shadows,
-	shape,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const selectStyles = {
-	trigger: cn(
-		shape.roundedWithBorder,
-		dimensions.fullWidth,
-		colors.surface,
-		alignment.spaceBetween,
-		padding.small,
-		typography.size.small,
-		interactivity.states.clickable,
-		interactivity.states.disabled,
+	trigger: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.dimensions.fullWidth,
+		coreClass.colors.surface,
+		coreClass.alignment.spaceBetween,
+		coreClass.padding.small,
+		coreClass.typography.size.small,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.states.disabled,
 		"h-xl",
-		typography.noWrap,
+		coreClass.typography.noWrap,
 	),
-	content: cn(
-		shape.roundedWithBorder,
-		colors.surface,
-		positioning.relative,
-		utilities.zIndex.modal,
-		utilities.overflow.hidden,
-		shadows.depth.low,
-		measurements.height.full,
+	content: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.colors.surface,
+		coreClass.positioning.relative,
+		coreClass.utilities.zIndex.modal,
+		coreClass.utilities.overflow.hidden,
+		coreClass.shadows.depth.low,
+		coreClass.measurements.height.full,
 		"max-h-[15rem] overflow-y-auto",
 	),
-	viewport: cn(measurements.width.minimum, "max-h-[15rem]"),
-	item: cn(
-		shape.rounded,
-		alignment.start,
-		padding.small,
-		typography.size.small,
-		interactivity.states.clickable,
-		interactivity.dataStates.selected,
-		interactivity.states.hover,
-		measurements.width.full,
-		paddingX.large,
-		positioning.relative,
+	viewport: coreClass.cn(coreClass.measurements.width.minimum, "max-h-[15rem]"),
+	item: coreClass.cn(
+		coreClass.shape.rounded,
+		coreClass.alignment.start,
+		coreClass.padding.small,
+		coreClass.typography.size.small,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.dataStates.selected,
+		coreClass.interactivity.states.hover,
+		coreClass.measurements.width.full,
+		coreClass.paddingX.large,
+		coreClass.positioning.relative,
 	),
-	scrollButton: cn(utilities.cursor.default, alignment.center),
-	label: cn(
-		paddingY.small,
-		paddingX.medium,
-		typography.size.small,
-		typography.weight.semibold,
+	scrollButton: coreClass.cn(
+		coreClass.utilities.cursor.default,
+		coreClass.alignment.center,
 	),
-	icon: dimensions.icon,
-	separator: cn("h-px", colors.surface),
+	label: coreClass.cn(
+		coreClass.paddingY.small,
+		coreClass.paddingX.medium,
+		coreClass.typography.size.small,
+		coreClass.typography.weight.semibold,
+	),
+	icon: coreClass.dimensions.icon,
+	separator: coreClass.cn("h-px", coreClass.colors.surface),
 };
 
 const Select = BaseSelect.Root;
@@ -82,12 +70,12 @@ const SelectTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
 	<BaseSelect.Trigger
 		ref={ref}
-		className={cn(selectStyles.trigger, className)}
+		className={coreClass.cn(selectStyles.trigger, className)}
 		{...props}
 	>
 		{children}
 		<BaseSelect.Icon>
-			<IconChevronDown className={selectStyles.icon} />
+			<IconChevronDown className={coreClass.cn(selectStyles.icon)} />
 		</BaseSelect.Icon>
 	</BaseSelect.Trigger>
 ));
@@ -99,10 +87,10 @@ const SelectScrollUpButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSelect.ScrollUpArrow
 		ref={ref}
-		className={cn(selectStyles.scrollButton, className)}
+		className={coreClass.cn(selectStyles.scrollButton, className)}
 		{...props}
 	>
-		<IconChevronUp className={selectStyles.icon} />
+		<IconChevronUp className={coreClass.cn(selectStyles.icon)} />
 	</BaseSelect.ScrollUpArrow>
 ));
 SelectScrollUpButton.displayName = "SelectScrollUpButton";
@@ -113,10 +101,10 @@ const SelectScrollDownButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSelect.ScrollDownArrow
 		ref={ref}
-		className={cn(selectStyles.scrollButton, className)}
+		className={coreClass.cn(selectStyles.scrollButton, className)}
 		{...props}
 	>
-		<IconChevronDown className={selectStyles.icon} />
+		<IconChevronDown className={coreClass.cn(selectStyles.icon)} />
 	</BaseSelect.ScrollDownArrow>
 ));
 SelectScrollDownButton.displayName = "SelectScrollDownButton";
@@ -130,7 +118,7 @@ const SelectContent = React.forwardRef<
 			<SelectScrollUpButton />
 			<BaseSelect.Popup
 				ref={ref}
-				className={cn(selectStyles.content, className)}
+				className={coreClass.cn(selectStyles.content, className)}
 				{...props}
 			>
 				<BaseSelect.Arrow />
@@ -148,7 +136,7 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSelect.GroupLabel
 		ref={ref}
-		className={cn(selectStyles.label, className)}
+		className={coreClass.cn(selectStyles.label, className)}
 		{...props}
 	/>
 ));
@@ -160,12 +148,12 @@ const SelectItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
 	<BaseSelect.Item
 		ref={ref}
-		className={cn(selectStyles.item, className)}
+		className={coreClass.cn(selectStyles.item, className)}
 		{...props}
 	>
 		<BaseSelect.ItemText>{children}</BaseSelect.ItemText>
-		<BaseSelect.ItemIndicator className={selectStyles.icon}>
-			<IconCheck className={selectStyles.icon} />
+		<BaseSelect.ItemIndicator className={coreClass.cn(selectStyles.icon)}>
+			<IconCheck className={coreClass.cn(selectStyles.icon)} />
 		</BaseSelect.ItemIndicator>
 	</BaseSelect.Item>
 ));
@@ -177,7 +165,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseSelect.Separator
 		ref={ref}
-		className={cn(selectStyles.separator, className)}
+		className={coreClass.cn(selectStyles.separator, className)}
 		{...props}
 	/>
 ));

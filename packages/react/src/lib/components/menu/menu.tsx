@@ -1,51 +1,37 @@
 import { Menu as BaseMenu } from "@base-ui-components/react";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	colors,
-	interactivity,
-	measurements,
-	padding,
-	paddingX,
-	paddingY,
-	positioning,
-	shadows,
-	shape,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const menuStyles = {
-	content: cn(
-		shape.roundedWithBorder,
-		colors.surface,
-		positioning.relative,
-		utilities.zIndex.modal,
-		utilities.overflow.hidden,
-		shadows.depth.low,
-		measurements.height.full,
+	content: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.colors.surface,
+		coreClass.positioning.relative,
+		coreClass.utilities.zIndex.modal,
+		coreClass.utilities.overflow.hidden,
+		coreClass.shadows.depth.low,
+		coreClass.measurements.height.full,
 		"max-h-[15rem] overflow-y-auto",
 	),
-	item: cn(
-		shape.rounded,
-		alignment.start,
-		padding.small,
-		typography.size.small,
-		interactivity.states.clickable,
-		interactivity.dataStates.selected,
-		interactivity.states.hover,
-		measurements.width.full,
-		paddingX.large,
-		positioning.relative,
+	item: coreClass.cn(
+		coreClass.shape.rounded,
+		coreClass.alignment.start,
+		coreClass.padding.small,
+		coreClass.typography.size.small,
+		coreClass.interactivity.states.clickable,
+		coreClass.interactivity.dataStates.selected,
+		coreClass.interactivity.states.hover,
+		coreClass.measurements.width.full,
+		coreClass.paddingX.large,
+		coreClass.positioning.relative,
 	),
-	label: cn(
-		paddingY.small,
-		paddingX.medium,
-		typography.size.small,
-		typography.weight.semibold,
+	label: coreClass.cn(
+		coreClass.paddingY.small,
+		coreClass.paddingX.medium,
+		coreClass.typography.size.small,
+		coreClass.typography.weight.semibold,
 	),
-	separator: cn("h-px", colors.surface),
+	separator: coreClass.cn("h-px", coreClass.colors.surface),
 	shortcut: "ml-auto text-xs tracking-widest opacity-60",
 };
 
@@ -62,7 +48,7 @@ const MenuContent = React.forwardRef<
 		<BaseMenu.Positioner>
 			<BaseMenu.Popup
 				ref={ref}
-				className={cn(menuStyles.content, className)}
+				className={coreClass.cn(menuStyles.content, className)}
 				{...props}
 			/>
 		</BaseMenu.Positioner>
@@ -78,7 +64,7 @@ const MenuItem = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
 	<BaseMenu.Item
 		ref={ref}
-		className={cn(menuStyles.item, inset && "pl-lg", className)}
+		className={coreClass.cn(menuStyles.item, inset && "pl-lg", className)}
 		{...props}
 	/>
 ));
@@ -90,7 +76,7 @@ const MenuLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseMenu.GroupLabel
 		ref={ref}
-		className={cn(menuStyles.label, className)}
+		className={coreClass.cn(menuStyles.label, className)}
 		{...props}
 	/>
 ));
@@ -102,7 +88,7 @@ const MenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseMenu.Separator
 		ref={ref}
-		className={cn(menuStyles.separator, className)}
+		className={coreClass.cn(menuStyles.separator, className)}
 		{...props}
 	/>
 ));
@@ -114,7 +100,7 @@ const MenuCheckboxItem = React.forwardRef<
 >(({ className, children, checked, ...props }, ref) => (
 	<BaseMenu.CheckboxItem
 		ref={ref}
-		className={cn(menuStyles.item, className)}
+		className={coreClass.cn(menuStyles.item, className)}
 		checked={checked}
 		{...props}
 	>
@@ -128,7 +114,11 @@ const MenuRadioGroup = React.forwardRef<
 	React.ElementRef<typeof BaseMenu.RadioGroup>,
 	React.ComponentPropsWithoutRef<typeof BaseMenu.RadioGroup>
 >(({ className, ...props }, ref) => (
-	<BaseMenu.RadioGroup ref={ref} className={cn("p-xs", className)} {...props} />
+	<BaseMenu.RadioGroup
+		ref={ref}
+		className={coreClass.cn("p-xs", className)}
+		{...props}
+	/>
 ));
 MenuRadioGroup.displayName = "MenuRadioGroup";
 
@@ -138,7 +128,7 @@ const MenuRadioItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
 	<BaseMenu.RadioItem
 		ref={ref}
-		className={cn(menuStyles.item, className)}
+		className={coreClass.cn(menuStyles.item, className)}
 		{...props}
 	>
 		{children}
@@ -151,7 +141,9 @@ const MenuShortcut = ({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLSpanElement>) => {
-	return <span className={cn(menuStyles.shortcut, className)} {...props} />;
+	return (
+		<span className={coreClass.cn(menuStyles.shortcut, className)} {...props} />
+	);
 };
 MenuShortcut.displayName = "MenuShortcut";
 

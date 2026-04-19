@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "../../core/core";
+import { coreClass } from "../../core/core";
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 	orientation?: "horizontal" | "vertical";
@@ -10,7 +10,7 @@ const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
 		<div
 			ref={ref}
 			role="group"
-			className={cn(
+			className={coreClass.cn(
 				"inline-flex",
 				orientation === "horizontal" ? "flex-row" : "flex-col",
 				// Horizontal: first has left radius, last has right radius

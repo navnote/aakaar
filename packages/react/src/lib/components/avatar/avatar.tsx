@@ -1,39 +1,29 @@
 import { Avatar as BaseAvatar } from "@base-ui-components/react";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	colors,
-	dimensions,
-	measurements,
-	positioning,
-	shape,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const avatarStyles = {
-	base: cn(
-		shape.circle,
-		dimensions.extraLarge,
-		alignment.center,
-		positioning.relative,
-		utilities.overflow.hidden,
-		utilities.flexShrink.none,
+	base: coreClass.cn(
+		coreClass.shape.circle,
+		coreClass.dimensions.extraLarge,
+		coreClass.alignment.center,
+		coreClass.positioning.relative,
+		coreClass.utilities.overflow.hidden,
+		coreClass.utilities.flexShrink.none,
 	),
-	image: cn(
-		utilities.aspectRatio.square,
-		measurements.height.full,
-		measurements.width.full,
-		utilities.objectFit.cover,
+	image: coreClass.cn(
+		coreClass.utilities.aspectRatio.square,
+		coreClass.measurements.height.full,
+		coreClass.measurements.width.full,
+		coreClass.utilities.objectFit.cover,
 	),
-	fallback: cn(
-		shape.circle,
-		colors.primary,
-		alignment.center,
-		typography.size.extraSmall,
-		measurements.height.full,
-		measurements.width.full,
+	fallback: coreClass.cn(
+		coreClass.shape.circle,
+		coreClass.colors.primary,
+		coreClass.alignment.center,
+		coreClass.typography.size.extraSmall,
+		coreClass.measurements.height.full,
+		coreClass.measurements.width.full,
 	),
 };
 
@@ -43,7 +33,7 @@ const Avatar = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAvatar.Root
 		ref={ref}
-		className={cn(avatarStyles.base, className)}
+		className={coreClass.cn(avatarStyles.base, className)}
 		{...props}
 	/>
 ));
@@ -55,7 +45,7 @@ const AvatarImage = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAvatar.Image
 		ref={ref}
-		className={cn(avatarStyles.image, className)}
+		className={coreClass.cn(avatarStyles.image, className)}
 		{...props}
 	/>
 ));
@@ -67,7 +57,7 @@ const AvatarFallback = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAvatar.Fallback
 		ref={ref}
-		className={cn(avatarStyles.fallback, className)}
+		className={coreClass.cn(avatarStyles.fallback, className)}
 		{...props}
 	/>
 ));

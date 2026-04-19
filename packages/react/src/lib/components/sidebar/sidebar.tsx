@@ -2,22 +2,7 @@ import { Dialog as BaseDialog } from "@base-ui-components/react";
 import { IconLayoutSidebar } from "@tabler/icons-react";
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
-import {
-	borders,
-	cn,
-	colors,
-	dimensions,
-	flexBox,
-	interactivity,
-	measurements,
-	padding,
-	positioning,
-	shadows,
-	shape,
-	spacing,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 import { Button } from "../button/button";
 import {
 	Dialog,
@@ -52,51 +37,67 @@ const SIDEBAR_CSS_VARS = {
 
 const sidebarStyles = {
 	// Layout
-	wrapper: cn(flexBox.row, measurements.height.full, measurements.width.full),
-	provider: cn(colors.backgrounds.main, positioning.relative, "min-h-svh"),
+	wrapper: coreClass.cn(
+		coreClass.flexBox.row,
+		coreClass.measurements.height.full,
+		coreClass.measurements.width.full,
+	),
+	provider: coreClass.cn(
+		coreClass.colors.backgrounds.main,
+		coreClass.positioning.relative,
+		"min-h-svh",
+	),
 
 	// Desktop sidebar
-	sidebarContainer: cn(
-		positioning.fixed,
+	sidebarContainer: coreClass.cn(
+		coreClass.positioning.fixed,
 		"inset-y-0 z-50 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
-		colors.surface,
-		borders.variant,
+		coreClass.colors.surface,
+		coreClass.borders.variant,
 	),
-	sidebarContainerFloating: cn(
-		positioning.fixed,
+	sidebarContainerFloating: coreClass.cn(
+		coreClass.positioning.fixed,
 		"inset-y-0 z-50 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
-		colors.surface,
-		padding.extraSmall,
+		coreClass.colors.surface,
+		coreClass.padding.extraSmall,
 	),
 
 	// Sidebar inner
-	sidebar: cn(colors.surface, flexBox.column, measurements.height.full),
-	sidebarInner: cn(
-		flexBox.column,
-		measurements.height.full,
-		measurements.width.full,
-		colors.surface,
+	sidebar: coreClass.cn(
+		coreClass.colors.surface,
+		coreClass.flexBox.column,
+		coreClass.measurements.height.full,
 	),
-	sidebarInnerFloating: cn(
-		flexBox.column,
-		measurements.height.full,
-		measurements.width.full,
-		shape.roundedWithBorder,
-		shadows.depth.low,
+	sidebarInner: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.measurements.height.full,
+		coreClass.measurements.width.full,
+		coreClass.colors.surface,
 	),
-	sidebarNone: cn(flexBox.column, measurements.height.full, colors.surface),
+	sidebarInnerFloating: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.measurements.height.full,
+		coreClass.measurements.width.full,
+		coreClass.shape.roundedWithBorder,
+		coreClass.shadows.depth.low,
+	),
+	sidebarNone: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.measurements.height.full,
+		coreClass.colors.surface,
+	),
 
 	// Mobile sidebar
-	sidebarMobile: cn(
-		colors.surface,
-		flexBox.column,
-		measurements.height.full,
+	sidebarMobile: coreClass.cn(
+		coreClass.colors.surface,
+		coreClass.flexBox.column,
+		coreClass.measurements.height.full,
 		"p-0",
 	),
 
 	// Gap
-	gap: cn(
-		positioning.relative,
+	gap: coreClass.cn(
+		coreClass.positioning.relative,
 		"h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear",
 	),
 	gapCollapsed: "w-0",
@@ -104,66 +105,87 @@ const sidebarStyles = {
 	gapIcon: "w-[--sidebar-width-icon]",
 
 	// Trigger & Rail
-	trigger: cn(dimensions.large, colors.accent.justPrimary),
-	rail: cn(
-		positioning.absolute,
+	trigger: coreClass.cn(
+		coreClass.dimensions.large,
+		coreClass.colors.accent.justPrimary,
+	),
+	rail: coreClass.cn(
+		coreClass.positioning.absolute,
 		"inset-y-0 z-20 hidden -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] hover:after:bg-outline-variant sm:flex",
 	),
 	railLeft: "-right-md",
 	railRight: "left-0",
 
 	// Inset
-	inset: cn(
-		positioning.relative,
-		flexBox.column,
-		measurements.width.full,
+	inset: coreClass.cn(
+		coreClass.positioning.relative,
+		coreClass.flexBox.column,
+		coreClass.measurements.width.full,
 		"flex-1",
-		colors.backgrounds.main,
+		coreClass.colors.backgrounds.main,
 	),
 
 	// Input
-	input: cn(
-		dimensions.small,
-		measurements.width.full,
-		colors.backgrounds.main,
+	input: coreClass.cn(
+		coreClass.dimensions.small,
+		coreClass.measurements.width.full,
+		coreClass.colors.backgrounds.main,
 		"shadow-none",
 	),
 
 	// Structural elements
-	header: cn(flexBox.column, spacing.small, padding.extraSmall),
-	footer: cn(flexBox.column, spacing.small, padding.extraSmall),
-	separator: cn("mx-sm w-auto", colors.backgrounds.surfaceVariant),
-	content: cn(
-		flexBox.column,
+	header: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.spacing.small,
+		coreClass.padding.extraSmall,
+	),
+	footer: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.spacing.small,
+		coreClass.padding.extraSmall,
+	),
+	separator: coreClass.cn(
+		"mx-sm w-auto",
+		coreClass.colors.backgrounds.surfaceVariant,
+	),
+	content: coreClass.cn(
+		coreClass.flexBox.column,
 		"min-h-0 flex-1 gap-sm overflow-auto",
 		"group-data-[collapsible=icon]:overflow-hidden",
 	),
 
 	// Groups
-	group: cn(
-		positioning.relative,
-		flexBox.column,
-		measurements.width.full,
+	group: coreClass.cn(
+		coreClass.positioning.relative,
+		coreClass.flexBox.column,
+		coreClass.measurements.width.full,
 		"min-w-0",
-		padding.extraSmall,
+		coreClass.padding.extraSmall,
 		"group-data-[collapsible=icon]:px-xs group-data-[collapsible=icon]:py-0",
 	),
-	groupLabel: cn(
+	groupLabel: coreClass.cn(
 		"flex h-xl items-center",
-		measurements.width.full,
+		coreClass.measurements.width.full,
 		"shrink-0 rounded-default px-sm text-xs font-medium text-on-surface/70 outline-none transition-[margin,opacity] duration-200 ease-linear",
 		"group-data-[collapsible=icon]:-mt-xl group-data-[collapsible=icon]:opacity-0",
 	),
-	groupAction: cn(
-		positioning.absolute,
+	groupAction: coreClass.cn(
+		coreClass.positioning.absolute,
 		"top-md right-md flex aspect-square items-center justify-center rounded-default p-0 text-on-surface outline-none transition-transform hover:bg-surface-variant",
 		"after:absolute after:-inset-sm md:after:hidden",
 		"group-data-[collapsible=icon]:hidden",
 	),
-	groupContent: cn(measurements.width.full, typography.size.small),
+	groupContent: coreClass.cn(
+		coreClass.measurements.width.full,
+		coreClass.typography.size.small,
+	),
 
 	// Menu
-	menu: cn(flexBox.column, measurements.width.full, "min-w-0 gap-sm"),
+	menu: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.measurements.width.full,
+		"min-w-0 gap-sm",
+	),
 	menuItem: "group/menu-item relative",
 	menuButton: [
 		// Layout
@@ -182,14 +204,14 @@ const sidebarStyles = {
 		// Collapsed: only hide text — keep layout identical so icon doesn't jump
 		"group-data-[collapsible=icon]:[&>span]:hidden group-data-[collapsible=icon]:[&>svg~*]:hidden",
 	].join(" "),
-	menuButtonOutline: cn(
-		colors.backgrounds.main,
+	menuButtonOutline: coreClass.cn(
+		coreClass.colors.backgrounds.main,
 		"shadow-[0_0_0_1px_hsl(var(--outline))] hover:bg-surface-variant hover:shadow-[0_0_0_1px_hsl(var(--outline-variant))]",
 	),
 	menuButtonSm: "py-xs h-lg text-xs",
 	menuButtonLg: "h-xl text-sm",
-	menuAction: cn(
-		positioning.absolute,
+	menuAction: coreClass.cn(
+		coreClass.positioning.absolute,
 		"top-[0.375rem] right-xs flex aspect-square items-center justify-center rounded-default p-0 text-on-surface outline-none transition-transform hover:bg-surface-variant",
 		"after:absolute after:-inset-sm md:after:hidden",
 		"peer-data-[size=sm]/menu-button:top-xs",
@@ -199,29 +221,35 @@ const sidebarStyles = {
 	),
 	menuActionShowOnHover:
 		"group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 peer-data-[active=true]/menu-button:text-on-surface data-[state=open]:opacity-100 md:opacity-0",
-	menuBadge: cn(
-		positioning.absolute,
+	menuBadge: coreClass.cn(
+		coreClass.positioning.absolute,
 		"right-xs flex h-sm min-w-[1.25rem] items-center justify-center rounded-default px-xs text-xs font-medium text-on-surface tabular-nums select-none",
 		"peer-data-[size=sm]/menu-button:top-xs",
 		"peer-data-[size=default]/menu-button:top-[0.375rem]",
 		"peer-data-[size=lg]/menu-button:top-[0.625rem]",
 		"group-data-[collapsible=icon]:hidden",
 	),
-	menuSkeleton: cn(flexBox.inlineCenter, "h-md gap-sm rounded-default px-sm"),
-	menuSkeletonIcon: cn(dimensions.medium, "rounded-default"),
+	menuSkeleton: coreClass.cn(
+		coreClass.flexBox.inlineCenter,
+		"h-md gap-sm rounded-default px-sm",
+	),
+	menuSkeletonIcon: coreClass.cn(
+		coreClass.dimensions.medium,
+		"rounded-default",
+	),
 	menuSkeletonText: "h-sm flex-1",
-	menuSub: cn(
-		flexBox.column,
+	menuSub: coreClass.cn(
+		coreClass.flexBox.column,
 		"mx-[0.875rem] min-w-0 translate-x-px gap-xs border-l border-outline-variant px-[0.625rem] py-xs",
 		"group-data-[collapsible=icon]:hidden",
 	),
 	menuSubItem: "group/menu-sub-item relative",
-	menuSubButton: cn(
-		shape.rounded,
-		interactivity.states.hover,
-		interactivity.states.disabled,
-		interactivity.transitions.opacity,
-		shadows.focusRing.primary,
+	menuSubButton: coreClass.cn(
+		coreClass.shape.rounded,
+		coreClass.interactivity.states.hover,
+		coreClass.interactivity.states.disabled,
+		coreClass.interactivity.transitions.opacity,
+		coreClass.shadows.focusRing.primary,
 		"min-w-0 -translate-x-px gap-sm overflow-hidden p-sm text-sm data-[active=true]:bg-surface-variant group-data-[collapsible=icon]:hidden",
 	),
 	menuSubButtonSm: "text-xs",
@@ -334,7 +362,7 @@ function SidebarProvider({
 			<TooltipProvider delay={0}>
 				<div
 					data-slot="sidebar-wrapper"
-					className={cn(sidebarStyles.wrapper, className)}
+					className={coreClass.cn(sidebarStyles.wrapper, className)}
 					style={{
 						...SIDEBAR_CSS_VARS,
 						...style,
@@ -368,7 +396,7 @@ function Sidebar({
 		return (
 			<div
 				data-slot="sidebar"
-				className={cn(sidebarStyles.sidebarNone, className)}
+				className={coreClass.cn(sidebarStyles.sidebarNone, className)}
 				style={{ width: SIDEBAR_WIDTH }}
 				{...props}
 			>
@@ -381,23 +409,22 @@ function Sidebar({
 		return (
 			<Dialog open={openMobile} onOpenChange={setOpenMobile}>
 				<DialogPortal>
-					<DialogOverlay
-						className={cn(
-							positioning.fixed,
-							positioning.inset.full,
-							utilities.zIndex.modal,
-							colors.overlay,
-						)}
-					/>
+					className=
+					{coreClass.cn(
+						coreClass.positioning.fixed,
+						coreClass.positioning.inset.full,
+						coreClass.utilities.zIndex.modal,
+						coreClass.colors.overlay,
+					)}
 					<BaseDialog.Popup
 						data-sidebar="sidebar"
 						data-slot="sidebar"
 						data-mobile="true"
-						className={cn(
-							colors.surface,
-							flexBox.column,
-							measurements.height.full,
-							positioning.fixed,
+						className={coreClass.cn(
+							coreClass.colors.surface,
+							coreClass.flexBox.column,
+							coreClass.measurements.height.full,
+							coreClass.positioning.fixed,
 							"inset-y-0 z-50 p-0",
 							side === "left" ? "left-0" : "right-0",
 						)}
@@ -423,7 +450,7 @@ function Sidebar({
 
 	return (
 		<div
-			className={cn("group peer hidden text-on-surface md:block")}
+			className={coreClass.cn("group peer hidden text-on-surface md:block")}
 			data-state={state}
 			data-collapsible={state === "collapsed" ? collapsible : ""}
 			data-variant={variant}
@@ -432,7 +459,7 @@ function Sidebar({
 		>
 			<div
 				data-slot="sidebar-gap"
-				className={cn(
+				className={coreClass.cn(
 					sidebarStyles.gap,
 					state === "collapsed" &&
 						collapsible === "offcanvas" &&
@@ -449,7 +476,7 @@ function Sidebar({
 			/>
 			<div
 				data-slot="sidebar-container"
-				className={cn(
+				className={coreClass.cn(
 					isFloatingOrInset
 						? sidebarStyles.sidebarContainerFloating
 						: sidebarStyles.sidebarContainer,
@@ -467,7 +494,7 @@ function Sidebar({
 				<div
 					data-sidebar="sidebar"
 					data-slot="sidebar inner"
-					className={cn(
+					className={coreClass.cn(
 						isFloatingOrInset
 							? sidebarStyles.sidebarInnerFloating
 							: sidebarStyles.sidebarInner,
@@ -491,14 +518,14 @@ function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
 			data-slot="sidebar-trigger"
 			variant="ghost"
 			size="icon"
-			className={cn(sidebarStyles.trigger, className)}
+			className={coreClass.cn(sidebarStyles.trigger, className)}
 			onClick={(event) => {
 				onClick?.(event);
 				toggleSidebar();
 			}}
 			{...props}
 		>
-			<IconLayoutSidebar className={dimensions.medium} />
+			<IconLayoutSidebar className={coreClass.dimensions.medium} />
 			<span className="sr-only">Toggle Sidebar</span>
 		</Button>
 	);
@@ -517,7 +544,7 @@ function SidebarRail({ className, ...props }: SidebarRailProps) {
 			tabIndex={-1}
 			onClick={toggleSidebar}
 			title="Toggle Sidebar"
-			className={cn(
+			className={coreClass.cn(
 				sidebarStyles.rail,
 				`group-data-[side=left]:${sidebarStyles.railLeft}`,
 				`group-data-[side=right]:${sidebarStyles.railRight}`,
@@ -534,7 +561,7 @@ function SidebarInset({ className, ...props }: SidebarInsetProps) {
 	return (
 		<main
 			data-slot="sidebar-inset"
-			className={cn(sidebarStyles.inset, className)}
+			className={coreClass.cn(sidebarStyles.inset, className)}
 			{...props}
 		/>
 	);
@@ -547,7 +574,7 @@ function SidebarInput({ className, ...props }: SidebarInputProps) {
 		<input
 			data-slot="sidebar-input"
 			data-sidebar="input"
-			className={cn(sidebarStyles.input, className)}
+			className={coreClass.cn(sidebarStyles.input, className)}
 			{...props}
 		/>
 	);
@@ -560,7 +587,7 @@ function SidebarHeader({ className, ...props }: SidebarHeaderProps) {
 		<div
 			data-slot="sidebar-header"
 			data-sidebar="header"
-			className={cn(sidebarStyles.header, className)}
+			className={coreClass.cn(sidebarStyles.header, className)}
 			{...props}
 		/>
 	);
@@ -573,7 +600,7 @@ function SidebarFooter({ className, ...props }: SidebarFooterProps) {
 		<div
 			data-slot="sidebar-footer"
 			data-sidebar="footer"
-			className={cn(sidebarStyles.footer, className)}
+			className={coreClass.cn(sidebarStyles.footer, className)}
 			{...props}
 		/>
 	);
@@ -587,7 +614,7 @@ function SidebarSeparator({ className, ...props }: SidebarSeparatorProps) {
 		<Separator
 			data-slot="sidebar-separator"
 			data-sidebar="separator"
-			className={cn(sidebarStyles.separator, className)}
+			className={coreClass.cn(sidebarStyles.separator, className)}
 			{...props}
 		/>
 	);
@@ -600,7 +627,7 @@ function SidebarContent({ className, ...props }: SidebarContentProps) {
 		<div
 			data-slot="sidebar-content"
 			data-sidebar="content"
-			className={cn(sidebarStyles.content, className)}
+			className={coreClass.cn(sidebarStyles.content, className)}
 			{...props}
 		/>
 	);
@@ -613,7 +640,7 @@ function SidebarGroup({ className, ...props }: SidebarGroupProps) {
 		<div
 			data-slot="sidebar-group"
 			data-sidebar="group"
-			className={cn(sidebarStyles.group, className)}
+			className={coreClass.cn(sidebarStyles.group, className)}
 			{...props}
 		/>
 	);
@@ -626,7 +653,7 @@ function SidebarGroupLabel({ className, ...props }: SidebarGroupLabelProps) {
 		<div
 			data-slot="sidebar-group-label"
 			data-sidebar="group-label"
-			className={cn(sidebarStyles.groupLabel, className)}
+			className={coreClass.cn(sidebarStyles.groupLabel, className)}
 			{...props}
 		/>
 	);
@@ -639,7 +666,7 @@ function SidebarGroupAction({ className, ...props }: SidebarGroupActionProps) {
 		<button
 			data-slot="sidebar-group-action"
 			data-sidebar="group-action"
-			className={cn(sidebarStyles.groupAction, className)}
+			className={coreClass.cn(sidebarStyles.groupAction, className)}
 			{...props}
 		/>
 	);
@@ -655,7 +682,7 @@ function SidebarGroupContent({
 		<div
 			data-slot="sidebar-group-content"
 			data-sidebar="group-content"
-			className={cn(sidebarStyles.groupContent, className)}
+			className={coreClass.cn(sidebarStyles.groupContent, className)}
 			{...props}
 		/>
 	);
@@ -668,7 +695,7 @@ function SidebarMenu({ className, ...props }: SidebarMenuProps) {
 		<ul
 			data-slot="sidebar-menu"
 			data-sidebar="menu"
-			className={cn(sidebarStyles.menu, className)}
+			className={coreClass.cn(sidebarStyles.menu, className)}
 			{...props}
 		/>
 	);
@@ -681,7 +708,7 @@ function SidebarMenuItem({ className, ...props }: SidebarMenuItemProps) {
 		<li
 			data-slot="sidebar-menu-item"
 			data-sidebar="menu-item"
-			className={cn(sidebarStyles.menuItem, className)}
+			className={coreClass.cn(sidebarStyles.menuItem, className)}
 			{...props}
 		/>
 	);
@@ -691,7 +718,7 @@ const sidebarMenuButtonVariants = cva(sidebarStyles.menuButton, {
 	variants: {
 		variant: {
 			default: "",
-			outline: `${borders.variant} hover:bg-surface-variant`,
+			outline: `${coreClass.borders.variant} hover:bg-surface-variant`,
 		},
 		size: {
 			default: "h-xl",
@@ -728,7 +755,10 @@ function SidebarMenuButton({
 			data-sidebar="menu-button"
 			data-size={size}
 			data-active={isActive}
-			className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+			className={coreClass.cn(
+				sidebarMenuButtonVariants({ variant, size }),
+				className,
+			)}
 			{...props}
 		/>
 	);
@@ -763,7 +793,7 @@ function SidebarMenuAction({
 		<button
 			data-slot="sidebar-menu-action"
 			data-sidebar="menu-action"
-			className={cn(
+			className={coreClass.cn(
 				sidebarStyles.menuAction,
 				showOnHover && sidebarStyles.menuActionShowOnHover,
 				className,
@@ -780,7 +810,7 @@ function SidebarMenuBadge({ className, ...props }: SidebarMenuBadgeProps) {
 		<div
 			data-slot="sidebar-menu-badge"
 			data-sidebar="menu-badge"
-			className={cn(sidebarStyles.menuBadge, className)}
+			className={coreClass.cn(sidebarStyles.menuBadge, className)}
 			{...props}
 		/>
 	);
@@ -803,7 +833,7 @@ function SidebarMenuSkeleton({
 		<div
 			data-slot="sidebar-menu-skeleton"
 			data-sidebar="menu-skeleton"
-			className={cn(sidebarStyles.menuSkeleton, className)}
+			className={coreClass.cn(sidebarStyles.menuSkeleton, className)}
 			{...props}
 		>
 			{showIcon && <Skeleton className={sidebarStyles.menuSkeletonIcon} />}
@@ -824,7 +854,7 @@ function SidebarMenuSub({ className, ...props }: SidebarMenuSubProps) {
 		<ul
 			data-slot="sidebar-menu-sub"
 			data-sidebar="menu-sub"
-			className={cn(sidebarStyles.menuSub, className)}
+			className={coreClass.cn(sidebarStyles.menuSub, className)}
 			{...props}
 		/>
 	);
@@ -837,7 +867,7 @@ function SidebarMenuSubItem({ className, ...props }: SidebarMenuSubItemProps) {
 		<li
 			data-slot="sidebar-menu-sub-item"
 			data-sidebar="menu-sub-item"
-			className={cn(sidebarStyles.menuSubItem, className)}
+			className={coreClass.cn(sidebarStyles.menuSubItem, className)}
 			{...props}
 		/>
 	);
@@ -860,7 +890,7 @@ function SidebarMenuSubButton({
 			data-sidebar="menu-sub-button"
 			data-size={size}
 			data-active={isActive}
-			className={cn(
+			className={coreClass.cn(
 				sidebarStyles.menuSubButton,
 				size === "sm" && sidebarStyles.menuSubButtonSm,
 				size === "md" && sidebarStyles.menuSubButtonMd,

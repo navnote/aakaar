@@ -2,35 +2,25 @@ import { Accordion as BaseAccordion } from "@base-ui-components/react";
 import { IconChevronDown } from "@tabler/icons-react";
 import { motion as framerMotion } from "framer-motion";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	flexBox,
-	interactivity,
-	motion,
-	padding,
-	paddingY,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const accordionStyles = {
 	item: "",
-	trigger: cn(
-		alignment.spaceBetween,
-		flexBox.inlineCenter,
-		padding.extraSmall,
-		typography.weight.medium,
-		interactivity.transitions.all,
+	trigger: coreClass.cn(
+		coreClass.alignment.spaceBetween,
+		coreClass.flexBox.inlineCenter,
+		coreClass.padding.extraSmall,
+		coreClass.typography.weight.medium,
+		coreClass.interactivity.transitions.all,
 		"flex-1 hover:underline",
 	),
 	content: {
-		base: cn(
-			utilities.overflow.hidden,
-			typography.size.small,
-			interactivity.transitions.all,
+		base: coreClass.cn(
+			coreClass.utilities.overflow.hidden,
+			coreClass.typography.size.small,
+			coreClass.interactivity.transitions.all,
 		),
-		inner: cn(paddingY.extraSmall, "pt-0"),
+		inner: coreClass.cn(coreClass.paddingY.extraSmall, "pt-0"),
 	},
 };
 
@@ -42,7 +32,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAccordion.Item
 		ref={ref}
-		className={cn(accordionStyles.item, className)}
+		className={coreClass.cn(accordionStyles.item, className)}
 		{...props}
 	/>
 ));
@@ -58,7 +48,7 @@ const AccordionTrigger = React.forwardRef<
 		<BaseAccordion.Header className="flex">
 			<BaseAccordion.Trigger
 				ref={ref}
-				className={cn(accordionStyles.trigger, className)}
+				className={coreClass.cn(accordionStyles.trigger, className)}
 				onClick={() => setIsOpen(!isOpen)}
 				{...props}
 			>
@@ -69,7 +59,7 @@ const AccordionTrigger = React.forwardRef<
 						open: { rotate: 180 },
 						closed: { rotate: 0 },
 					}}
-					transition={motion.transitions.default}
+					transition={coreClass.motion.transitions.default}
 					className="size-lg shrink-0"
 				>
 					<IconChevronDown className="size-lg" />
@@ -86,7 +76,7 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
 	<BaseAccordion.Panel
 		ref={ref}
-		className={cn(accordionStyles.content.base)}
+		className={coreClass.cn(accordionStyles.content.base)}
 		{...props}
 	>
 		<framerMotion.div
@@ -95,20 +85,20 @@ const AccordionContent = React.forwardRef<
 					height: "auto",
 					opacity: 1,
 					transition: {
-						height: motion.transitions.spring,
-						opacity: motion.transitions.default,
+						height: coreClass.motion.transitions.spring,
+						opacity: coreClass.motion.transitions.default,
 					},
 				},
 				closed: {
 					height: 0,
 					opacity: 0,
 					transition: {
-						height: motion.transitions.default,
-						opacity: motion.transitions.fast,
+						height: coreClass.motion.transitions.default,
+						opacity: coreClass.motion.transitions.fast,
 					},
 				},
 			}}
-			className={cn(accordionStyles.content.inner, className)}
+			className={coreClass.cn(accordionStyles.content.inner, className)}
 		>
 			{children}
 		</framerMotion.div>

@@ -1,33 +1,34 @@
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
-import {
-	cn,
-	colors,
-	flexBox,
-	padding,
-	shape,
-	spacing,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const alertStyles = {
-	base: cn(
-		shape.rounded,
+	base: coreClass.cn(
+		coreClass.shape.rounded,
 		"border",
-		flexBox.column,
-		spacing.small,
-		padding.medium,
+		coreClass.flexBox.column,
+		coreClass.spacing.small,
+		coreClass.padding.medium,
 	),
 };
 
 const alertVariants = cva(`${alertStyles.base}`, {
 	variants: {
 		variant: {
-			default: cn(colors.accent.primary, "border-outline-variant"),
-			secondary: cn(colors.accent.secondary, "border-outline-variant"),
-			tertiary: cn(colors.accent.tertiary, "border-outline-variant"),
-			destructive: cn(
-				colors.status.errorContainer,
+			default: coreClass.cn(
+				coreClass.colors.accent.primary,
+				"border-outline-variant",
+			),
+			secondary: coreClass.cn(
+				coreClass.colors.accent.secondary,
+				"border-outline-variant",
+			),
+			tertiary: coreClass.cn(
+				coreClass.colors.accent.tertiary,
+				"border-outline-variant",
+			),
+			destructive: coreClass.cn(
+				coreClass.colors.status.errorContainer,
 				"border-[color:var(--color-error)]",
 			),
 		},
@@ -46,7 +47,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 		<div
 			ref={ref}
 			role="alert"
-			className={cn(alertVariants({ variant }), className)}
+			className={coreClass.cn(alertVariants({ variant }), className)}
 			{...props}
 		/>
 	),
@@ -59,9 +60,9 @@ const AlertTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<h5
 		ref={ref}
-		className={cn(
-			typography.weight.semibold,
-			typography.size.medium,
+		className={coreClass.cn(
+			coreClass.typography.weight.semibold,
+			coreClass.typography.size.medium,
 			"leading-none tracking-tight",
 			className,
 		)}
@@ -76,7 +77,11 @@ const AlertDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<div
 		ref={ref}
-		className={cn(typography.size.small, "leading-relaxed", className)}
+		className={coreClass.cn(
+			coreClass.typography.size.small,
+			"leading-relaxed",
+			className,
+		)}
 		{...props}
 	/>
 ));

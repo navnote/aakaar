@@ -1,34 +1,32 @@
 import { mergeProps } from "@base-ui-components/react";
 import { IconChevronRight, IconDots } from "@tabler/icons-react";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	colors,
-	dimensions,
-	flexBox,
-	interactivity,
-	spacing,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const breadcrumbStyles = {
 	nav: "",
-	list: cn(
-		flexBox.row,
-		alignment.center,
-		typography.size.small,
+	list: coreClass.cn(
+		coreClass.flexBox.row,
+		coreClass.alignment.center,
+		coreClass.typography.size.small,
 		"flex-wrap break-words list-none",
-		spacing.small,
-		colors.surface,
+		coreClass.spacing.small,
+		coreClass.colors.surface,
 		"sm:gap-md",
 	),
-	item: cn(flexBox.inlineCenter, spacing.small),
-	link: cn(interactivity.transitions.colors, "hover:text-primary"),
-	page: cn(typography.weight.regular),
+	item: coreClass.cn(coreClass.flexBox.inlineCenter, coreClass.spacing.small),
+	link: coreClass.cn(
+		coreClass.interactivity.transitions.colors,
+		"hover:text-primary",
+	),
+	page: coreClass.cn(coreClass.typography.weight.regular),
 	separator: "[&>svg]:size-md",
-	ellipsis: cn(alignment.center, dimensions.medium),
+	ellipsis: coreClass.cn(
+		coreClass.alignment.center,
+		coreClass.dimensions.medium,
+	),
 };
+
 const Breadcrumb = React.forwardRef<
 	HTMLElement,
 	React.HTMLAttributes<HTMLElement>
@@ -46,7 +44,11 @@ const BreadcrumbList = React.forwardRef<
 	HTMLOListElement,
 	React.OlHTMLAttributes<HTMLOListElement>
 >(({ className, ...props }, ref) => (
-	<ol ref={ref} className={cn(breadcrumbStyles.list, className)} {...props} />
+	<ol
+		ref={ref}
+		className={coreClass.cn(breadcrumbStyles.list, className)}
+		{...props}
+	/>
 ));
 BreadcrumbList.displayName = "BreadcrumbList";
 
@@ -54,7 +56,11 @@ const BreadcrumbItem = React.forwardRef<
 	HTMLLIElement,
 	React.LiHTMLAttributes<HTMLLIElement>
 >(({ className, ...props }, ref) => (
-	<li ref={ref} className={cn(breadcrumbStyles.item, className)} {...props} />
+	<li
+		ref={ref}
+		className={coreClass.cn(breadcrumbStyles.item, className)}
+		{...props}
+	/>
 ));
 BreadcrumbItem.displayName = "BreadcrumbItem";
 
@@ -72,7 +78,7 @@ const BreadcrumbLink = React.forwardRef<
 	return (
 		<Comp
 			ref={ref}
-			className={cn(breadcrumbStyles.link, className)}
+			className={coreClass.cn(breadcrumbStyles.link, className)}
 			{...mergedProps}
 		/>
 	);
@@ -87,7 +93,7 @@ const BreadcrumbPage = React.forwardRef<
 		ref={ref}
 		role="link"
 		aria-current="page"
-		className={cn(breadcrumbStyles.page, className)}
+		className={coreClass.cn(breadcrumbStyles.page, className)}
 		{...props}
 	/>
 ));
@@ -101,7 +107,7 @@ const BreadcrumbSeparator = ({
 	<li
 		role="presentation"
 		aria-hidden="true"
-		className={cn(breadcrumbStyles.separator, className)}
+		className={coreClass.cn(breadcrumbStyles.separator, className)}
 		{...props}
 	>
 		{children ?? <IconChevronRight />}
@@ -116,10 +122,10 @@ const BreadcrumbEllipsis = ({
 	<span
 		role="presentation"
 		aria-hidden="true"
-		className={cn(breadcrumbStyles.ellipsis, className)}
+		className={coreClass.cn(breadcrumbStyles.ellipsis, className)}
 		{...props}
 	>
-		<IconDots className={dimensions.medium} />
+		<IconDots className={coreClass.dimensions.medium} />
 		<span className="sr-only">More</span>
 	</span>
 );

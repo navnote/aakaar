@@ -1,27 +1,18 @@
 import * as React from "react";
-import {
-	cn,
-	colors,
-	dimensions,
-	interactivity,
-	padding,
-	shadows,
-	shape,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const inputStyles = {
-	base: cn(
-		shape.roundedWithBorder,
-		dimensions.fullWidth,
-		colors.surface,
-		padding.small,
-		typography.size.small,
-		shadows.focusRing.primary,
-		interactivity.states.disabled,
+	base: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.dimensions.fullWidth,
+		coreClass.colors.surface,
+		coreClass.padding.small,
+		coreClass.typography.size.small,
+		coreClass.shadows.focusRing.primary,
+		coreClass.interactivity.states.disabled,
 		"h-xl",
 		"file:border-0 file:bg-transparent",
-		cn("file:text-sm file:font-medium"),
+		coreClass.cn("file:text-sm file:font-medium"),
 	),
 };
 
@@ -33,7 +24,7 @@ const Input = React.forwardRef<
 >(({ className, type, ...props }, ref) => (
 	<input
 		type={type}
-		className={cn(inputStyles.base, className)}
+		className={coreClass.cn(inputStyles.base, className)}
 		ref={ref}
 		{...props}
 	/>

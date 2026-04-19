@@ -3,48 +3,44 @@ import {
 	mergeProps,
 } from "@base-ui-components/react";
 import * as React from "react";
-import {
-	alignment,
-	cn,
-	colors,
-	flexBox,
-	interactivity,
-	padding,
-	positioning,
-	shadows,
-	shape,
-	spacing,
-	transforms,
-	typography,
-	utilities,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const alertDialogStyles = {
-	overlay: cn(
-		colors.overlay,
-		alignment.center,
-		positioning.fixed,
-		positioning.inset.full,
-		utilities.zIndex.modal,
-		interactivity.transitions.opacity,
+	overlay: coreClass.cn(
+		coreClass.colors.overlay,
+		coreClass.alignment.center,
+		coreClass.positioning.fixed,
+		coreClass.positioning.inset.full,
+		coreClass.utilities.zIndex.modal,
+		coreClass.interactivity.transitions.opacity,
 	),
-	content: cn(
-		shape.roundedWithBorder,
-		colors.surface,
-		flexBox.column,
-		spacing.medium,
-		padding.medium,
-		shadows.depth.medium,
-		positioning.fixed,
-		positioning.inset.center,
-		transforms.center,
-		utilities.zIndex.modal,
-		interactivity.transitions.all,
+	content: coreClass.cn(
+		coreClass.shape.roundedWithBorder,
+		coreClass.colors.surface,
+		coreClass.flexBox.column,
+		coreClass.spacing.medium,
+		coreClass.padding.medium,
+		coreClass.shadows.depth.medium,
+		coreClass.positioning.fixed,
+		coreClass.positioning.inset.center,
+		coreClass.transforms.center,
+		coreClass.utilities.zIndex.modal,
+		coreClass.interactivity.transitions.all,
 	),
-	header: cn(flexBox.column, spacing.medium, "text-center sm:text-left"),
+	header: coreClass.cn(
+		coreClass.flexBox.column,
+		coreClass.spacing.medium,
+		"text-center sm:text-left",
+	),
 	footer: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-xs",
-	title: cn(typography.weight.semibold, "text-lg leading-none tracking-tight"),
-	description: cn(typography.size.small, colors.surface),
+	title: coreClass.cn(
+		coreClass.typography.weight.semibold,
+		"text-lg leading-none tracking-tight",
+	),
+	description: coreClass.cn(
+		coreClass.typography.size.small,
+		coreClass.colors.surface,
+	),
 };
 
 const AlertDialog = BaseAlertDialog.Root;
@@ -86,7 +82,7 @@ const AlertDialogOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAlertDialog.Backdrop
 		ref={ref}
-		className={cn(alertDialogStyles.overlay, className)}
+		className={coreClass.cn(alertDialogStyles.overlay, className)}
 		{...props}
 	/>
 ));
@@ -100,7 +96,7 @@ const AlertDialogContent = React.forwardRef<
 		<AlertDialogOverlay />
 		<BaseAlertDialog.Popup
 			ref={ref}
-			className={cn(alertDialogStyles.content, className)}
+			className={coreClass.cn(alertDialogStyles.content, className)}
 			{...props}
 		>
 			{children}
@@ -113,7 +109,10 @@ const AlertDialogHeader = ({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-	<div className={cn(alertDialogStyles.header, className)} {...props} />
+	<div
+		className={coreClass.cn(alertDialogStyles.header, className)}
+		{...props}
+	/>
 );
 AlertDialogHeader.displayName = "AlertDialogHeader";
 
@@ -121,7 +120,10 @@ const AlertDialogFooter = ({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-	<div className={cn(alertDialogStyles.footer, className)} {...props} />
+	<div
+		className={coreClass.cn(alertDialogStyles.footer, className)}
+		{...props}
+	/>
 );
 AlertDialogFooter.displayName = "AlertDialogFooter";
 
@@ -131,7 +133,7 @@ const AlertDialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAlertDialog.Title
 		ref={ref}
-		className={cn(alertDialogStyles.title, className)}
+		className={coreClass.cn(alertDialogStyles.title, className)}
 		{...props}
 	/>
 ));
@@ -143,7 +145,7 @@ const AlertDialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<BaseAlertDialog.Description
 		ref={ref}
-		className={cn(alertDialogStyles.description, className)}
+		className={coreClass.cn(alertDialogStyles.description, className)}
 		{...props}
 	/>
 ));

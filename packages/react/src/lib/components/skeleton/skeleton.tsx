@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "../../core/core";
+import { coreClass } from "../../core/core";
 
 interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -8,7 +8,10 @@ const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
 		return (
 			<div
 				ref={ref}
-				className={cn("animate-pulse rounded-md bg-surface-variant", className)}
+				className={coreClass.cn(
+					"animate-pulse rounded-md bg-surface-variant",
+					className,
+				)}
 				{...props}
 			/>
 		);

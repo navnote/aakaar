@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "../../core/core";
+import { coreClass } from "../../core/core";
 
 interface SeparatorProps extends React.HTMLAttributes<HTMLDivElement> {
 	orientation?: "horizontal" | "vertical";
@@ -16,7 +16,7 @@ const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
 				ref={ref}
 				role={decorative ? "none" : "separator"}
 				aria-orientation={decorative ? undefined : orientation}
-				className={cn(
+				className={coreClass.cn(
 					"shrink-0 bg-outline-variant",
 					orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
 					className,

@@ -1,27 +1,17 @@
 import * as React from "react";
-import {
-	cn,
-	colors,
-	flexBox,
-	interactivity,
-	measurements,
-	padding,
-	shadows,
-	shape,
-	typography,
-} from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const textareaStyles = {
-	base: cn(
-		flexBox.row,
-		shape.roundedWithBorder,
-		measurements.width.full,
-		colors.surface,
-		padding.small,
-		typography.size.small,
-		interactivity.states.disabled,
+	base: coreClass.cn(
+		coreClass.flexBox.row,
+		coreClass.shape.roundedWithBorder,
+		coreClass.measurements.width.full,
+		coreClass.colors.surface,
+		coreClass.padding.small,
+		coreClass.typography.size.small,
+		coreClass.interactivity.states.disabled,
 		"min-h-lg",
-		shadows.focusRing.primary,
+		coreClass.shadows.focusRing.primary,
 		"placeholder:text-muted-foreground",
 	),
 };
@@ -32,7 +22,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 	({ className, ...props }, ref) => {
 		return (
 			<textarea
-				className={cn(textareaStyles.base, className)}
+				className={coreClass.cn(textareaStyles.base, className)}
 				ref={ref}
 				{...props}
 			/>

@@ -1,12 +1,12 @@
 import * as React from "react";
-import { cn, interactivity, typography } from "../../core/core";
+import { coreClass } from "../../core/core";
 
 const labelStyles = {
-	base: cn(
-		typography.size.medium,
-		typography.weight.medium,
-		typography.noWrap,
-		interactivity.states.disabled,
+	base: coreClass.cn(
+		coreClass.typography.size.medium,
+		coreClass.typography.weight.medium,
+		coreClass.typography.noWrap,
+		coreClass.interactivity.states.disabled,
 	),
 };
 
@@ -14,7 +14,11 @@ const Label = React.forwardRef<
 	HTMLLabelElement,
 	React.LabelHTMLAttributes<HTMLLabelElement>
 >(({ className, ...props }, ref) => (
-	<label ref={ref} className={cn(labelStyles.base, className)} {...props} />
+	<label
+		ref={ref}
+		className={coreClass.cn(labelStyles.base, className)}
+		{...props}
+	/>
 ));
 Label.displayName = "Label";
 
